@@ -51,8 +51,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return resultPaths
     }
     
+    @objc func handleMessageFromContainingApp(notif: Notification) {
+        print(notif.object!)
+    }
+    
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        let center = DistributedNotificationCenter.default()
+        center.addObserver(self, selector: #selector(self.handleMessageFromContainingApp(notif:)), name: Notification.Name("search"), object: nil)
         // Insert code here to tear down your application
     }
 
