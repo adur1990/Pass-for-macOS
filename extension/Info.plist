@@ -46,15 +46,15 @@
 			<key>Label</key>
 			<string>Your Button</string>
 		</dict>
-		<key>SFSafariWebsiteAccess</key>
-		<dict>
-			<key>Allowed Domains</key>
-			<array>
-				<string>*.webkit.org</string>
-			</array>
-			<key>Level</key>
-			<string>Some</string>
-		</dict>
+        <key>SFSafariWebsiteAccess</key>
+        <dict>
+            <key>Allowed Domains</key>
+            <array>
+                <string>*.*</string>
+            </array>
+            <key>Level</key>
+            <string>All</string>
+        </dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2018 Artur Sterz. All rights reserved.</string>
