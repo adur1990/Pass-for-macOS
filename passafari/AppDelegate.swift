@@ -26,6 +26,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return homePathUrl
     }
     
+    /*
+     The GPG key ID needed for decrypting the password file.
+    */
     private var gpgKeyId: String {
         do {
             return try String(contentsOfFile: passwordStoreUrl!.appendingPathComponent(".gpg-id")!.absoluteString, encoding: .utf8)
@@ -35,6 +38,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         }
     }
     
+    /*
+     Main password search function. This will be used for searching passwords from the default store path.
+     We use a fuzzy search in all cases.
+    */
     func passSearch(password: String) -> [String] {
         var resultPaths = [String]()
         
@@ -73,7 +80,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func handleMessageFromContainingApp(notif: Notification) {
-        print(notif.object!)
+        print(passSearch(password: notif.object as! String))
     }
     
 
