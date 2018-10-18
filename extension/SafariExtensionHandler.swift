@@ -16,9 +16,21 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         NSLog("The extension's toolbar item was clicked")
     }
     
-    override func validateToolbarItem(in window: SFSafariWindow, validationHandler: @escaping ((Bool, String) -> Void)) {
-        // This is called when Safari's state changed in some way that would require the extension's toolbar item to be validated again.
-        validationHandler(true, "")
+    override func popoverWillShow(in window: SFSafariWindow) {
+        let center = DistributedNotificationCenter.default()
+        
+        window.getActiveTab { (activeTab) in
+            activeTab!.getActivePage { (activePage) in
+                activePage!.getPropertiesWithCompletionHandler { (pageProperties) in
+                    let urlHost = pageProperties!.url?.host
+                    DispatchQueue.main.async {
+                        SafariExtensionViewController.shared.textField.window?.makeFirstResponder(nil)
+                        SafariExtensionViewController.shared.textField.stringValue = urlHost!
+                    }
+                    center.postNotificationName(Notification.Name("search"), object: urlHost, userInfo: nil, deliverImmediately: true)
+                }
+            }
+        }
     }
     
     override func popoverViewController() -> SFSafariExtensionViewController {

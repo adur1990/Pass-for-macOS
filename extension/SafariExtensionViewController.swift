@@ -9,6 +9,8 @@
 import SafariServices
 
 class SafariExtensionViewController: SFSafariExtensionViewController {
+    @IBOutlet weak var textField: NSTextField!
+    @IBOutlet weak var searchButton: NSButton!
     
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
