@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		753FCD9A2174EBBB008E5D95 /* FuzzySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FCD992174EBBB008E5D95 /* FuzzySearch.swift */; };
 		75E07BE0216E0D8D00EA9CBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */; };
 		75E07BE2216E0D8D00EA9CBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BE1216E0D8D00EA9CBD /* ViewController.swift */; };
 		75E07BE4216E0D8E00EA9CBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75E07BE3216E0D8E00EA9CBD /* Assets.xcassets */; };
@@ -61,6 +62,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		753FCD992174EBBB008E5D95 /* FuzzySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzySearch.swift; sourceTree = "<group>"; };
 		75E07BDC216E0D8D00EA9CBD /* passafari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = passafari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75E07BE1216E0D8D00EA9CBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 				75E07BE5216E0D8E00EA9CBD /* Main.storyboard */,
 				75E07BE8216E0D8E00EA9CBD /* Info.plist */,
 				75E07BE9216E0D8E00EA9CBD /* passafari.entitlements */,
+				753FCD992174EBBB008E5D95 /* FuzzySearch.swift */,
 			);
 			path = passafari;
 			sourceTree = "<group>";
@@ -364,6 +367,7 @@
 			files = (
 				75E07BE2216E0D8D00EA9CBD /* ViewController.swift in Sources */,
 				75E07BE0216E0D8D00EA9CBD /* AppDelegate.swift in Sources */,
+				753FCD9A2174EBBB008E5D95 /* FuzzySearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,6 +675,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = extension/extension.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BR355MFMD5;
 				INFOPLIST_FILE = extension/Info.plist;
@@ -681,6 +686,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafari.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 			};
@@ -690,6 +696,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = extension/extension.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BR355MFMD5;
 				INFOPLIST_FILE = extension/Info.plist;
@@ -700,6 +707,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafari.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 			};
