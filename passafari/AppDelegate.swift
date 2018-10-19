@@ -12,6 +12,7 @@ import SafariServices
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    let center = DistributedNotificationCenter.default()
     let FUZZY_SEARCH_SCORE = 0.3
     
     /*
@@ -80,12 +81,16 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     @objc func handleMessageFromContainingApp(notif: Notification) {
-        print(passSearch(password: notif.object as! String))
+        var foundPasswords = passSearch(password: notif.object as! String)
+        if foundPasswords.isEmpty {
+            foundPasswords = ["No matching password found."]
+        }
+        print(foundPasswords)
+        center.postNotificationName(Notification.Name("result"), object: "searchResults", userInfo: ["passwords": foundPasswords], deliverImmediately: true)
     }
     
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let center = DistributedNotificationCenter.default()
         center.addObserver(self, selector: #selector(self.handleMessageFromContainingApp(notif:)), name: Notification.Name("search"), object: nil)
         // Insert code here to tear down your application
     }

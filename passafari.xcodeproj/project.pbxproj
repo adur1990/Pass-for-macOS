@@ -300,6 +300,11 @@
 					};
 					75E07C0E216E0DA700EA9CBD = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};

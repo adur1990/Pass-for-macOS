@@ -9,9 +9,24 @@
 import SafariServices
 
 class SafariExtensionViewController: SFSafariExtensionViewController {
-    @IBOutlet weak var textField: NSTextField!
-    @IBOutlet weak var searchButton: NSButton!
+    let center = DistributedNotificationCenter.default()
+    
     @IBOutlet weak var searchField: NSSearchField!
+    
+    @IBAction func searchPassword(_ sender: NSSearchField) {
+        self.executePasswordSearch(searchString: sender.stringValue)
+    }
+    
+    @objc func handleMessageFromContainingApp(notif: Notification) {
+        let resultPasswordList = notif.userInfo!["passwords"] as! [String]
+        
+        NSLog(resultPasswordList.joined())
+    }
+    
+    func executePasswordSearch(searchString: String) {
+        center.addObserver(self, selector: #selector(self.handleMessageFromContainingApp(notif:)), name: Notification.Name("result"), object: nil)
+        center.postNotificationName(Notification.Name("search"), object: searchString, userInfo: nil, deliverImmediately: true)
+    }
     
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()

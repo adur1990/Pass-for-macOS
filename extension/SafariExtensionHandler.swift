@@ -11,14 +11,10 @@ import SafariServices
 class SafariExtensionHandler: SFSafariExtensionHandler {
     
     override func toolbarItemClicked(in window: SFSafariWindow) {
-        let center = DistributedNotificationCenter.default()
-        center.postNotificationName(Notification.Name("search"), object: "uberspace", userInfo: nil, deliverImmediately: true)
         NSLog("The extension's toolbar item was clicked")
     }
     
     override func popoverWillShow(in window: SFSafariWindow) {
-        let center = DistributedNotificationCenter.default()
-        
         window.getActiveTab { (activeTab) in
             activeTab!.getActivePage { (activePage) in
                 activePage!.getPropertiesWithCompletionHandler { (pageProperties) in
@@ -26,8 +22,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                     DispatchQueue.main.async {
                         SafariExtensionViewController.shared.searchField.window?.makeFirstResponder(nil)
                         SafariExtensionViewController.shared.searchField.stringValue = urlHost!
+                        SafariExtensionViewController.shared.executePasswordSearch(searchString: urlHost!)
+                        
                     }
-                    center.postNotificationName(Notification.Name("search"), object: urlHost, userInfo: nil, deliverImmediately: true)
                 }
             }
         }
