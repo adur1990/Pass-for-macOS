@@ -11,10 +11,11 @@ import SafariServices
 class SafariExtensionViewController: SFSafariExtensionViewController {
     @IBOutlet weak var textField: NSTextField!
     @IBOutlet weak var searchButton: NSButton!
+    @IBOutlet weak var searchField: NSSearchField!
     
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
-        shared.preferredContentSize = NSSize(width:320, height:240)
+        shared.preferredContentSize = NSSize(width:330, height:22)
         return shared
     }()
 

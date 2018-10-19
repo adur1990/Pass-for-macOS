@@ -24,8 +24,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 activePage!.getPropertiesWithCompletionHandler { (pageProperties) in
                     let urlHost = pageProperties!.url?.host
                     DispatchQueue.main.async {
-                        SafariExtensionViewController.shared.textField.window?.makeFirstResponder(nil)
-                        SafariExtensionViewController.shared.textField.stringValue = urlHost!
+                        SafariExtensionViewController.shared.searchField.window?.makeFirstResponder(nil)
+                        SafariExtensionViewController.shared.searchField.stringValue = urlHost!
                     }
                     center.postNotificationName(Notification.Name("search"), object: urlHost, userInfo: nil, deliverImmediately: true)
                 }
