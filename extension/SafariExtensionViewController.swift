@@ -24,7 +24,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     }
     
     func executePasswordSearch(searchString: String) {
-        center.addObserver(self, selector: #selector(self.handleMessageFromContainingApp(notif:)), name: Notification.Name("result"), object: nil)
         center.postNotificationName(Notification.Name("search"), object: searchString, userInfo: nil, deliverImmediately: true)
     }
     

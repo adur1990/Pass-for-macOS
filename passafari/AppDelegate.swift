@@ -86,7 +86,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             foundPasswords = ["No matching password found."]
         }
         print(foundPasswords)
-        center.postNotificationName(Notification.Name("result"), object: "searchResults", userInfo: ["passwords": foundPasswords], deliverImmediately: true)
     }
     
 
