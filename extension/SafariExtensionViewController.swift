@@ -9,8 +9,6 @@
 import SafariServices
 
 class SafariExtensionViewController: SFSafariExtensionViewController {
-    let center = DistributedNotificationCenter.default()
-    
     @IBOutlet weak var searchField: NSSearchField!
     
     @IBAction func searchPassword(_ sender: NSSearchField) {
@@ -24,7 +22,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     }
     
     func executePasswordSearch(searchString: String) {
-        center.postNotificationName(Notification.Name("search"), object: searchString, userInfo: nil, deliverImmediately: true)
     }
     
     static let shared: SafariExtensionViewController = {

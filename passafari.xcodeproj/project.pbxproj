@@ -120,9 +120,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75D85CDA217F8E3500F458F6 /* PassafariXPCProtocol */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PassafariXPCProtocol;
+			sourceTree = "<group>";
+		};
 		75E07BD3216E0D8D00EA9CBD = {
 			isa = PBXGroup;
 			children = (
+				75D85CDA217F8E3500F458F6 /* PassafariXPCProtocol */,
 				75E07BDE216E0D8D00EA9CBD /* passafari */,
 				75E07BF1216E0D8E00EA9CBD /* passafariTests */,
 				75E07BFC216E0D8E00EA9CBD /* passafariUITests */,

@@ -9,14 +9,8 @@
 import Cocoa
 
 class ViewController: NSViewController {
-    
-    let center = DistributedNotificationCenter.default()
     let FUZZY_SEARCH_SCORE = 0.3
     
-    /*
-     Main password search function. This will be used for searching passwords from the default store path.
-     We use a fuzzy search in all cases.
-     */
     func passSearch(password: String) -> [String] {
         var resultPaths = [String]()
         
@@ -59,13 +53,13 @@ class ViewController: NSViewController {
         return resultPaths
     }
     
-    @objc func handleMessageFromContainingApp(notif: Notification) {
-        var foundPasswords = passSearch(password: notif.object as! String)
-        if foundPasswords.isEmpty {
-            foundPasswords = ["No matching password found."]
-        }
-        print(foundPasswords)
-    }
+    //@objc func handleMessageFromContainingApp(notif: Notification) {
+    //    var foundPasswords = passSearch(password: notif.object as! String)
+    //    if foundPasswords.isEmpty {
+    //        foundPasswords = ["No matching password found."]
+    //    }
+    //    print(foundPasswords)
+    //}
     
     func promptForPath() -> URL? {
         let openPanel = NSOpenPanel()
@@ -80,7 +74,6 @@ class ViewController: NSViewController {
         if openPanel.runModal() == NSApplication.ModalResponse.OK && !openPanel.urls.isEmpty {
             return openPanel.url
         }
-        
         return nil
     }
     
@@ -93,10 +86,8 @@ class ViewController: NSViewController {
                 print("WARNING stale security bookmark")
                 return nil
             }
-            
             return url
         }
-        
         return nil
     }
     
@@ -107,8 +98,6 @@ class ViewController: NSViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        center.addObserver(self, selector: #selector(self.handleMessageFromContainingApp(notif:)), name: Notification.Name("search"), object: nil)
-        
         let urlFromBookmark = getPathFromBookmark()
         
         if urlFromBookmark == nil {
@@ -116,7 +105,6 @@ class ViewController: NSViewController {
                 savePathToBookmark(url: urlFromPanel)
             }
         }
-
     }
 
     override var representedObject: Any? {
@@ -124,7 +112,4 @@ class ViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-
-
 }
-
