@@ -12,8 +12,6 @@
 		75E07BE2216E0D8D00EA9CBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BE1216E0D8D00EA9CBD /* ViewController.swift */; };
 		75E07BE4216E0D8E00EA9CBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75E07BE3216E0D8E00EA9CBD /* Assets.xcassets */; };
 		75E07BE7216E0D8E00EA9CBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75E07BE5216E0D8E00EA9CBD /* Main.storyboard */; };
-		75E07BF3216E0D8E00EA9CBD /* passafariTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BF2216E0D8E00EA9CBD /* passafariTests.swift */; };
-		75E07BFE216E0D8E00EA9CBD /* passafariUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BFD216E0D8E00EA9CBD /* passafariUITests.swift */; };
 		75E07C12216E0DA700EA9CBD /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75E07C11216E0DA700EA9CBD /* Cocoa.framework */; };
 		75E07C15216E0DA700EA9CBD /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07C14216E0DA700EA9CBD /* SafariExtensionHandler.swift */; };
 		75E07C17216E0DA700EA9CBD /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07C16216E0DA700EA9CBD /* SafariExtensionViewController.swift */; };
@@ -24,20 +22,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		75E07BEF216E0D8E00EA9CBD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75E07BD4216E0D8D00EA9CBD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 75E07BDB216E0D8D00EA9CBD;
-			remoteInfo = passafari;
-		};
-		75E07BFA216E0D8E00EA9CBD /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75E07BD4216E0D8D00EA9CBD /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 75E07BDB216E0D8D00EA9CBD;
-			remoteInfo = passafari;
-		};
 		75E07C21216E0DA700EA9CBD /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 75E07BD4216E0D8D00EA9CBD /* Project object */;
@@ -70,12 +54,6 @@
 		75E07BE6216E0D8E00EA9CBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		75E07BE8216E0D8E00EA9CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75E07BE9216E0D8E00EA9CBD /* passafari.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = passafari.entitlements; sourceTree = "<group>"; };
-		75E07BEE216E0D8E00EA9CBD /* passafariTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = passafariTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		75E07BF2216E0D8E00EA9CBD /* passafariTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passafariTests.swift; sourceTree = "<group>"; };
-		75E07BF4216E0D8E00EA9CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75E07BF9216E0D8E00EA9CBD /* passafariUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = passafariUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		75E07BFD216E0D8E00EA9CBD /* passafariUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = passafariUITests.swift; sourceTree = "<group>"; };
-		75E07BFF216E0D8E00EA9CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75E07C0F216E0DA700EA9CBD /* extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E07C11216E0DA700EA9CBD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		75E07C14216E0DA700EA9CBD /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
@@ -95,20 +73,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75E07BEB216E0D8E00EA9CBD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75E07BF6216E0D8E00EA9CBD /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		75E07C0C216E0DA700EA9CBD /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -120,20 +84,10 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		75D85CDA217F8E3500F458F6 /* PassafariXPCProtocol */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = PassafariXPCProtocol;
-			sourceTree = "<group>";
-		};
 		75E07BD3216E0D8D00EA9CBD = {
 			isa = PBXGroup;
 			children = (
-				75D85CDA217F8E3500F458F6 /* PassafariXPCProtocol */,
 				75E07BDE216E0D8D00EA9CBD /* passafari */,
-				75E07BF1216E0D8E00EA9CBD /* passafariTests */,
-				75E07BFC216E0D8E00EA9CBD /* passafariUITests */,
 				75E07C13216E0DA700EA9CBD /* extension */,
 				75E07C10216E0DA700EA9CBD /* Frameworks */,
 				75E07BDD216E0D8D00EA9CBD /* Products */,
@@ -144,8 +98,6 @@
 			isa = PBXGroup;
 			children = (
 				75E07BDC216E0D8D00EA9CBD /* passafari.app */,
-				75E07BEE216E0D8E00EA9CBD /* passafariTests.xctest */,
-				75E07BF9216E0D8E00EA9CBD /* passafariUITests.xctest */,
 				75E07C0F216E0DA700EA9CBD /* extension.appex */,
 			);
 			name = Products;
@@ -163,24 +115,6 @@
 				753FCD992174EBBB008E5D95 /* FuzzySearch.swift */,
 			);
 			path = passafari;
-			sourceTree = "<group>";
-		};
-		75E07BF1216E0D8E00EA9CBD /* passafariTests */ = {
-			isa = PBXGroup;
-			children = (
-				75E07BF2216E0D8E00EA9CBD /* passafariTests.swift */,
-				75E07BF4216E0D8E00EA9CBD /* Info.plist */,
-			);
-			path = passafariTests;
-			sourceTree = "<group>";
-		};
-		75E07BFC216E0D8E00EA9CBD /* passafariUITests */ = {
-			isa = PBXGroup;
-			children = (
-				75E07BFD216E0D8E00EA9CBD /* passafariUITests.swift */,
-				75E07BFF216E0D8E00EA9CBD /* Info.plist */,
-			);
-			path = passafariUITests;
 			sourceTree = "<group>";
 		};
 		75E07C10216E0DA700EA9CBD /* Frameworks */ = {
@@ -227,42 +161,6 @@
 			productReference = 75E07BDC216E0D8D00EA9CBD /* passafari.app */;
 			productType = "com.apple.product-type.application";
 		};
-		75E07BED216E0D8E00EA9CBD /* passafariTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 75E07C05216E0D8E00EA9CBD /* Build configuration list for PBXNativeTarget "passafariTests" */;
-			buildPhases = (
-				75E07BEA216E0D8E00EA9CBD /* Sources */,
-				75E07BEB216E0D8E00EA9CBD /* Frameworks */,
-				75E07BEC216E0D8E00EA9CBD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				75E07BF0216E0D8E00EA9CBD /* PBXTargetDependency */,
-			);
-			name = passafariTests;
-			productName = passafariTests;
-			productReference = 75E07BEE216E0D8E00EA9CBD /* passafariTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		75E07BF8216E0D8E00EA9CBD /* passafariUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 75E07C08216E0D8E00EA9CBD /* Build configuration list for PBXNativeTarget "passafariUITests" */;
-			buildPhases = (
-				75E07BF5216E0D8E00EA9CBD /* Sources */,
-				75E07BF6216E0D8E00EA9CBD /* Frameworks */,
-				75E07BF7216E0D8E00EA9CBD /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				75E07BFB216E0D8E00EA9CBD /* PBXTargetDependency */,
-			);
-			name = passafariUITests;
-			productName = passafariUITests;
-			productReference = 75E07BF9216E0D8E00EA9CBD /* passafariUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		75E07C0E216E0DA700EA9CBD /* extension */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75E07C24216E0DA700EA9CBD /* Build configuration list for PBXNativeTarget "extension" */;
@@ -298,14 +196,6 @@
 							};
 						};
 					};
-					75E07BED216E0D8E00EA9CBD = {
-						CreatedOnToolsVersion = 10.0;
-						TestTargetID = 75E07BDB216E0D8D00EA9CBD;
-					};
-					75E07BF8216E0D8E00EA9CBD = {
-						CreatedOnToolsVersion = 10.0;
-						TestTargetID = 75E07BDB216E0D8D00EA9CBD;
-					};
 					75E07C0E216E0DA700EA9CBD = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
@@ -330,8 +220,6 @@
 			projectRoot = "";
 			targets = (
 				75E07BDB216E0D8D00EA9CBD /* passafari */,
-				75E07BED216E0D8E00EA9CBD /* passafariTests */,
-				75E07BF8216E0D8E00EA9CBD /* passafariUITests */,
 				75E07C0E216E0DA700EA9CBD /* extension */,
 			);
 		};
@@ -344,20 +232,6 @@
 			files = (
 				75E07BE4216E0D8E00EA9CBD /* Assets.xcassets in Resources */,
 				75E07BE7216E0D8E00EA9CBD /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75E07BEC216E0D8E00EA9CBD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75E07BF7216E0D8E00EA9CBD /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,22 +258,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75E07BEA216E0D8E00EA9CBD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				75E07BF3216E0D8E00EA9CBD /* passafariTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75E07BF5216E0D8E00EA9CBD /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				75E07BFE216E0D8E00EA9CBD /* passafariUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		75E07C0B216E0DA700EA9CBD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -412,16 +270,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		75E07BF0216E0D8E00EA9CBD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 75E07BDB216E0D8D00EA9CBD /* passafari */;
-			targetProxy = 75E07BEF216E0D8E00EA9CBD /* PBXContainerItemProxy */;
-		};
-		75E07BFB216E0D8E00EA9CBD /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 75E07BDB216E0D8D00EA9CBD /* passafari */;
-			targetProxy = 75E07BFA216E0D8E00EA9CBD /* PBXContainerItemProxy */;
-		};
 		75E07C22216E0DA700EA9CBD /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 75E07C0E216E0DA700EA9CBD /* extension */;
@@ -604,88 +452,6 @@
 			};
 			name = Release;
 		};
-		75E07C06216E0D8E00EA9CBD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = BR355MFMD5;
-				INFOPLIST_FILE = passafariTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafariTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/passafari.app/Contents/MacOS/passafari";
-			};
-			name = Debug;
-		};
-		75E07C07216E0D8E00EA9CBD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = BR355MFMD5;
-				INFOPLIST_FILE = passafariTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafariTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/passafari.app/Contents/MacOS/passafari";
-			};
-			name = Release;
-		};
-		75E07C09216E0D8E00EA9CBD /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = BR355MFMD5;
-				INFOPLIST_FILE = passafariUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafariUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TEST_TARGET_NAME = passafari;
-			};
-			name = Debug;
-		};
-		75E07C0A216E0D8E00EA9CBD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEVELOPMENT_TEAM = BR355MFMD5;
-				INFOPLIST_FILE = passafariUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-					"@loader_path/../Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafariUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TEST_TARGET_NAME = passafari;
-			};
-			name = Release;
-		};
 		75E07C25216E0DA700EA9CBD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -745,24 +511,6 @@
 			buildConfigurations = (
 				75E07C03216E0D8E00EA9CBD /* Debug */,
 				75E07C04216E0D8E00EA9CBD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		75E07C05216E0D8E00EA9CBD /* Build configuration list for PBXNativeTarget "passafariTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				75E07C06216E0D8E00EA9CBD /* Debug */,
-				75E07C07216E0D8E00EA9CBD /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		75E07C08216E0D8E00EA9CBD /* Build configuration list for PBXNativeTarget "passafariUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				75E07C09216E0D8E00EA9CBD /* Debug */,
-				75E07C0A216E0D8E00EA9CBD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
