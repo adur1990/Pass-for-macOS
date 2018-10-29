@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		753FCD9A2174EBBB008E5D95 /* FuzzySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FCD992174EBBB008E5D95 /* FuzzySearch.swift */; };
+		756E0B9A2185F9DA0079B98C /* Passwordstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E0B992185F9DA0079B98C /* Passwordstore.swift */; };
 		75E07BE0216E0D8D00EA9CBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */; };
 		75E07BE2216E0D8D00EA9CBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BE1216E0D8D00EA9CBD /* ViewController.swift */; };
 		75E07BE4216E0D8E00EA9CBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75E07BE3216E0D8E00EA9CBD /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 
 /* Begin PBXFileReference section */
 		753FCD992174EBBB008E5D95 /* FuzzySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzySearch.swift; sourceTree = "<group>"; };
+		756E0B992185F9DA0079B98C /* Passwordstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passwordstore.swift; sourceTree = "<group>"; };
 		75E07BDC216E0D8D00EA9CBD /* passafari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = passafari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75E07BE1216E0D8D00EA9CBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,6 +86,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		756E0B982185F9BD0079B98C /* Passwordstore */ = {
+			isa = PBXGroup;
+			children = (
+				756E0B992185F9DA0079B98C /* Passwordstore.swift */,
+			);
+			path = Passwordstore;
+			sourceTree = "<group>";
+		};
 		75E07BD3216E0D8D00EA9CBD = {
 			isa = PBXGroup;
 			children = (
@@ -106,6 +116,7 @@
 		75E07BDE216E0D8D00EA9CBD /* passafari */ = {
 			isa = PBXGroup;
 			children = (
+				756E0B982185F9BD0079B98C /* Passwordstore */,
 				75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */,
 				75E07BE1216E0D8D00EA9CBD /* ViewController.swift */,
 				75E07BE3216E0D8E00EA9CBD /* Assets.xcassets */,
@@ -191,6 +202,9 @@
 					75E07BDB216E0D8D00EA9CBD = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
 							com.apple.Sandbox = {
 								enabled = 1;
 							};
@@ -199,6 +213,9 @@
 					75E07C0E216E0DA700EA9CBD = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 1;
+							};
 							com.apple.Sandbox = {
 								enabled = 1;
 							};
@@ -254,6 +271,7 @@
 			files = (
 				75E07BE2216E0D8D00EA9CBD /* ViewController.swift in Sources */,
 				75E07BE0216E0D8D00EA9CBD /* AppDelegate.swift in Sources */,
+				756E0B9A2185F9DA0079B98C /* Passwordstore.swift in Sources */,
 				753FCD9A2174EBBB008E5D95 /* FuzzySearch.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
