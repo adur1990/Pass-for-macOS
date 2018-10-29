@@ -15,8 +15,8 @@ var passwordstore: Passwordstore? = nil
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let port = CFMessagePortCreateLocal(nil, "BR355MFMD5.de.artursterz.passafari.messageport" as CFString, { (messagePort: CFMessagePort?, messageID: Int32, data: CFData?, info: UnsafeMutableRawPointer?) -> Unmanaged<CFData>? in
+    func exampleHandler() -> CFMessagePortCallBack {
+        return { (messagePort: CFMessagePort?, messageID: Int32, data: CFData?, info: UnsafeMutableRawPointer?) -> Unmanaged<CFData>? in
             let receivedData = data! as Data
             let searchString = String(data: receivedData, encoding: .utf8)!
             
@@ -35,7 +35,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             let returnData = CFDataCreate(nil, returnPasswords, returnPasswords.count)!
             
             return Unmanaged.passRetained(returnData)
-        }, nil, nil)
+        }
+    }
+    
+    func applicationDidFinishLaunching(_ aNotification: Notification) {
+        let port = CFMessagePortCreateLocal(nil, "BR355MFMD5.de.artursterz.passafari.messageport" as CFString, exampleHandler(), nil, nil)
         let runLoopSource = CFMessagePortCreateRunLoopSource(nil, port, 0)
         CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, CFRunLoopMode.commonModes)
         
