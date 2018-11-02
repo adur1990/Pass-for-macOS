@@ -25,33 +25,16 @@ class ViewController: NSViewController {
         return nil
     }
     
-    func getPathFromBookmark() -> URL? {
-        if let data = UserDefaults.standard.data(forKey: "passPathBookmark") {
-            var bookmarkDataIsStale: ObjCBool = false
-            
-            let url = try! (NSURL(resolvingBookmarkData: data, options: [.withoutUI, .withSecurityScope], relativeTo: nil, bookmarkDataIsStale: &bookmarkDataIsStale) as URL)
-            if bookmarkDataIsStale.boolValue {
-                print("WARNING stale security bookmark")
-                return nil
-            }
-            return url
-        }
-        return nil
-    }
     
-    func savePathToBookmark(url: URL) {
-        let data = try! url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
-        UserDefaults.standard.set(data, forKey: "passPathBookmark")
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let urlFromBookmark = getPathFromBookmark()
+        let urlFromBookmark = sharedSecureBookmarkHandler.getPathFromBookmark()
         passwordstore = Passwordstore(score: 0.3, url: urlFromBookmark!)
         
         if urlFromBookmark == nil {
             if let urlFromPanel = promptForPath() {
-                savePathToBookmark(url: urlFromPanel)
+                sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel)
                 passwordstore = Passwordstore(score: 0.3, url: urlFromPanel)
             }
         }

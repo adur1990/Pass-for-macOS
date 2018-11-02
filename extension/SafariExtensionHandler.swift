@@ -22,8 +22,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                     DispatchQueue.main.async {
                         SafariExtensionViewController.shared.searchField.window?.makeFirstResponder(nil)
                         SafariExtensionViewController.shared.searchField.stringValue = urlHost!
-                        SafariExtensionViewController.shared.executePasswordSearch(searchString: urlHost!)
-                        
+                        sharedClientHandler.executePasswordSearch(searchString: urlHost!)
                     }
                 }
             }

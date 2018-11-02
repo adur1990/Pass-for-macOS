@@ -15,34 +15,8 @@ var passwordstore: Passwordstore? = nil
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
     
-    func exampleHandler() -> CFMessagePortCallBack {
-        return { (messagePort: CFMessagePort?, messageID: Int32, data: CFData?, info: UnsafeMutableRawPointer?) -> Unmanaged<CFData>? in
-            let receivedData = data! as Data
-            let searchString = String(data: receivedData, encoding: .utf8)!
-            
-            print("##### \(searchString)")
-            print("##### \(passwordstore!.passwordStoreUrl.path)")
-            
-            var foundPasswords = passwordstore!.passSearch(password: searchString)
-            
-            if foundPasswords.isEmpty {
-                foundPasswords = ["No matching password found."]
-            }
-            print(foundPasswords)
-            
-            let returnPasswords = foundPasswords.joined(separator: ";")
-            
-            let returnData = CFDataCreate(nil, returnPasswords, returnPasswords.count)!
-            
-            return Unmanaged.passRetained(returnData)
-        }
-    }
-    
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        let port = CFMessagePortCreateLocal(nil, "BR355MFMD5.de.artursterz.passafari.messageport" as CFString, exampleHandler(), nil, nil)
-        let runLoopSource = CFMessagePortCreateRunLoopSource(nil, port, 0)
-        CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, CFRunLoopMode.commonModes)
-        
+        let _ = ServerHandler()
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
