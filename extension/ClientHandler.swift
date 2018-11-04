@@ -11,7 +11,7 @@ import Foundation
 let sharedClientHandler = ClientHandler()
 
 class ClientHandler {
-    func executePasswordSearch(searchString: String) -> [String]? {
+    func searchPasswords(searchString: String) -> [String]? {
         let data: CFData = CFDataCreate(nil, searchString, searchString.count)
         let messageID: sint32 = 0x1
         let timeout: CFTimeInterval = 1

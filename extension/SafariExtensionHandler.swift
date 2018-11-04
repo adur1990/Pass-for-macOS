@@ -19,10 +19,12 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             activeTab!.getActivePage { (activePage) in
                 activePage!.getPropertiesWithCompletionHandler { (pageProperties) in
                     let urlHost = pageProperties!.url?.host
+                    let popoverViewController = SafariExtensionViewController.shared
+                    let searchField = popoverViewController.searchField
                     DispatchQueue.main.async {
-                        SafariExtensionViewController.shared.searchField.window?.makeFirstResponder(nil)
-                        SafariExtensionViewController.shared.searchField.stringValue = urlHost!
-                        sharedClientHandler.executePasswordSearch(searchString: urlHost!)
+                        searchField!.window?.makeFirstResponder(nil)
+                        searchField!.stringValue = urlHost!
+                        popoverViewController.searchPassword(searchField!)
                     }
                 }
             }
