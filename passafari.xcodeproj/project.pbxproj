@@ -113,14 +113,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		756E0B982185F9BD0079B98C /* Passwordstore */ = {
-			isa = PBXGroup;
-			children = (
-				756E0B992185F9DA0079B98C /* Passwordstore.swift */,
-			);
-			path = Passwordstore;
-			sourceTree = "<group>";
-		};
 		75E07BD3216E0D8D00EA9CBD = {
 			isa = PBXGroup;
 			children = (
@@ -144,7 +136,7 @@
 		75E07BDE216E0D8D00EA9CBD /* passafari */ = {
 			isa = PBXGroup;
 			children = (
-				756E0B982185F9BD0079B98C /* Passwordstore */,
+				756E0B992185F9DA0079B98C /* Passwordstore.swift */,
 				75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */,
 				75E07BE1216E0D8D00EA9CBD /* ViewController.swift */,
 				75E07BE3216E0D8E00EA9CBD /* Assets.xcassets */,
