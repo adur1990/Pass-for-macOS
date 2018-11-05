@@ -34,6 +34,18 @@ class ServerHandler {
                 let returnData = CFDataCreate(nil, returnPasswords, returnPasswords.count)!
                 
                 return Unmanaged.passRetained(returnData)
+            } else if messageID == 0x2 {
+                let receivedData = data! as Data
+                let passwordString = String(data: receivedData, encoding: .utf8)!
+                
+                print("### \(passwordString)")
+                
+                //var foundPasswords = passwordstore!.passSearch(password: searchString)
+                
+                
+                let returnData = CFDataCreate(nil, "!", 1)!
+                
+                return Unmanaged.passRetained(returnData)
             }
             
             return Unmanaged.passRetained(data!)

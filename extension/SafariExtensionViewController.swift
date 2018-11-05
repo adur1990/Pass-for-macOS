@@ -32,10 +32,24 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     }()
     
     override func viewDidLoad() {
-        SafariExtensionViewController.shared.searchResultsTable.delegate = SafariExtensionViewController.shared
-        SafariExtensionViewController.shared.searchResultsTable.dataSource = SafariExtensionViewController.shared
-        SafariExtensionViewController.shared.searchResultsTable.isHidden = true
+        let sharedViewController = SafariExtensionViewController.shared
+        sharedViewController.searchResultsTable.delegate = sharedViewController
+        sharedViewController.searchResultsTable.dataSource = sharedViewController
+        sharedViewController.searchResultsTable.target = self
+        sharedViewController.searchResultsTable.doubleAction = #selector(tableViewDoubleClick(_:))
+        sharedViewController.searchResultsTable.isHidden = true
     }
+    
+    @objc func tableViewDoubleClick(_ sender: AnyObject) {
+        guard SafariExtensionViewController.shared.searchResultsTable.selectedRow >= 0,
+            let item = SafariExtensionViewController.shared.resultsPasswords?[SafariExtensionViewController.shared.searchResultsTable.selectedRow] else {
+                return
+        }
+        
+        NSLog("########## \(item)")
+        sharedClientHandler.getPassword(passwordString: item)
+    }
+
 }
 
 extension SafariExtensionViewController: NSTableViewDataSource, NSTableViewDelegate {
