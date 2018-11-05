@@ -11,8 +11,8 @@ import Foundation
 let sharedSecureBookmarkHandler = SecureBookmarkHandler()
 
 class SecureBookmarkHandler {
-    func getPathFromBookmark() -> URL? {
-        if let data = UserDefaults.standard.data(forKey: "passPathBookmark") {
+    func getPathFromBookmark(forKey key: String) -> URL? {
+        if let data = UserDefaults.standard.data(forKey: key) {
             var bookmarkDataIsStale: ObjCBool = false
             
             let url = try! (NSURL(resolvingBookmarkData: data, options: [.withoutUI, .withSecurityScope], relativeTo: nil, bookmarkDataIsStale: &bookmarkDataIsStale) as URL)
@@ -25,8 +25,8 @@ class SecureBookmarkHandler {
         return nil
     }
     
-    func savePathToBookmark(url: URL) {
+    func savePathToBookmark(url: URL, forKey key: String) {
         let data = try! url.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
-        UserDefaults.standard.set(data, forKey: "passPathBookmark")
+        UserDefaults.standard.set(data, forKey: key)
     }
 }

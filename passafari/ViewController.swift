@@ -25,19 +25,24 @@ class ViewController: NSViewController {
         return nil
     }
     
-    
+    func initPaths(forKey key: String) -> URL {
+        let passPathUrlFromBookmark = sharedSecureBookmarkHandler.getPathFromBookmark(forKey: key)
+        
+        if passPathUrlFromBookmark == nil {
+            if let urlFromPanel = promptForPath() {
+                sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: key)
+                return urlFromPanel
+            }
+        }
+        
+        return passPathUrlFromBookmark!
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let urlFromBookmark = sharedSecureBookmarkHandler.getPathFromBookmark()
-        passwordstore = Passwordstore(score: 0.3, url: urlFromBookmark!)
         
-        if urlFromBookmark == nil {
-            if let urlFromPanel = promptForPath() {
-                sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel)
-                passwordstore = Passwordstore(score: 0.3, url: urlFromPanel)
-            }
-        }
+        let passPathUrl = initPaths(forKey: "passPathBookmark")
+        passwordstore = Passwordstore(score: 0.3, url: passPathUrl)     
     }
 
     override var representedObject: Any? {
