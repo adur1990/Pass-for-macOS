@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0005A48A18218399805952D3 /* Pods_passafari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C31A148E392B76B513FE407 /* Pods_passafari.framework */; };
 		753FCD9A2174EBBB008E5D95 /* FuzzySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FCD992174EBBB008E5D95 /* FuzzySearch.swift */; };
 		75494A0B218CCC7F00148925 /* ServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0A218CCC7F00148925 /* ServerHandler.swift */; };
 		75494A0D218CCD8000148925 /* SecureBookmarkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */; };
@@ -23,6 +24,7 @@
 		75E07C1D216E0DA700EA9CBD /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1C216E0DA700EA9CBD /* script.js */; };
 		75E07C1F216E0DA700EA9CBD /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1E216E0DA700EA9CBD /* ToolbarItemIcon.pdf */; };
 		75E07C23216E0DA700EA9CBD /* extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75E07C0F216E0DA700EA9CBD /* extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BC22796408765EAA8338C31A /* Pods_extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FA4B660E31218F21698946 /* Pods_extension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		01229FD602258FF2B0A12DF4 /* Pods-passafari.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-passafari.release.xcconfig"; path = "Pods/Target Support Files/Pods-passafari/Pods-passafari.release.xcconfig"; sourceTree = "<group>"; };
+		03FA4B660E31218F21698946 /* Pods_extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3C31A148E392B76B513FE407 /* Pods_passafari.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_passafari.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		53503BE1986F2895AFEDB25F /* Pods-extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-extension/Pods-extension.release.xcconfig"; sourceTree = "<group>"; };
+		63847FC53DD33DBDFE378741 /* Pods-extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-extension/Pods-extension.debug.xcconfig"; sourceTree = "<group>"; };
 		753FCD992174EBBB008E5D95 /* FuzzySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzySearch.swift; sourceTree = "<group>"; };
 		75494A0A218CCC7F00148925 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHandler.swift; sourceTree = "<group>"; };
 		75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureBookmarkHandler.swift; sourceTree = "<group>"; };
@@ -71,6 +78,7 @@
 		75E07C1C216E0DA700EA9CBD /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
 		75E07C1E216E0DA700EA9CBD /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		75E07C20216E0DA700EA9CBD /* extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = extension.entitlements; sourceTree = "<group>"; };
+		DAC4121EEBE56747715B142E /* Pods-passafari.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-passafari.debug.xcconfig"; path = "Pods/Target Support Files/Pods-passafari/Pods-passafari.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0005A48A18218399805952D3 /* Pods_passafari.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,12 +95,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				75E07C12216E0DA700EA9CBD /* Cocoa.framework in Frameworks */,
+				BC22796408765EAA8338C31A /* Pods_extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6F18925E255EB7E77F964A4A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				63847FC53DD33DBDFE378741 /* Pods-extension.debug.xcconfig */,
+				53503BE1986F2895AFEDB25F /* Pods-extension.release.xcconfig */,
+				DAC4121EEBE56747715B142E /* Pods-passafari.debug.xcconfig */,
+				01229FD602258FF2B0A12DF4 /* Pods-passafari.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		756E0B982185F9BD0079B98C /* Passwordstore */ = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +128,7 @@
 				75E07C13216E0DA700EA9CBD /* extension */,
 				75E07C10216E0DA700EA9CBD /* Frameworks */,
 				75E07BDD216E0D8D00EA9CBD /* Products */,
+				6F18925E255EB7E77F964A4A /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -140,6 +162,8 @@
 			isa = PBXGroup;
 			children = (
 				75E07C11216E0DA700EA9CBD /* Cocoa.framework */,
+				03FA4B660E31218F21698946 /* Pods_extension.framework */,
+				3C31A148E392B76B513FE407 /* Pods_passafari.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -166,10 +190,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75E07C02216E0D8E00EA9CBD /* Build configuration list for PBXNativeTarget "passafari" */;
 			buildPhases = (
+				6D3403B783A87727E61C1C3D /* [CP] Check Pods Manifest.lock */,
 				75E07BD8216E0D8D00EA9CBD /* Sources */,
 				75E07BD9216E0D8D00EA9CBD /* Frameworks */,
 				75E07BDA216E0D8D00EA9CBD /* Resources */,
 				75E07C27216E0DA700EA9CBD /* Embed App Extensions */,
+				F7D2B813B0D3A8C35F2A57B2 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -185,6 +211,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75E07C24216E0DA700EA9CBD /* Build configuration list for PBXNativeTarget "extension" */;
 			buildPhases = (
+				90E0FEFA786F9B9A7FC7D4BD /* [CP] Check Pods Manifest.lock */,
 				75E07C0B216E0DA700EA9CBD /* Sources */,
 				75E07C0C216E0DA700EA9CBD /* Frameworks */,
 				75E07C0D216E0DA700EA9CBD /* Resources */,
@@ -272,6 +299,77 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		6D3403B783A87727E61C1C3D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-passafari-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		90E0FEFA786F9B9A7FC7D4BD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-extension-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7D2B813B0D3A8C35F2A57B2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-passafari/Pods-passafari-frameworks.sh",
+				"${PODS_ROOT}/ObjectivePGP/Frameworks/macosx/ObjectivePGP.framework",
+				"${PODS_ROOT}/ObjectivePGP/Frameworks/macosx/ObjectivePGP.framework.dSYM",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectivePGP.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/ObjectivePGP.framework.dSYM",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-passafari/Pods-passafari-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		75E07BD8216E0D8D00EA9CBD /* Sources */ = {
@@ -444,10 +542,12 @@
 		};
 		75E07C03216E0D8E00EA9CBD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAC4121EEBE56747715B142E /* Pods-passafari.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = passafari/passafari.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BR355MFMD5;
@@ -458,16 +558,19 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
 		75E07C04216E0D8E00EA9CBD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 01229FD602258FF2B0A12DF4 /* Pods-passafari.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = passafari/passafari.entitlements;
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BR355MFMD5;
@@ -478,12 +581,14 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafari;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};
 		75E07C25216E0DA700EA9CBD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 63847FC53DD33DBDFE378741 /* Pods-extension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = extension/extension.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
@@ -505,6 +610,7 @@
 		};
 		75E07C26216E0DA700EA9CBD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 53503BE1986F2895AFEDB25F /* Pods-extension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = extension/extension.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
