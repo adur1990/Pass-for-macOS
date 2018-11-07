@@ -49,6 +49,13 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         let credentials = sharedClientHandler.getPassword(passwordFile: item)?.components(separatedBy: "\n")
         let password = credentials![0]
         let login = credentials![1].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)
+        SFSafariApplication.getActiveWindow { (window) in
+            window!.getActiveTab { (activeTab) in
+                activeTab!.getActivePage { (activePage) in
+                    activePage!.dispatchMessageToScript(withName: "credentials", userInfo: ["password" : password, "login": login])
+                }
+            }
+        }
     }
 
 }
