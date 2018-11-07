@@ -21,23 +21,18 @@ class ClientHandler {
         
         let status: sint32 = CFMessagePortSendRequest(remotePort, messageID, data, timeout, timeout, CFRunLoopMode.defaultMode.rawValue, returnDataPtr)
         
-        if (status == kCFMessagePortSuccess)
-        {
+        if (status == kCFMessagePortSuccess) {
             let receivedData = returnDataPtr.pointee!.takeUnretainedValue() as Data
             let searchString = String(data: receivedData, encoding: .utf8)!
-            NSLog("######### SUCCESS STATUS \(searchString)");
             return searchString.split(separator: ";").map {String($0)}
-        }
-        else
-        {
-            NSLog("######### FAIL STATUS");
+        } else {
             return nil
         }
         
     }
     
-    func getPassword(passwordString: String) -> [String]? {
-        let data: CFData = CFDataCreate(nil, passwordString, passwordString.count)
+    func getPassword(passwordFile: String) -> String? {
+        let data: CFData = CFDataCreate(nil, passwordFile, passwordFile.count)
         let messageID: sint32 = 0x2
         let timeout: CFTimeInterval = 1
         let remotePort: CFMessagePort = CFMessagePortCreateRemote(nil, "BR355MFMD5.de.artursterz.passafari.messageport" as CFString)
@@ -46,16 +41,11 @@ class ClientHandler {
         
         let status: sint32 = CFMessagePortSendRequest(remotePort, messageID, data, timeout, timeout, CFRunLoopMode.defaultMode.rawValue, returnDataPtr)
         
-        if (status == kCFMessagePortSuccess)
-        {
+        if (status == kCFMessagePortSuccess) {
             let receivedData = returnDataPtr.pointee!.takeUnretainedValue() as Data
-            let searchString = String(data: receivedData, encoding: .utf8)!
-            NSLog("######### SUCCESS STATUS \(searchString)");
-            return searchString.split(separator: ";").map {String($0)}
-        }
-        else
-        {
-            NSLog("######### FAIL STATUS");
+            let decryptedPassword = String(data: receivedData, encoding: .utf8)!
+            return decryptedPassword
+        } else {
             return nil
         }
         

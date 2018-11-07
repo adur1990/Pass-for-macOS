@@ -46,8 +46,9 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                 return
         }
         
-        NSLog("########## \(item)")
-        sharedClientHandler.getPassword(passwordString: item)
+        let credentials = sharedClientHandler.getPassword(passwordFile: item)?.components(separatedBy: "\n")
+        let password = credentials![0]
+        let login = credentials![1].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
 }

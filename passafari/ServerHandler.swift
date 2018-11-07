@@ -27,7 +27,6 @@ class ServerHandler {
                 if foundPasswords.isEmpty {
                     foundPasswords = ["No matching password found."]
                 }
-                print(foundPasswords)
                 
                 let returnPasswords = foundPasswords.joined(separator: ";")
                 
@@ -36,14 +35,10 @@ class ServerHandler {
                 return Unmanaged.passRetained(returnData)
             } else if messageID == 0x2 {
                 let receivedData = data! as Data
-                let passwordString = String(data: receivedData, encoding: .utf8)!
+                let passwordFile = String(data: receivedData, encoding: .utf8)!
                 
-                print("### \(passwordString)")
-                
-                //var foundPasswords = passwordstore!.passSearch(password: searchString)
-                
-                
-                let returnData = CFDataCreate(nil, "!", 1)!
+                let decryptedPassword = passwordstore!.passDecrypt(pathToFile: passwordFile)
+                let returnData = CFDataCreate(nil, decryptedPassword, decryptedPassword.count)!
                 
                 return Unmanaged.passRetained(returnData)
             }

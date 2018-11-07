@@ -8,9 +8,12 @@
 
 import Foundation
 
+import ObjectivePGP
+
 class Passwordstore {
     var fuzzySearchScore: Double
     var passwordStoreUrl: URL
+    var pgpKeyRing: Keyring = Keyring()
     
     init(score fuzzySearchScore: Double, url passwordStoreUrl: URL){
         self.fuzzySearchScore = fuzzySearchScore
@@ -55,5 +58,31 @@ class Passwordstore {
         self.passwordStoreUrl.stopAccessingSecurityScopedResource()
         
         return resultPaths
+    }
+    
+    func passDecrypt(pathToFile: String) -> String {
+        var resultPassword = ""
+        if self.passwordStoreUrl.startAccessingSecurityScopedResource() {
+            do {
+                let encryptedFileUrl = passwordstore!.passwordStoreUrl.appendingPathComponent(pathToFile)
+                let encryptedFile = try Data(contentsOf: encryptedFileUrl)
+                
+                let decryptedPassword = try ObjectivePGP.decrypt(encryptedFile, andVerifySignature: false, using: self.pgpKeyRing.keys, passphraseForKey: { (key) -> String? in
+                    return "supersecretpassphrase"
+                })
+                
+                resultPassword = String(data: decryptedPassword, encoding: .utf8) ?? ""
+            } catch {
+                return ""
+            }
+            
+            self.passwordStoreUrl.stopAccessingSecurityScopedResource()
+        }
+        
+        return resultPassword
+    }
+    
+    func importKeys(keyFilePath: String) throws {
+        self.pgpKeyRing.import(keys: try! ObjectivePGP.readKeys(fromPath: keyFilePath))
     }
 }

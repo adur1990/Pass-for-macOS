@@ -17,7 +17,6 @@ class SecureBookmarkHandler {
             
             let url = try! (NSURL(resolvingBookmarkData: data, options: [.withoutUI, .withSecurityScope], relativeTo: nil, bookmarkDataIsStale: &bookmarkDataIsStale) as URL)
             if bookmarkDataIsStale.boolValue {
-                print("WARNING stale security bookmark")
                 return nil
             }
             return url
