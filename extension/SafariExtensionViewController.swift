@@ -40,6 +40,13 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         sharedViewController.searchResultsTable.isHidden = true
     }
     
+    func resetPopover() {
+        let popoverController = SafariExtensionViewController.shared
+        popoverController.preferredContentSize = NSSize(width:330, height:22)
+        popoverController.searchResultsTable.isHidden = true
+        popoverController.dismiss(popoverController)
+    }
+    
     @objc func tableViewDoubleClick(_ sender: AnyObject) {
         guard SafariExtensionViewController.shared.searchResultsTable.selectedRow >= 0,
             let item = SafariExtensionViewController.shared.resultsPasswords?[SafariExtensionViewController.shared.searchResultsTable.selectedRow] else {
@@ -56,6 +63,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                 }
             }
         }
+        SafariExtensionViewController.shared.resetPopover()
     }
 
 }
