@@ -31,6 +31,10 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         }
     }
     
+    override func popoverDidClose(in window: SFSafariWindow) {
+        SafariExtensionViewController.shared.resetPopover()
+    }
+    
     override func popoverViewController() -> SFSafariExtensionViewController {
         return SafariExtensionViewController.shared
     }

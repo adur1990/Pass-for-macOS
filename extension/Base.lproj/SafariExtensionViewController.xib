@@ -7,19 +7,22 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="SafariExtensionViewController" customModule="extension" customModuleProvider="target">
             <connections>
+                <outlet property="bottomConstraint" destination="BCa-Vl-vrt" id="mcG-0R-iLH"/>
+                <outlet property="heightConstraint" destination="SV0-Ae-A2a" id="2EK-f9-tly"/>
                 <outlet property="searchField" destination="rnR-2m-fJL" id="4uF-tZ-BCl"/>
                 <outlet property="searchResultsTable" destination="4gY-te-H9m" id="VlM-8b-gy3"/>
                 <outlet property="view" destination="c22-O7-iKe" id="vwT-Xx-Aiz"/>
+                <outlet property="widthConstraint" destination="BUF-Rw-yho" id="n5a-gH-XyA"/>
             </connections>
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView id="c22-O7-iKe">
-            <rect key="frame" x="0.0" y="0.0" width="330" height="24"/>
+            <rect key="frame" x="0.0" y="0.0" width="330" height="22"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <searchField wantsLayer="YES" focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rnR-2m-fJL">
-                    <rect key="frame" x="0.0" y="2" width="330" height="22"/>
+                    <rect key="frame" x="0.0" y="0.0" width="330" height="22"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="22" id="gIP-oe-KbH"/>
                     </constraints>
@@ -33,13 +36,13 @@
                     </connections>
                 </searchField>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEo-1O-ZXu">
-                    <rect key="frame" x="0.0" y="0.0" width="330" height="2"/>
+                    <rect key="frame" x="0.0" y="0.0" width="330" height="0.0"/>
                     <clipView key="contentView" id="7nw-vt-33O">
-                        <rect key="frame" x="1" y="1" width="328" height="0.0"/>
+                        <rect key="frame" x="1" y="1" width="328" height="1"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="4gY-te-H9m">
-                                <rect key="frame" x="0.0" y="0.0" width="328" height="0.0"/>
+                                <rect key="frame" x="0.0" y="0.0" width="328" height="1"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -62,6 +65,10 @@
                             </tableView>
                         </subviews>
                     </clipView>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="330" id="BUF-Rw-yho"/>
+                        <constraint firstAttribute="height" id="SV0-Ae-A2a"/>
+                    </constraints>
                     <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="u4d-Kf-3Mp">
                         <rect key="frame" x="1" y="119" width="223" height="15"/>
                         <autoresizingMask key="autoresizingMask"/>

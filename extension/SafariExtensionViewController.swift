@@ -11,45 +11,56 @@ import SafariServices
 class SafariExtensionViewController: SFSafariExtensionViewController {
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
-        //shared.preferredContentSize = NSSize(width:330, height:22)
+        shared.preferredContentSize = NSSize(width:330, height:22)
         return shared
     }()
+    
+    func popoverViewController() -> SafariExtensionViewController {
+        return SafariExtensionViewController.shared
+    }
     
     var resultsPasswords: [String]?
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var searchResultsTable: NSTableView!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     
     @IBAction func searchPassword(_ sender: NSSearchField) {
-        SafariExtensionViewController.shared.resultsPasswords = sharedClientHandler.searchPasswords(searchString: sender.stringValue)
-        SafariExtensionViewController.shared.showSearchResults()
+        popoverViewController().resultsPasswords = sharedClientHandler.searchPasswords(searchString: sender.stringValue)
+        popoverViewController().showSearchResults()
     }
     
     func showSearchResults() {
-        let height = (self.resultsPasswords!.count * 20) + 22
-        SafariExtensionViewController.shared.preferredContentSize = NSSize(width: 330, height: height)
-        SafariExtensionViewController.shared.searchResultsTable.isHidden = false
-        SafariExtensionViewController.shared.searchResultsTable.reloadData()
+        let height = (self.resultsPasswords!.count * 20)
+        popoverViewController().heightConstraint.animator().constant = CGFloat(height)
+        
+        var width = (resultsPasswords!.max(by: {$1.count > $0.count})?.count)! * 7
+        if width < 330 {
+            width = 330
+        }
+        popoverViewController().widthConstraint.animator().constant = CGFloat(width)
+        
+        popoverViewController().searchResultsTable.isHidden = false
+        popoverViewController().searchResultsTable.reloadData()
     }
     
     override func viewDidLoad() {
-        let sharedViewController = SafariExtensionViewController.shared
-        sharedViewController.searchResultsTable.delegate = sharedViewController
-        sharedViewController.searchResultsTable.dataSource = sharedViewController
-        sharedViewController.searchResultsTable.target = self
-        sharedViewController.searchResultsTable.doubleAction = #selector(tableViewDoubleClick(_:))
-        sharedViewController.searchResultsTable.isHidden = true
+        popoverViewController().searchResultsTable.delegate = popoverViewController()
+        popoverViewController().searchResultsTable.dataSource = popoverViewController()
+        popoverViewController().searchResultsTable.target = self
+        popoverViewController().searchResultsTable.doubleAction = #selector(tableViewDoubleClick(_:))
+        popoverViewController().searchResultsTable.isHidden = true
     }
     
     func resetPopover() {
-        let popoverController = SafariExtensionViewController.shared
-        popoverController.preferredContentSize = NSSize(width:330, height:22)
-        popoverController.searchResultsTable.isHidden = true
-        popoverController.dismiss(popoverController)
+        popoverViewController().heightConstraint.animator().constant = CGFloat(0)
+        popoverViewController().widthConstraint.animator().constant = CGFloat(330)
+        popoverViewController().searchResultsTable.isHidden = true
     }
     
     @objc func tableViewDoubleClick(_ sender: AnyObject) {
-        guard SafariExtensionViewController.shared.searchResultsTable.selectedRow >= 0,
-            let item = SafariExtensionViewController.shared.resultsPasswords?[SafariExtensionViewController.shared.searchResultsTable.selectedRow] else {
+        guard popoverViewController().searchResultsTable.selectedRow >= 0,
+            let item = popoverViewController().resultsPasswords?[popoverViewController().searchResultsTable.selectedRow] else {
                 return
         }
         
@@ -63,7 +74,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                 }
             }
         }
-        SafariExtensionViewController.shared.resetPopover()
+        popoverViewController().dismiss(SafariExtensionViewController.shared)
     }
 
 }
