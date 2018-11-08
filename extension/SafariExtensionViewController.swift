@@ -42,6 +42,8 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         
         popoverViewController().searchResultsTable.isHidden = false
         popoverViewController().searchResultsTable.reloadData()
+        popoverViewController().searchResultsTable.selectRowIndexes(NSIndexSet(index: 0) as IndexSet, byExtendingSelection: true)
+        popoverViewController().view.window?.makeFirstResponder(popoverViewController().searchResultsTable)
     }
     
     override func viewDidLoad() {
@@ -58,7 +60,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         popoverViewController().searchResultsTable.isHidden = true
     }
     
-    @objc func tableViewDoubleClick(_ sender: AnyObject) {
+    func fillPasswordFromSelection() {
         guard popoverViewController().searchResultsTable.selectedRow >= 0,
             let item = popoverViewController().resultsPasswords?[popoverViewController().searchResultsTable.selectedRow] else {
                 return
@@ -75,6 +77,16 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             }
         }
         popoverViewController().dismiss(SafariExtensionViewController.shared)
+    }
+    
+    override func keyDown(with event: NSEvent) {
+        if event.keyCode == 36 {
+            fillPasswordFromSelection()
+        }
+    }
+    
+    @objc func tableViewDoubleClick(_ sender: AnyObject) {
+        fillPasswordFromSelection()
     }
 
 }

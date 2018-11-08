@@ -37,24 +37,24 @@
                 </searchField>
                 <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hEo-1O-ZXu">
                     <rect key="frame" x="0.0" y="0.0" width="330" height="0.0"/>
-                    <clipView key="contentView" id="7nw-vt-33O">
+                    <clipView key="contentView" drawsBackground="NO" id="7nw-vt-33O">
                         <rect key="frame" x="1" y="1" width="328" height="1"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" viewBased="YES" id="4gY-te-H9m">
+                            <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowSizeStyle="automatic" viewBased="YES" id="4gY-te-H9m">
                                 <rect key="frame" x="0.0" y="0.0" width="328" height="1"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <size key="intercellSpacing" width="3" height="2"/>
                                 <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 <color key="gridColor" name="gridColor" catalog="System" colorSpace="catalog"/>
                                 <tableColumns>
-                                    <tableColumn width="325" minWidth="40" maxWidth="1000" id="WUP-QW-L4n">
+                                    <tableColumn editable="NO" width="325" minWidth="40" maxWidth="1000" id="WUP-QW-L4n">
                                         <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border">
                                             <font key="font" metaFont="smallSystem"/>
                                             <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="headerColor" catalog="System" colorSpace="catalog"/>
                                         </tableHeaderCell>
-                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" editable="YES" title="Text Cell" id="MS9-6b-DGf">
+                                        <textFieldCell key="dataCell" lineBreakMode="truncatingTail" selectable="YES" title="Text Cell" id="MS9-6b-DGf">
                                             <font key="font" metaFont="system"/>
                                             <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -64,6 +64,7 @@
                                 </tableColumns>
                             </tableView>
                         </subviews>
+                        <nil key="backgroundColor"/>
                     </clipView>
                     <constraints>
                         <constraint firstAttribute="width" constant="330" id="BUF-Rw-yho"/>
