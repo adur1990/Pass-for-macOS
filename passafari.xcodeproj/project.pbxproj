@@ -21,7 +21,7 @@
 		75E07C15216E0DA700EA9CBD /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07C14216E0DA700EA9CBD /* SafariExtensionHandler.swift */; };
 		75E07C17216E0DA700EA9CBD /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07C16216E0DA700EA9CBD /* SafariExtensionViewController.swift */; };
 		75E07C1A216E0DA700EA9CBD /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C18216E0DA700EA9CBD /* SafariExtensionViewController.xib */; };
-		75E07C1D216E0DA700EA9CBD /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1C216E0DA700EA9CBD /* script.js */; };
+		75E07C1D216E0DA700EA9CBD /* passafariFillForm.js in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */; };
 		75E07C1F216E0DA700EA9CBD /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1E216E0DA700EA9CBD /* ToolbarItemIcon.pdf */; };
 		75E07C23216E0DA700EA9CBD /* extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75E07C0F216E0DA700EA9CBD /* extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BC22796408765EAA8338C31A /* Pods_extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FA4B660E31218F21698946 /* Pods_extension.framework */; };
@@ -75,7 +75,7 @@
 		75E07C16216E0DA700EA9CBD /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
 		75E07C19216E0DA700EA9CBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		75E07C1B216E0DA700EA9CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75E07C1C216E0DA700EA9CBD /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
+		75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = passafariFillForm.js; sourceTree = "<group>"; };
 		75E07C1E216E0DA700EA9CBD /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		75E07C20216E0DA700EA9CBD /* extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = extension.entitlements; sourceTree = "<group>"; };
 		DAC4121EEBE56747715B142E /* Pods-passafari.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-passafari.debug.xcconfig"; path = "Pods/Target Support Files/Pods-passafari/Pods-passafari.debug.xcconfig"; sourceTree = "<group>"; };
@@ -167,7 +167,7 @@
 				75E07C16216E0DA700EA9CBD /* SafariExtensionViewController.swift */,
 				75E07C18216E0DA700EA9CBD /* SafariExtensionViewController.xib */,
 				75E07C1B216E0DA700EA9CBD /* Info.plist */,
-				75E07C1C216E0DA700EA9CBD /* script.js */,
+				75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */,
 				75E07C1E216E0DA700EA9CBD /* ToolbarItemIcon.pdf */,
 				75E07C20216E0DA700EA9CBD /* extension.entitlements */,
 				75494A0E218CCEBD00148925 /* ClientHandler.swift */,
@@ -286,7 +286,7 @@
 			files = (
 				75E07C1F216E0DA700EA9CBD /* ToolbarItemIcon.pdf in Resources */,
 				75E07C1A216E0DA700EA9CBD /* SafariExtensionViewController.xib in Resources */,
-				75E07C1D216E0DA700EA9CBD /* script.js in Resources */,
+				75E07C1D216E0DA700EA9CBD /* passafariFillForm.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
