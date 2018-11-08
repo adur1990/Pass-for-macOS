@@ -11,7 +11,7 @@ import SafariServices
 class SafariExtensionViewController: SFSafariExtensionViewController {
     static let shared: SafariExtensionViewController = {
         let shared = SafariExtensionViewController()
-        shared.preferredContentSize = NSSize(width:330, height:22)
+        //shared.preferredContentSize = NSSize(width:330, height:22)
         return shared
     }()
     
