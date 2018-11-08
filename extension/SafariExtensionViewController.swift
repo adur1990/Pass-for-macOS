@@ -9,6 +9,12 @@
 import SafariServices
 
 class SafariExtensionViewController: SFSafariExtensionViewController {
+    static let shared: SafariExtensionViewController = {
+        let shared = SafariExtensionViewController()
+        shared.preferredContentSize = NSSize(width:330, height:22)
+        return shared
+    }()
+    
     var resultsPasswords: [String]?
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var searchResultsTable: NSTableView!
@@ -24,12 +30,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         SafariExtensionViewController.shared.searchResultsTable.isHidden = false
         SafariExtensionViewController.shared.searchResultsTable.reloadData()
     }
-    
-    static let shared: SafariExtensionViewController = {
-        let shared = SafariExtensionViewController()
-        shared.preferredContentSize = NSSize(width:330, height:22)
-        return shared
-    }()
     
     override func viewDidLoad() {
         let sharedViewController = SafariExtensionViewController.shared
