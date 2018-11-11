@@ -19,19 +19,17 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         return SafariExtensionViewController.shared
     }
     
-    var resultsPasswords: [String]?
     @IBOutlet weak var searchField: NSSearchField!
     @IBOutlet weak var searchResultsTable: NSTableView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     
     @IBAction func searchPassword(_ sender: NSSearchField) {
-        popoverViewController().resultsPasswords = sharedClientHandler.searchPasswords(searchString: sender.stringValue)
-        popoverViewController().showSearchResults()
+        resultsPasswords = sharedClientHandler.searchPasswords(searchString: sender.stringValue)
     }
     
     func showSearchResults() {
-        let height = (self.resultsPasswords!.count * 20)
+        let height = (resultsPasswords!.count * 20)
         popoverViewController().heightConstraint.animator().constant = CGFloat(height)
         
         var width = (resultsPasswords!.max(by: {$1.count > $0.count})?.count)! * 7
@@ -60,25 +58,6 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         popoverViewController().searchResultsTable.isHidden = true
     }
     
-    func fillPasswordFromSelection() {
-        guard popoverViewController().searchResultsTable.selectedRow >= 0,
-            let item = popoverViewController().resultsPasswords?[popoverViewController().searchResultsTable.selectedRow] else {
-                return
-        }
-        
-        let credentials = sharedClientHandler.getPassword(passwordFile: item)?.components(separatedBy: "\n")
-        let password = credentials![0]
-        let login = credentials![1].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)
-        SFSafariApplication.getActiveWindow { (window) in
-            window!.getActiveTab { (activeTab) in
-                activeTab!.getActivePage { (activePage) in
-                    activePage!.dispatchMessageToScript(withName: "credentials", userInfo: ["password" : password, "login": login])
-                }
-            }
-        }
-        popoverViewController().dismiss(SafariExtensionViewController.shared)
-    }
-    
     override func keyDown(with event: NSEvent) {
         if event.keyCode == 36 {
             fillPasswordFromSelection()
@@ -93,10 +72,10 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
 
 extension SafariExtensionViewController: NSTableViewDataSource, NSTableViewDelegate {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return SafariExtensionViewController.shared.resultsPasswords?.count ?? 0
+        return resultsPasswords?.count ?? 0
     }
     
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return (SafariExtensionViewController.shared.resultsPasswords!)[row]
+        return (resultsPasswords!)[row]
     }
 }

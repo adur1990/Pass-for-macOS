@@ -6,6 +6,13 @@ safari.self.addEventListener("message", function (event) {
     }
 });
 
+document.onkeydown = function(e) {
+    if (e.altKey && e.shiftKey && e.which == 80) {
+        event.preventDefault();
+        safari.extension.dispatchMessage("fillShortcutPressed");
+    }
+};
+
 window.passafariFillForm = function (p, u) {
     const FORM_MARKERS = [
         "login",

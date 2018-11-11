@@ -8,10 +8,17 @@
 
 import SafariServices
 
+var resultsPasswords: [String]?
+
 class SafariExtensionHandler: SFSafariExtensionHandler {
     
-    override func toolbarItemClicked(in window: SFSafariWindow) {
-        NSLog("The extension's toolbar item was clicked")
+    override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
+        page.getPropertiesWithCompletionHandler { pageProperties in
+            if messageName == "fillShortcutPressed" {
+                let urlHost = pageProperties!.url?.host
+                dispatchPasswordSearch(forURL: urlHost!, fromShortcut: true)
+            }
+        }
     }
     
     override func popoverWillShow(in window: SFSafariWindow) {
@@ -19,13 +26,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             activeTab!.getActivePage { (activePage) in
                 activePage!.getPropertiesWithCompletionHandler { (pageProperties) in
                     let urlHost = pageProperties!.url?.host
-                    let popoverViewController = SafariExtensionViewController.shared
-                    let searchField = popoverViewController.searchField
-                    DispatchQueue.main.async {
-                        searchField!.window?.makeFirstResponder(nil)
-                        searchField!.stringValue = urlHost!
-                        popoverViewController.searchPassword(searchField!)
-                    }
+                    dispatchPasswordSearch(forURL: urlHost!)
                 }
             }
         }
