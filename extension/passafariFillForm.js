@@ -1,6 +1,13 @@
 safari.self.addEventListener("message", function (event) {
     if (event.name == "credentials") {
-        passafariFillForm(event.message.password, event.message.login)
+        if (event.message.shortcut) {
+            if (event.message.login) {
+                toast("Filling password for ".concat(window.location.hostname));
+            } else {
+                toast("No matching password found for ".concat(window.location.hostname));
+            }
+        }
+    passafariFillForm(event.message.password, event.message.login);
     } else {
         console.log("Received a message named: " + event.name);
     }
@@ -9,7 +16,6 @@ safari.self.addEventListener("message", function (event) {
 document.onkeydown = function(keyEvent) {
     if (keyEvent.altKey && keyEvent.shiftKey && keyEvent.which == 80) {
         keyEvent.preventDefault();
-        toast("Filling password for ".concat(window.location.hostname))
         safari.extension.dispatchMessage("fillShortcutPressed");
     }
 };

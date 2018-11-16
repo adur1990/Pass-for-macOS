@@ -10,21 +10,33 @@ import Foundation
 import SafariServices
 
 func fillPasswordFromSelection(pass: String? = nil) {
+    let credentials: [String]
+    let password: String
+    let login: String
+    var shortcut: String = "true"
+    
     var item = pass
     if pass == nil {
         if SafariExtensionViewController.shared.searchResultsTable.selectedRow < 0 {
             return
         }
         item = resultsPasswords?[SafariExtensionViewController.shared.searchResultsTable.selectedRow]
+        shortcut = ""
     }
     
-    let credentials = sharedClientHandler.getPassword(passwordFile: item!)?.components(separatedBy: "\n")
-    let password = credentials![0]
-    let login = credentials![1].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)
+    if pass == "No matching password found."{
+        password = ""
+        login = ""
+    } else {
+        credentials = (sharedClientHandler.getPassword(passwordFile: item!)?.components(separatedBy: "\n"))!
+        password = credentials[0]
+        login = credentials[1].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
     SFSafariApplication.getActiveWindow { (window) in
         window!.getActiveTab { (activeTab) in
             activeTab!.getActivePage { (activePage) in
-                activePage!.dispatchMessageToScript(withName: "credentials", userInfo: ["password" : password, "login": login])
+                activePage!.dispatchMessageToScript(withName: "credentials", userInfo: ["password": password, "login": login, "shortcut": shortcut])
             }
         }
     }
