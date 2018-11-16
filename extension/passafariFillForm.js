@@ -2,9 +2,9 @@ safari.self.addEventListener("message", function (event) {
     if (event.name == "credentials") {
         if (event.message.shortcut) {
             if (event.message.login) {
-                toast("Filling password for ".concat(window.location.hostname));
+                toast("Filling password for ".concat(window.top.location.hostname));
             } else {
-                toast("No matching password found for ".concat(window.location.hostname));
+                toast("No matching password found for ".concat(window.top.location.hostname));
             }
         }
     passafariFillForm(event.message.password, event.message.login);
@@ -21,12 +21,20 @@ document.onkeydown = function(keyEvent) {
 };
 
 window.onload = function() {
+    if (window.top != window.self) {
+        return
+    }
+    
     var toastContainer = document.createElement("div");
     toastContainer.setAttribute("id", "toast");
     document.body.appendChild(toastContainer);
 }
 
 window.toast = function(message) {
+    if (window.top != window.self) {
+        return
+    }
+    
     var _toastContainer = document.getElementById("toast");
     _toastContainer.innerHTML = message;
     _toastContainer.className = "show";
