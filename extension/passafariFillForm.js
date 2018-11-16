@@ -9,9 +9,28 @@ safari.self.addEventListener("message", function (event) {
 document.onkeydown = function(keyEvent) {
     if (keyEvent.altKey && keyEvent.shiftKey && keyEvent.which == 80) {
         keyEvent.preventDefault();
+        toast("Filling password for ".concat(window.location.hostname))
         safari.extension.dispatchMessage("fillShortcutPressed");
     }
 };
+
+window.onload = function() {
+    var toastContainer = document.createElement("div");
+    toastContainer.setAttribute("id", "toast");
+    document.body.appendChild(toastContainer);
+}
+
+window.toast = function(message) {
+    var _toastContainer = document.getElementById("toast");
+    _toastContainer.innerHTML = message;
+    _toastContainer.className = "show";
+    
+    setTimeout(
+               function(){
+                _toastContainer.className = _toastContainer.className.replace("show", "");
+               },
+               2000);
+}
 
 window.passafariFillForm = function (p, u) {
     const FORM_MARKERS = [

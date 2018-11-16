@@ -46,6 +46,13 @@
 			<key>Label</key>
 			<string>Passafari</string>
 		</dict>
+		<key>SFSafariStyleSheet</key>
+		<array>
+			<dict>
+				<key>Style Sheet</key>
+				<string>passafariToast.css</string>
+			</dict>
+		</array>
 		<key>SFSafariWebsiteAccess</key>
 		<dict>
 			<key>Allowed Domains</key>

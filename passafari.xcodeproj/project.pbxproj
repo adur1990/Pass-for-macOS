@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0005A48A18218399805952D3 /* Pods_passafari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3C31A148E392B76B513FE407 /* Pods_passafari.framework */; };
+		7511A35E219B52B7008290E9 /* passafariFillForm.js in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */; };
+		7511A361219B53C5008290E9 /* passafariToast.css in Resources */ = {isa = PBXBuildFile; fileRef = 7511A360219B53C5008290E9 /* passafariToast.css */; };
 		753FCD9A2174EBBB008E5D95 /* FuzzySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FCD992174EBBB008E5D95 /* FuzzySearch.swift */; };
 		75494A0B218CCC7F00148925 /* ServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0A218CCC7F00148925 /* ServerHandler.swift */; };
 		75494A0D218CCD8000148925 /* SecureBookmarkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */; };
@@ -22,7 +24,6 @@
 		75E07C15216E0DA700EA9CBD /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07C14216E0DA700EA9CBD /* SafariExtensionHandler.swift */; };
 		75E07C17216E0DA700EA9CBD /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07C16216E0DA700EA9CBD /* SafariExtensionViewController.swift */; };
 		75E07C1A216E0DA700EA9CBD /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C18216E0DA700EA9CBD /* SafariExtensionViewController.xib */; };
-		75E07C1D216E0DA700EA9CBD /* passafariFillForm.js in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */; };
 		75E07C1F216E0DA700EA9CBD /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1E216E0DA700EA9CBD /* ToolbarItemIcon.pdf */; };
 		75E07C23216E0DA700EA9CBD /* extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75E07C0F216E0DA700EA9CBD /* extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		BC22796408765EAA8338C31A /* Pods_extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03FA4B660E31218F21698946 /* Pods_extension.framework */; };
@@ -58,6 +59,7 @@
 		3C31A148E392B76B513FE407 /* Pods_passafari.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_passafari.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53503BE1986F2895AFEDB25F /* Pods-extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-extension/Pods-extension.release.xcconfig"; sourceTree = "<group>"; };
 		63847FC53DD33DBDFE378741 /* Pods-extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-extension/Pods-extension.debug.xcconfig"; sourceTree = "<group>"; };
+		7511A360219B53C5008290E9 /* passafariToast.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = passafariToast.css; sourceTree = "<group>"; };
 		753FCD992174EBBB008E5D95 /* FuzzySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzySearch.swift; sourceTree = "<group>"; };
 		75494A0A218CCC7F00148925 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHandler.swift; sourceTree = "<group>"; };
 		75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureBookmarkHandler.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				75E07C20216E0DA700EA9CBD /* extension.entitlements */,
 				75494A0E218CCEBD00148925 /* ClientHandler.swift */,
 				755A16A621986EFD00F5E66B /* Helpers.swift */,
+				7511A360219B53C5008290E9 /* passafariToast.css */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -287,9 +290,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7511A35E219B52B7008290E9 /* passafariFillForm.js in Resources */,
 				75E07C1F216E0DA700EA9CBD /* ToolbarItemIcon.pdf in Resources */,
 				75E07C1A216E0DA700EA9CBD /* SafariExtensionViewController.xib in Resources */,
-				75E07C1D216E0DA700EA9CBD /* passafariFillForm.js in Resources */,
+				7511A361219B53C5008290E9 /* passafariToast.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
