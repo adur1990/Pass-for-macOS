@@ -6,9 +6,9 @@ safari.self.addEventListener("message", function (event) {
     }
 });
 
-document.onkeydown = function(e) {
-    if (e.altKey && e.shiftKey && e.which == 80) {
-        event.preventDefault();
+document.onkeydown = function(keyEvent) {
+    if (keyEvent.altKey && keyEvent.shiftKey && keyEvent.which == 80) {
+        keyEvent.preventDefault();
         safari.extension.dispatchMessage("fillShortcutPressed");
     }
 };
