@@ -8,7 +8,35 @@
 
 import Cocoa
 
-class ViewController: NSViewController {    
+class ViewController: NSViewController {
+    
+    @IBOutlet weak var passPathTextField: NSTextField!
+    @IBOutlet weak var passPathBrowseButton: NSButton!
+    
+    @IBOutlet weak var keyPathTextField: NSTextField!
+    @IBOutlet weak var keyPathBrowseButton: NSButton!
+    
+    
+    @IBAction func browsePassPath(_ sender: Any) {
+        let key = "password-store"
+        
+        if let urlFromPanel = promptForPath(titleString: key) {
+            sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: key)
+            passPathTextField.stringValue = urlFromPanel.path
+            passwordstore = Passwordstore(score: 0.3, url: urlFromPanel)
+        }
+    }
+    
+    @IBAction func browseKeyPath(_ sender: Any) {
+        let key = "GPG folder"
+        
+        if let urlFromPanel = promptForPath(titleString: key) {
+            sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: key)
+            initKey(gpgKeyringPathUrl: urlFromPanel)
+        }
+    }
+    
+    
     func promptForPath(titleString: String) -> URL? {
         let openPanel = NSOpenPanel()
         openPanel.directoryURL = FileManager.default.homeDirectoryForCurrentUser
@@ -25,28 +53,20 @@ class ViewController: NSViewController {
         return nil
     }
     
-    func initPaths(forKey key: String) -> URL {
+    func initPaths(forKey key: String) -> URL? {
         let passPathUrlFromBookmark = sharedSecureBookmarkHandler.getPathFromBookmark(forKey: key)
         
         if passPathUrlFromBookmark == nil {
-            if let urlFromPanel = promptForPath(titleString: key) {
-                sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: key)
-                return urlFromPanel
-            }
+            return nil
         }
         
         return passPathUrlFromBookmark!
     }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let passPathUrl = initPaths(forKey: "password-store")
-        passwordstore = Passwordstore(score: 0.3, url: passPathUrl)
-        
-        let gpgKeyringPathUrl = initPaths(forKey: "GPG folder")
+    
+    func initKey(gpgKeyringPathUrl: URL) {
         let secKeyPath = gpgKeyringPathUrl.appendingPathComponent("private")
-
+        keyPathTextField.stringValue = secKeyPath.path
+        
         if gpgKeyringPathUrl.startAccessingSecurityScopedResource() {
             do {
                 try passwordstore!.importKeys(keyFilePath: secKeyPath.path)
@@ -57,6 +77,23 @@ class ViewController: NSViewController {
         } else {
             return
         }
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        if let passPathUrl = initPaths(forKey: "password-store") {
+            passPathTextField.stringValue = passPathUrl.path
+            passwordstore = Passwordstore(score: 0.3, url: passPathUrl)
+        }
+        
+        let gpgKeyringPathUrl = initPaths(forKey: "GPG folder")
+        
+        if gpgKeyringPathUrl == nil {
+            return
+        }
+        
+        initKey(gpgKeyringPathUrl: gpgKeyringPathUrl!)
     }
 
     override var representedObject: Any? {
