@@ -9,7 +9,7 @@
     border-radius: 5px; /* Rounded borders */
     padding: 5px; /* Padding */
     position: fixed; /* Sit on top of the screen */
-    z-index: 1; /* Add a z-index if needed */
+    z-index: 1000; /* Add a z-index if needed */
     right: 2%; /* Center the toast */
     top: 2%; /* 30px from the bottom */
 }
