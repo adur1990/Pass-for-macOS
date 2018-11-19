@@ -40,6 +40,13 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         
         popoverViewController().searchResultsTable.isHidden = false
         popoverViewController().searchResultsTable.reloadData()
+        
+        if resultsPasswords!.count == 1 {
+            if resultsPasswords![0] == "The Passafari app is not running."  || resultsPasswords![0] == "No matching password found." {
+                return
+            }
+        }
+        
         popoverViewController().searchResultsTable.selectRowIndexes(NSIndexSet(index: 0) as IndexSet, byExtendingSelection: true)
         popoverViewController().view.window?.makeFirstResponder(popoverViewController().searchResultsTable)
     }
