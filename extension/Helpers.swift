@@ -14,6 +14,7 @@ func fillPasswordFromSelection(pass: String? = nil) {
     let password: String
     let login: String
     var shortcut: String = "true"
+    var message: String = ""
     
     var item = pass
     if pass == nil {
@@ -24,9 +25,10 @@ func fillPasswordFromSelection(pass: String? = nil) {
         shortcut = ""
     }
     
-    if pass == "No matching password found."{
+    if item == "No matching password found." || item == "The Passafari app is not running." {
         password = ""
         login = ""
+        message = item!
     } else {
         credentials = (sharedClientHandler.getPassword(passwordFile: item!)?.components(separatedBy: "\n"))!
         password = credentials[0]
@@ -36,7 +38,7 @@ func fillPasswordFromSelection(pass: String? = nil) {
     SFSafariApplication.getActiveWindow { (window) in
         window!.getActiveTab { (activeTab) in
             activeTab!.getActivePage { (activePage) in
-                activePage!.dispatchMessageToScript(withName: "credentials", userInfo: ["password": password, "login": login, "shortcut": shortcut])
+                activePage!.dispatchMessageToScript(withName: "credentials", userInfo: ["password": password, "login": login, "shortcut": shortcut, "message": message])
             }
         }
     }

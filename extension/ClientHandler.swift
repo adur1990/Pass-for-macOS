@@ -15,9 +15,13 @@ class ClientHandler {
         let data: CFData = CFDataCreate(nil, searchString, searchString.count)
         let messageID: sint32 = 0x1
         let timeout: CFTimeInterval = 1
-        let remotePort: CFMessagePort = CFMessagePortCreateRemote(nil, "BR355MFMD5.de.artursterz.passafari.messageport" as CFString)
+        let remotePort: CFMessagePort? = CFMessagePortCreateRemote(nil, "BR355MFMD5.de.artursterz.passafari.messageport" as CFString)
         let returnDataPtr: UnsafeMutablePointer<Unmanaged<CFData>?> = UnsafeMutablePointer.allocate(capacity: 1)
         defer { returnDataPtr.deallocate() }
+        
+        if remotePort == nil {
+            return ["The Passafari app is not running."]
+        }
         
         let status: sint32 = CFMessagePortSendRequest(remotePort, messageID, data, timeout, timeout, CFRunLoopMode.defaultMode.rawValue, returnDataPtr)
         
