@@ -7,7 +7,7 @@ safari.self.addEventListener("message", function (event) {
                 if (event.message.message == "The Passafari app is not running.") {
                     toast(event.message.message)
                 } else {
-                    toast("No matching password found.".concat(window.top.location.hostname));
+                    toast("No matching password found for ".concat(window.top.location.hostname));
                 }
             }
         }
