@@ -66,7 +66,7 @@
 		75494A0E218CCEBD00148925 /* ClientHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHandler.swift; sourceTree = "<group>"; };
 		755A16A621986EFD00F5E66B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		756E0B992185F9DA0079B98C /* Passwordstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passwordstore.swift; sourceTree = "<group>"; };
-		75E07BDC216E0D8D00EA9CBD /* passafari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = passafari.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75E07BDC216E0D8D00EA9CBD /* Passafari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passafari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75E07BE1216E0D8D00EA9CBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		75E07BE3216E0D8E00EA9CBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -131,7 +131,7 @@
 		75E07BDD216E0D8D00EA9CBD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75E07BDC216E0D8D00EA9CBD /* passafari.app */,
+				75E07BDC216E0D8D00EA9CBD /* Passafari.app */,
 				75E07C0F216E0DA700EA9CBD /* extension.appex */,
 			);
 			name = Products;
@@ -202,7 +202,7 @@
 			);
 			name = passafari;
 			productName = passafari;
-			productReference = 75E07BDC216E0D8D00EA9CBD /* passafari.app */;
+			productReference = 75E07BDC216E0D8D00EA9CBD /* Passafari.app */;
 			productType = "com.apple.product-type.application";
 		};
 		75E07C0E216E0DA700EA9CBD /* extension */ = {
@@ -557,7 +557,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafari;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Passafari;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
@@ -580,7 +580,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafari;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Passafari;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
 			};
