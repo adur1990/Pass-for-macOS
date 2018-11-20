@@ -17,7 +17,7 @@
 	<key>CFBundlePackageType</key>
 	<string>XPC!</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>0.1</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSMinimumSystemVersion</key>
@@ -35,6 +35,13 @@
 				<string>passafariFillForm.js</string>
 			</dict>
 		</array>
+		<key>SFSafariStyleSheet</key>
+		<array>
+			<dict>
+				<key>Style Sheet</key>
+				<string>passafariToast.css</string>
+			</dict>
+		</array>
 		<key>SFSafariToolbarItem</key>
 		<dict>
 			<key>Action</key>
@@ -46,13 +53,6 @@
 			<key>Label</key>
 			<string>Passafari</string>
 		</dict>
-		<key>SFSafariStyleSheet</key>
-		<array>
-			<dict>
-				<key>Style Sheet</key>
-				<string>passafariToast.css</string>
-			</dict>
-		</array>
 		<key>SFSafariWebsiteAccess</key>
 		<dict>
 			<key>Allowed Domains</key>
@@ -66,6 +66,6 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2018 Artur Sterz. All rights reserved.</string>
 	<key>NSHumanReadableDescription</key>
-	<string>Passafari is a Safari extension for zx2c4&apos;s pass, a UNIX based password manager.</string>
+	<string>Passafari is a Safari extension for zx2c4's pass, a UNIX based password manager.</string>
 </dict>
 </plist>
