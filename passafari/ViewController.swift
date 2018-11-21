@@ -9,6 +9,7 @@
 import Cocoa
 
 class ViewController: NSViewController {
+    var statusBarItem : NSStatusItem? = nil
     
     @IBOutlet weak var passPathTextField: NSTextField!
     @IBOutlet weak var passPathBrowseButton: NSButton!
@@ -19,7 +20,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var showDockCheck: NSButton!
     var dockIconStateKey: String = "dockIconState"
     
-    
+    @IBOutlet weak var showStatusCheck: NSButton!
+    var statusIconStateKey: String = "statusIconState"
+
     @IBAction func browsePassPath(_ sender: Any) {
         let key = "password-store"
         
@@ -55,6 +58,20 @@ class ViewController: NSViewController {
             }
         }
     }
+    
+    @IBAction func toggleStatusIcon(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        if showStatusCheck.state == .on {
+            defaults.set(true, forKey: statusIconStateKey)
+            defaults.synchronize()
+            showStatusItem()
+        } else if showStatusCheck.state == .off {
+            defaults.set(false, forKey: statusIconStateKey)
+            defaults.synchronize()
+            NSStatusBar.system.removeStatusItem(statusBarItem!)
+        }
+    }
+    
     
     func promptForPath(titleString: String) -> URL? {
         let openPanel = NSOpenPanel()
@@ -97,6 +114,15 @@ class ViewController: NSViewController {
             return
         }
     }
+    
+    func showStatusItem() {
+        statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        statusBarItem?.button?.image = NSImage(named: "statusIcon")
+        
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Quit", action: #selector(AppDelegate.quitApp), keyEquivalent: ""))
+        statusBarItem?.menu = menu
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +139,8 @@ class ViewController: NSViewController {
         }
         
         initKey(gpgKeyringPathUrl: gpgKeyringPathUrl!)
+        
+        showStatusItem()
     }
 
     override var representedObject: Any? {
@@ -129,5 +157,13 @@ class ViewController: NSViewController {
             showDockCheck.state = .off
         }
         self.toggleDockIcon(showDockCheck)
+        
+        let statusIconState = UserDefaults.standard.bool(forKey: statusIconStateKey)
+        if statusIconState {
+            showStatusCheck.state = .on
+        } else {
+            showStatusCheck.state = .off
+        }
+        self.toggleStatusIcon(showStatusCheck)
     }
 }

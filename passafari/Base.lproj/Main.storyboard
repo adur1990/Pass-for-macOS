@@ -558,6 +558,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="toggleStatusIcon:" target="XfG-lQ-9wD" id="N2E-Un-DRc"/>
+                                </connections>
                             </button>
                             <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XhP-7l-cem">
                                 <rect key="frame" x="150" y="18" width="54" height="18"/>
@@ -578,6 +581,7 @@
                         <outlet property="passPathBrowseButton" destination="q9a-zQ-TJ2" id="b5Y-bd-6AR"/>
                         <outlet property="passPathTextField" destination="DPR-go-wEp" id="TbG-zf-f3u"/>
                         <outlet property="showDockCheck" destination="XhP-7l-cem" id="fd4-Bz-qEc"/>
+                        <outlet property="showStatusCheck" destination="hXc-Yf-B79" id="Zkh-bs-54F"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
