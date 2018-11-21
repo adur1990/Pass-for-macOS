@@ -120,7 +120,9 @@ class ViewController: NSViewController {
         statusBarItem?.button?.image = NSImage(named: "statusIcon")
         
         let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "Quit", action: #selector(AppDelegate.quitApp), keyEquivalent: ""))
+        menu.addItem(NSMenuItem(title: "Show", action: #selector(AppDelegate.revealWindow), keyEquivalent: "s"))
+        menu.addItem(NSMenuItem.separator())
+        menu.addItem(NSMenuItem(title: "Quit", action: #selector(AppDelegate.quitApp), keyEquivalent: "q"))
         statusBarItem?.menu = menu
     }
 

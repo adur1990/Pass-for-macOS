@@ -22,6 +22,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func quitApp() {
         NSApplication.shared.terminate(self)
     }
+    
+    @objc func revealWindow() {
+        DispatchQueue.main.async {
+            NSApp.activate(ignoringOtherApps: true)
+            NSApp.windows.forEach { $0.makeKeyAndOrderFront(self) }
+        }
+    }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
