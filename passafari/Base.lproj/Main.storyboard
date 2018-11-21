@@ -422,7 +422,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Passafari" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Passafari" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" hidesOnDeactivate="YES" releasedWhenClosed="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -566,6 +566,9 @@
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="toggleDockIcon:" target="XfG-lQ-9wD" id="pkS-Az-n1o"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
@@ -574,6 +577,7 @@
                         <outlet property="keyPathTextField" destination="s4S-r3-3Nt" id="DiB-oj-SNP"/>
                         <outlet property="passPathBrowseButton" destination="q9a-zQ-TJ2" id="b5Y-bd-6AR"/>
                         <outlet property="passPathTextField" destination="DPR-go-wEp" id="TbG-zf-f3u"/>
+                        <outlet property="showDockCheck" destination="XhP-7l-cem" id="fd4-Bz-qEc"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>

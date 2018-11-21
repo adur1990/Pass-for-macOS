@@ -16,6 +16,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var keyPathTextField: NSTextField!
     @IBOutlet weak var keyPathBrowseButton: NSButton!
     
+    @IBOutlet weak var showDockCheck: NSButton!
+    var dockIconStateKey: String = "dockIconState"
+    
     
     @IBAction func browsePassPath(_ sender: Any) {
         let key = "password-store"
@@ -36,6 +39,22 @@ class ViewController: NSViewController {
         }
     }
     
+    @IBAction func toggleDockIcon(_ sender: Any) {
+        let defaults = UserDefaults.standard
+        if showDockCheck.state == .on {
+            defaults.set(true, forKey: dockIconStateKey)
+            defaults.synchronize()
+            NSApp.setActivationPolicy(.regular)
+        } else if showDockCheck.state == .off {
+            defaults.set(false, forKey: dockIconStateKey)
+            defaults.synchronize()
+            NSApp.setActivationPolicy(.accessory)
+            DispatchQueue.main.async {
+                NSApp.activate(ignoringOtherApps: true)
+                NSApp.windows.forEach { $0.makeKeyAndOrderFront(self) }
+            }
+        }
+    }
     
     func promptForPath(titleString: String) -> URL? {
         let openPanel = NSOpenPanel()
@@ -100,5 +119,15 @@ class ViewController: NSViewController {
         didSet {
         // Update the view, if already loaded.
         }
+    }
+    
+    override func viewWillAppear() {
+        let dockIconState = UserDefaults.standard.bool(forKey: dockIconStateKey)
+        if dockIconState {
+            showDockCheck.state = .on
+        } else {
+            showDockCheck.state = .off
+        }
+        self.toggleDockIcon(showDockCheck)
     }
 }
