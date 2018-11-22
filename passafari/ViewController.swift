@@ -107,6 +107,7 @@ class ViewController: NSViewController {
             do {
                 try passwordstore!.importKeys(keyFilePath: secKeyPath.path)
             } catch {
+                gpgKeyringPathUrl.stopAccessingSecurityScopedResource()
                 return
             }
             gpgKeyringPathUrl.stopAccessingSecurityScopedResource()
