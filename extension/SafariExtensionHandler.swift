@@ -26,7 +26,12 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             activeTab!.getActivePage { (activePage) in
                 activePage!.getPropertiesWithCompletionHandler { (pageProperties) in
                     let urlHost = pageProperties!.url?.host
-                    dispatchPasswordSearch(forURL: urlHost!)
+                    
+                    var urlHostComponents = urlHost!.split(separator: ".")
+                    if urlHostComponents[0] == "www" {
+                        urlHostComponents.remove(at: 0)
+                    }
+                    dispatchPasswordSearch(forURL: urlHostComponents.joined(separator: "."))
                 }
             }
         }
