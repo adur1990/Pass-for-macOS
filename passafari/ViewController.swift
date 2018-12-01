@@ -169,4 +169,17 @@ class ViewController: NSViewController {
         }
         self.toggleStatusIcon(showStatusCheck)
     }
+    
+    override func viewDidAppear() {
+        let storyboard = NSStoryboard(name: "Main", bundle: nil)
+        let firstRunWindowController = storyboard.instantiateController(withIdentifier: "FirstRun") as! NSWindowController
+        
+        if let firstRunWindow = firstRunWindowController.window {
+            NSApplication.shared.mainWindow?.beginSheet(firstRunWindow, completionHandler: { (response) in
+                if response == NSApplication.ModalResponse.stop {
+                    NSApp.terminate(self)
+                }
+            })
+        }
+    }
 }
