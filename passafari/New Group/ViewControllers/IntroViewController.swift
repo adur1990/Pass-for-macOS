@@ -8,7 +8,7 @@
 
 import Cocoa
 
-class FirstRunViewController: NSViewController {
+class IntroViewController: NSViewController {
     @IBOutlet weak var nextButton: NSButton!
     
     

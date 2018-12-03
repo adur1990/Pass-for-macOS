@@ -459,10 +459,10 @@
             </objects>
             <point key="canvasLocation" x="638" y="250"/>
         </scene>
-        <!--First Run View Controller-->
+        <!--Intro View Controller-->
         <scene sceneID="VAi-TG-fLD">
             <objects>
-                <viewController id="Xxa-Ti-7z4" customClass="FirstRunViewController" customModule="Passafari" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Xxa-Ti-7z4" customClass="IntroViewController" customModule="Passafari" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="A6S-N6-8xa">
                         <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
                         <autoresizingMask key="autoresizingMask"/>

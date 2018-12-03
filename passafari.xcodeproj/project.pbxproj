@@ -15,7 +15,7 @@
 		75494A0B218CCC7F00148925 /* ServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0A218CCC7F00148925 /* ServerHandler.swift */; };
 		75494A0D218CCD8000148925 /* SecureBookmarkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */; };
 		75494A0F218CCEBD00148925 /* ClientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0E218CCEBD00148925 /* ClientHandler.swift */; };
-		755210BB21AF271600AD11CF /* FirstRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755210BA21AF271600AD11CF /* FirstRunViewController.swift */; };
+		755210BB21AF271600AD11CF /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755210BA21AF271600AD11CF /* IntroViewController.swift */; };
 		755A16A721986EFD00F5E66B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A16A621986EFD00F5E66B /* Helpers.swift */; };
 		756E0B9A2185F9DA0079B98C /* Passwordstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E0B992185F9DA0079B98C /* Passwordstore.swift */; };
 		75E07BE0216E0D8D00EA9CBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */; };
@@ -64,7 +64,7 @@
 		75494A0A218CCC7F00148925 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHandler.swift; sourceTree = "<group>"; };
 		75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureBookmarkHandler.swift; sourceTree = "<group>"; };
 		75494A0E218CCEBD00148925 /* ClientHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHandler.swift; sourceTree = "<group>"; };
-		755210BA21AF271600AD11CF /* FirstRunViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunViewController.swift; sourceTree = "<group>"; };
+		755210BA21AF271600AD11CF /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		755A16A621986EFD00F5E66B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		756E0B992185F9DA0079B98C /* Passwordstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passwordstore.swift; sourceTree = "<group>"; };
 		75E07BDC216E0D8D00EA9CBD /* Passafari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passafari.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,10 +111,18 @@
 		75C32AE721B5AA210038B03E /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				755210BA21AF271600AD11CF /* FirstRunViewController.swift */,
+				75C32AE821B5AAB40038B03E /* ViewControllers */,
 			);
 			name = UI;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		75C32AE821B5AAB40038B03E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				755210BA21AF271600AD11CF /* IntroViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 		75E07BD3216E0D8D00EA9CBD = {
@@ -393,7 +401,7 @@
 				75E07BE0216E0D8D00EA9CBD /* AppDelegate.swift in Sources */,
 				756E0B9A2185F9DA0079B98C /* Passwordstore.swift in Sources */,
 				753FCD9A2174EBBB008E5D95 /* FuzzySearch.swift in Sources */,
-				755210BB21AF271600AD11CF /* FirstRunViewController.swift in Sources */,
+				755210BB21AF271600AD11CF /* IntroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
