@@ -108,6 +108,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		75C32AE721B5AA210038B03E /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				755210BA21AF271600AD11CF /* FirstRunViewController.swift */,
+			);
+			name = UI;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		75E07BD3216E0D8D00EA9CBD = {
 			isa = PBXGroup;
 			children = (
@@ -131,6 +140,7 @@
 		75E07BDE216E0D8D00EA9CBD /* passafari */ = {
 			isa = PBXGroup;
 			children = (
+				75C32AE721B5AA210038B03E /* UI */,
 				756E0B992185F9DA0079B98C /* Passwordstore.swift */,
 				75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */,
 				75E07BE1216E0D8D00EA9CBD /* ViewController.swift */,
@@ -141,7 +151,6 @@
 				753FCD992174EBBB008E5D95 /* FuzzySearch.swift */,
 				75494A0A218CCC7F00148925 /* ServerHandler.swift */,
 				75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */,
-				755210BA21AF271600AD11CF /* FirstRunViewController.swift */,
 			);
 			path = passafari;
 			sourceTree = "<group>";
