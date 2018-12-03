@@ -563,7 +563,7 @@ Gw
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raJ-7X-TAF">
                                 <rect key="frame" x="18" y="114" width="364" height="34"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" enabled="NO" allowsUndo="NO" alignment="justified" title="Please provide the path to you passwordstore. Usually, this is in your home folder: ~/.passwordstore" id="YCV-q1-xwL">
+                                <textFieldCell key="cell" enabled="NO" allowsUndo="NO" alignment="justified" title="Please provide the path to you passwordstore. Usually, this is in your home folder: ~/.password-store" id="YCV-q1-xwL">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -585,11 +585,26 @@ Gw
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="browsePassPath:" target="PqU-4K-tbY" id="be8-rh-M13"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddC-dz-agk">
+                                <rect key="frame" x="247" y="13" width="70" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rZt-71-CkE">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="segueToIntro:" target="PqU-4K-tbY" id="uLm-gv-cdj"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="passPathTextField" destination="7gc-Nl-11c" id="g5F-jt-zgy"/>
+                        <segue destination="Xxa-Ti-7z4" kind="custom" identifier="segueBackToIntro" customClass="ReplaceSegue" customModule="Passafari" customModuleProvider="target" id="f2e-Lr-cd6"/>
                     </connections>
                 </viewController>
                 <customObject id="gfY-RI-gXX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
@@ -746,4 +761,7 @@ Gw
             <point key="canvasLocation" x="75" y="617"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="f2e-Lr-cd6"/>
+    </inferredMetricsTieBreakers>
 </document>

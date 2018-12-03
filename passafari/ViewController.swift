@@ -24,20 +24,16 @@ class ViewController: NSViewController {
     var statusIconStateKey: String = "statusIconState"
 
     @IBAction func browsePassPath(_ sender: Any) {
-        let key = "password-store"
-        
-        if let urlFromPanel = promptForPath(titleString: key) {
-            sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: key)
+        if let urlFromPanel = promptForPath(titleString: storeKey) {
+            sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: storeKey)
             passPathTextField.stringValue = urlFromPanel.path
             passwordstore = Passwordstore(score: 0.3, url: urlFromPanel)
         }
     }
     
-    @IBAction func browseKeyPath(_ sender: Any) {
-        let key = "GPG folder"
-        
-        if let urlFromPanel = promptForPath(titleString: key) {
-            sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: key)
+    @IBAction func browseKeyPath(_ sender: Any) {        
+        if let urlFromPanel = promptForPath(titleString: gpgKey) {
+            sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: gpgKey)
             initKey(gpgKeyringPathUrl: urlFromPanel)
         }
     }
@@ -70,23 +66,6 @@ class ViewController: NSViewController {
             defaults.synchronize()
             NSStatusBar.system.removeStatusItem(statusBarItem!)
         }
-    }
-    
-    
-    func promptForPath(titleString: String) -> URL? {
-        let openPanel = NSOpenPanel()
-        openPanel.directoryURL = FileManager.default.homeDirectoryForCurrentUser
-        openPanel.canChooseDirectories = true
-        openPanel.canChooseFiles = false
-        openPanel.canCreateDirectories = false
-        openPanel.allowsMultipleSelection = false
-        openPanel.showsHiddenFiles = true
-        openPanel.title = "Select path for \(titleString)."
-        
-        if openPanel.runModal() == NSApplication.ModalResponse.OK && !openPanel.urls.isEmpty {
-            return openPanel.url
-        }
-        return nil
     }
     
     func initPaths(forKey key: String) -> URL? {
