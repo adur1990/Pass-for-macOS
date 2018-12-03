@@ -9,11 +9,14 @@
 import Cocoa
 
 class PassPathViewController: NSViewController {
+    @IBOutlet weak var nextViewButton: NSButton!
     @IBOutlet weak var passPathTextField: NSTextField!
     
     @IBAction func segueToKeyPathView(_ sender: Any) {
-        if passPathTextField.stringValue.isEmpty {
+        if passPathTextField.stringValue.isEmpty || firstRunGPGKeyID == nil {
             shake(passPathTextField)
+        } else {
+            performSegue(withIdentifier: "segueToKeyPath", sender: sender)
         }
     }
     
@@ -45,6 +48,12 @@ class PassPathViewController: NSViewController {
     override func viewDidLoad() {
         if (firstRunPassPath != nil) {
             passPathTextField.stringValue = firstRunPassPath!.path
+        }
+    }
+    
+    override func viewDidAppear() {
+        if nextViewButton.acceptsFirstResponder {
+            self.view.window!.makeFirstResponder(nextViewButton)
         }
     }
 }

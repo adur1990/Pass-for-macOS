@@ -11,6 +11,8 @@
 		75044A5421B5AFF900A765B9 /* PassPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75044A5321B5AFF900A765B9 /* PassPathViewController.swift */; };
 		75044A5621B5B11600A765B9 /* ReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75044A5521B5B11600A765B9 /* ReplaceSegue.swift */; };
 		75044A5821B5BF0900A765B9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75044A5721B5BF0900A765B9 /* Helpers.swift */; };
+		75044A5A21B5C56800A765B9 /* KeyPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75044A5921B5C56800A765B9 /* KeyPathViewController.swift */; };
+		75044A5C21B5CA6700A765B9 /* FirstRunWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75044A5B21B5CA6700A765B9 /* FirstRunWindow.swift */; };
 		7511A35E219B52B7008290E9 /* passafariFillForm.js in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */; };
 		7511A361219B53C5008290E9 /* passafariToast.css in Resources */ = {isa = PBXBuildFile; fileRef = 7511A360219B53C5008290E9 /* passafariToast.css */; };
 		753FCD9A2174EBBB008E5D95 /* FuzzySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FCD992174EBBB008E5D95 /* FuzzySearch.swift */; };
@@ -64,6 +66,8 @@
 		75044A5321B5AFF900A765B9 /* PassPathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassPathViewController.swift; sourceTree = "<group>"; };
 		75044A5521B5B11600A765B9 /* ReplaceSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplaceSegue.swift; sourceTree = "<group>"; };
 		75044A5721B5BF0900A765B9 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
+		75044A5921B5C56800A765B9 /* KeyPathViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyPathViewController.swift; sourceTree = "<group>"; };
+		75044A5B21B5CA6700A765B9 /* FirstRunWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunWindow.swift; sourceTree = "<group>"; };
 		7511A360219B53C5008290E9 /* passafariToast.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = passafariToast.css; sourceTree = "<group>"; };
 		753FCD992174EBBB008E5D95 /* FuzzySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzySearch.swift; sourceTree = "<group>"; };
 		7542023821A4904600124A19 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIcon.pdf; path = Icons/ToolbarItemIcon.pdf; sourceTree = SOURCE_ROOT; };
@@ -119,6 +123,7 @@
 			children = (
 				75C32AE821B5AAB40038B03E /* ViewControllers */,
 				75044A5521B5B11600A765B9 /* ReplaceSegue.swift */,
+				75044A5B21B5CA6700A765B9 /* FirstRunWindow.swift */,
 			);
 			name = UI;
 			path = "New Group";
@@ -129,6 +134,7 @@
 			children = (
 				755210BA21AF271600AD11CF /* IntroViewController.swift */,
 				75044A5321B5AFF900A765B9 /* PassPathViewController.swift */,
+				75044A5921B5C56800A765B9 /* KeyPathViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -404,10 +410,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75044A5C21B5CA6700A765B9 /* FirstRunWindow.swift in Sources */,
 				75494A0B218CCC7F00148925 /* ServerHandler.swift in Sources */,
 				75494A0D218CCD8000148925 /* SecureBookmarkHandler.swift in Sources */,
 				75044A5621B5B11600A765B9 /* ReplaceSegue.swift in Sources */,
 				75044A5821B5BF0900A765B9 /* Helpers.swift in Sources */,
+				75044A5A21B5C56800A765B9 /* KeyPathViewController.swift in Sources */,
 				75044A5421B5AFF900A765B9 /* PassPathViewController.swift in Sources */,
 				75E07BE2216E0D8D00EA9CBD /* ViewController.swift in Sources */,
 				75E07BE0216E0D8D00EA9CBD /* AppDelegate.swift in Sources */,
