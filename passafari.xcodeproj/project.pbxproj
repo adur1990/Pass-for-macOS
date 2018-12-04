@@ -15,6 +15,7 @@
 		75494A0B218CCC7F00148925 /* ServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0A218CCC7F00148925 /* ServerHandler.swift */; };
 		75494A0D218CCD8000148925 /* SecureBookmarkHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */; };
 		75494A0F218CCEBD00148925 /* ClientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0E218CCEBD00148925 /* ClientHandler.swift */; };
+		754ABD1221B71DB90051AA18 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 754ABD1121B71DB90051AA18 /* Credits.html */; };
 		7552F4FF21B70817007C8D8C /* ReplaceSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7552F4F721B70817007C8D8C /* ReplaceSegue.swift */; };
 		7552F50021B70817007C8D8C /* FirstRunWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7552F4F821B70817007C8D8C /* FirstRunWindow.swift */; };
 		7552F50121B70817007C8D8C /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7552F4FA21B70817007C8D8C /* IntroViewController.swift */; };
@@ -70,6 +71,7 @@
 		75494A0A218CCC7F00148925 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHandler.swift; sourceTree = "<group>"; };
 		75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureBookmarkHandler.swift; sourceTree = "<group>"; };
 		75494A0E218CCEBD00148925 /* ClientHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHandler.swift; sourceTree = "<group>"; };
+		754ABD1121B71DB90051AA18 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		7552F4F721B70817007C8D8C /* ReplaceSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceSegue.swift; sourceTree = "<group>"; };
 		7552F4F821B70817007C8D8C /* FirstRunWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstRunWindow.swift; sourceTree = "<group>"; };
 		7552F4FA21B70817007C8D8C /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				7552F4F621B70817007C8D8C /* UI */,
 				756E0B992185F9DA0079B98C /* Passwordstore.swift */,
 				75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */,
+				754ABD1121B71DB90051AA18 /* Credits.html */,
 				75E07BE1216E0D8D00EA9CBD /* ViewController.swift */,
 				75E07BE3216E0D8E00EA9CBD /* Assets.xcassets */,
 				75E07BE5216E0D8E00EA9CBD /* Main.storyboard */,
@@ -319,6 +322,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75E07BE4216E0D8E00EA9CBD /* Assets.xcassets in Resources */,
+				754ABD1221B71DB90051AA18 /* Credits.html in Resources */,
 				75E07BE7216E0D8E00EA9CBD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
