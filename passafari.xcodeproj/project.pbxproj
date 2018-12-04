@@ -16,7 +16,7 @@
 		7511A35E219B52B7008290E9 /* passafariFillForm.js in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */; };
 		7511A361219B53C5008290E9 /* passafariToast.css in Resources */ = {isa = PBXBuildFile; fileRef = 7511A360219B53C5008290E9 /* passafariToast.css */; };
 		7514BBEB21B6F8AA00C475DD /* PasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7514BBEA21B6F8AA00C475DD /* PasswordViewController.swift */; };
-		7514BBED21B6FE2F00C475DD /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7514BBEC21B6FE2F00C475DD /* DoneViewController.swift */; };
+		7514BBEF21B7069700C475DD /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7514BBEE21B7069700C475DD /* DoneViewController.swift */; };
 		753FCD9A2174EBBB008E5D95 /* FuzzySearch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 753FCD992174EBBB008E5D95 /* FuzzySearch.swift */; };
 		7542023921A4904600124A19 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7542023821A4904600124A19 /* ToolbarItemIcon.pdf */; };
 		75494A0B218CCC7F00148925 /* ServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0A218CCC7F00148925 /* ServerHandler.swift */; };
@@ -72,7 +72,7 @@
 		75044A5B21B5CA6700A765B9 /* FirstRunWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstRunWindow.swift; sourceTree = "<group>"; };
 		7511A360219B53C5008290E9 /* passafariToast.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = passafariToast.css; sourceTree = "<group>"; };
 		7514BBEA21B6F8AA00C475DD /* PasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordViewController.swift; sourceTree = "<group>"; };
-		7514BBEC21B6FE2F00C475DD /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
+		7514BBEE21B7069700C475DD /* DoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		753FCD992174EBBB008E5D95 /* FuzzySearch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FuzzySearch.swift; sourceTree = "<group>"; };
 		7542023821A4904600124A19 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIcon.pdf; path = Icons/ToolbarItemIcon.pdf; sourceTree = SOURCE_ROOT; };
 		75494A0A218CCC7F00148925 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHandler.swift; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 				75044A5321B5AFF900A765B9 /* PassPathViewController.swift */,
 				75044A5921B5C56800A765B9 /* KeyPathViewController.swift */,
 				7514BBEA21B6F8AA00C475DD /* PasswordViewController.swift */,
-				7514BBEC21B6FE2F00C475DD /* DoneViewController.swift */,
+				7514BBEE21B7069700C475DD /* DoneViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -416,11 +416,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7514BBEF21B7069700C475DD /* DoneViewController.swift in Sources */,
 				75044A5C21B5CA6700A765B9 /* FirstRunWindow.swift in Sources */,
 				75494A0B218CCC7F00148925 /* ServerHandler.swift in Sources */,
 				75494A0D218CCD8000148925 /* SecureBookmarkHandler.swift in Sources */,
 				75044A5621B5B11600A765B9 /* ReplaceSegue.swift in Sources */,
-				7514BBED21B6FE2F00C475DD /* DoneViewController.swift in Sources */,
 				75044A5821B5BF0900A765B9 /* Helpers.swift in Sources */,
 				75044A5A21B5C56800A765B9 /* KeyPathViewController.swift in Sources */,
 				7514BBEB21B6F8AA00C475DD /* PasswordViewController.swift in Sources */,
