@@ -18,10 +18,12 @@ class ViewController: NSViewController {
     @IBOutlet weak var keyPathBrowseButton: NSButton!
     
     @IBOutlet weak var showDockCheck: NSButton!
-    var dockIconStateKey: String = "dockIconState"
+    let dockIconStateKey: String = "dockIconState"
     
     @IBOutlet weak var showStatusCheck: NSButton!
-    var statusIconStateKey: String = "statusIconState"
+    let statusIconStateKey: String = "statusIconState"
+    
+    let isFirstRunKey: String = "firstRun"
 
     @IBAction func browsePassPath(_ sender: Any) {
         if let urlFromPanel = promptForPath(titleString: storeKey) {
@@ -68,6 +70,17 @@ class ViewController: NSViewController {
         }
     }
     
+    func showStatusItem() {
+        statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
+        statusBarItem?.button?.image = NSImage(named: "statusIcon")
+        
+        let menu = NSMenu()
+        menu.addItem(NSMenuItem(title: "Show", action: #selector(AppDelegate.revealWindow), keyEquivalent: "s"))
+        menu.addItem(NSMenuItem.separator())
+        menu.addItem(NSMenuItem(title: "Quit", action: #selector(AppDelegate.quitApp), keyEquivalent: "q"))
+        statusBarItem?.menu = menu
+    }
+    
     func initPaths(forKey key: String) -> URL? {
         let passPathUrlFromBookmark = sharedSecureBookmarkHandler.getPathFromBookmark(forKey: key)
         
@@ -95,19 +108,23 @@ class ViewController: NSViewController {
         }
     }
     
-    func showStatusItem() {
-        statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        statusBarItem?.button?.image = NSImage(named: "statusIcon")
+    override func viewDidAppear() {
+        let alreadyRun = UserDefaults.standard.bool(forKey: isFirstRunKey)
         
-        let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "Show", action: #selector(AppDelegate.revealWindow), keyEquivalent: "s"))
-        menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Quit", action: #selector(AppDelegate.quitApp), keyEquivalent: "q"))
-        statusBarItem?.menu = menu
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        if !alreadyRun {
+            let storyboard = NSStoryboard(name: "Main", bundle: nil)
+            let firstRunWindowController = storyboard.instantiateController(withIdentifier: "FirstRun") as! NSWindowController
+            
+            if let firstRunWindow = firstRunWindowController.window {
+                NSApplication.shared.mainWindow?.beginSheet(firstRunWindow, completionHandler: { (response) in
+                    if response == NSApplication.ModalResponse.stop {
+                        NSApp.terminate(self)
+                    } else if response == NSApplication.ModalResponse.OK {
+                        UserDefaults.standard.set(true, forKey: self.isFirstRunKey)
+                    }
+                })
+            }
+        }
         
         if let passPathUrl = initPaths(forKey: storeKey) {
             passPathTextField.stringValue = passPathUrl.path
@@ -120,17 +137,8 @@ class ViewController: NSViewController {
             initKey(gpgKeyringPathUrl: gpgKeyringPathUrl!)
         }
         
-        
         showStatusItem()
-    }
-
-    override var representedObject: Any? {
-        didSet {
-        // Update the view, if already loaded.
-        }
-    }
-    
-    override func viewWillAppear() {
+        
         let dockIconState = UserDefaults.standard.bool(forKey: dockIconStateKey)
         if dockIconState {
             showDockCheck.state = .on
@@ -146,18 +154,5 @@ class ViewController: NSViewController {
             showStatusCheck.state = .off
         }
         self.toggleStatusIcon(showStatusCheck)
-    }
-    
-    override func viewDidAppear() {
-        let storyboard = NSStoryboard(name: "Main", bundle: nil)
-        let firstRunWindowController = storyboard.instantiateController(withIdentifier: "FirstRun") as! NSWindowController
-        
-        if let firstRunWindow = firstRunWindowController.window {
-            NSApplication.shared.mainWindow?.beginSheet(firstRunWindow, completionHandler: { (response) in
-                if response == NSApplication.ModalResponse.stop {
-                    NSApp.terminate(self)
-                }
-            })
-        }
     }
 }
