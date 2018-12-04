@@ -11,12 +11,11 @@ import Foundation
 import ObjectivePGP
 
 class Passwordstore {
-    var fuzzySearchScore: Double
     var passwordStoreUrl: URL
     var pgpKeyRing: Keyring = Keyring()
+    var passphrase: String = ""
     
-    init(score fuzzySearchScore: Double, url passwordStoreUrl: URL){
-        self.fuzzySearchScore = fuzzySearchScore
+    init(url passwordStoreUrl: URL){
         self.passwordStoreUrl = passwordStoreUrl
     }
     
@@ -46,9 +45,12 @@ class Passwordstore {
                     }) {
                         continue
                     }
+
+                    var matched = false
+                    matched = matched || fullPath.range(of: password, options: .caseInsensitive) != nil
+                    matched = matched || fullPath.range(of: password, options: .caseInsensitive) != nil
                     
-                    // The final scoring. If a path matches at least FUZZY_SEARCH_SCORE, we remember it.
-                    if FuzzySearch.score(originalString:fullPath, stringToMatch: password) > self.fuzzySearchScore {
+                    if matched {
                         resultPaths.append(fsNodeName)
                     }
                 }

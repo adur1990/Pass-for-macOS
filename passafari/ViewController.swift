@@ -29,7 +29,7 @@ class ViewController: NSViewController {
         if let urlFromPanel = promptForPath(titleString: storeKey) {
             sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: storeKey)
             passPathTextField.stringValue = urlFromPanel.path
-            passwordstore = Passwordstore(score: 0.3, url: urlFromPanel)
+            passwordstore = Passwordstore(url: urlFromPanel)
         }
     }
     
@@ -128,7 +128,7 @@ class ViewController: NSViewController {
         
         if let passPathUrl = initPaths(forKey: storeKey) {
             passPathTextField.stringValue = passPathUrl.path
-            passwordstore = Passwordstore(score: 0.3, url: passPathUrl)
+            passwordstore = Passwordstore(url: passPathUrl)
         }
         
         let gpgKeyringPathUrl = initPaths(forKey: gpgKey)
