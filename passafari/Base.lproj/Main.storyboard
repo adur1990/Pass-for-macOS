@@ -961,16 +961,94 @@ DQ
                         <outlet property="nextViewButton" destination="th6-ZU-kIN" id="A8e-w9-cj1"/>
                         <outlet property="passphraseField" destination="NKM-ZC-Hhi" id="2I2-Hj-L5g"/>
                         <segue destination="wGg-Fj-ndk" kind="custom" identifier="segueBackToKeyPath" customClass="ReplaceSegue" customModule="Passafari" customModuleProvider="target" id="rMX-ax-els"/>
+                        <segue destination="RmE-VC-zaC" kind="custom" identifier="segueToAppearence" customClass="ReplaceSegue" customModule="Passafari" customModuleProvider="target" id="D6h-QE-pew"/>
                     </connections>
                 </viewController>
                 <customObject id="RKN-QJ-AjH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="638" y="1692"/>
         </scene>
+        <!--Done View Controller-->
+        <scene sceneID="Byo-CT-eei">
+            <objects>
+                <viewController id="RmE-VC-zaC" customClass="DoneViewController" customModule="Passafari" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="92f-bz-1X9">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="J3l-d3-CW2">
+                                <rect key="frame" x="14" y="13" width="66" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="tTQ-Mt-85z">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="dissmisWindow:" target="RmE-VC-zaC" id="5MG-Ak-pPo"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YLF-20-ayb">
+                                <rect key="frame" x="176" y="156" width="49" height="24"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" title="Done" id="M2Q-0N-K4l">
+                                    <font key="font" metaFont="system" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qSn-YD-KG3">
+                                <rect key="frame" x="314" y="13" width="72" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="CWb-bg-0mQ">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="setupDone:" target="RmE-VC-zaC" id="RK0-r5-z83"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zd1-Vf-zRu">
+                                <rect key="frame" x="244" y="13" width="70" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="vPL-26-aXX">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="segueToPassphrase:" target="RmE-VC-zaC" id="cm9-mj-V7B"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpm-9X-JjQ">
+                                <rect key="frame" x="18" y="83" width="364" height="34"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" enabled="NO" allowsUndo="NO" alignment="justified" title="Congratulations. You have successfully set up Passafari. Have fun logging in to your favorite sites." id="zWZ-Ue-hMJ">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="doneButton" destination="qSn-YD-KG3" id="vta-ch-c2R"/>
+                        <segue destination="t7Z-8k-JPM" kind="custom" identifier="segueBackToPassphrase" customClass="ReplaceSegue" customModule="Passafari" customModuleProvider="target" id="9Ur-lx-tHP"/>
+                    </connections>
+                </viewController>
+                <customObject id="RKh-4K-q16" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="638" y="2018"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="9Ur-lx-tHP"/>
         <segue reference="rMX-ax-els"/>
         <segue reference="TxR-qu-mDy"/>
-        <segue reference="f2e-Lr-cd6"/>
+        <segue reference="fYE-tY-4Kj"/>
     </inferredMetricsTieBreakers>
 </document>
