@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4AC6BEF3F34E679818E4CE99 /* Pods_passafari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83DCA2EE91A6FB8E0FAD22FE /* Pods_passafari.framework */; };
+		2203114B3D56ABA66BEA480C /* Pods_passafari.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76283E4A3B9C707F4948815D /* Pods_passafari.framework */; };
 		75044A5821B5BF0900A765B9 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75044A5721B5BF0900A765B9 /* Helpers.swift */; };
 		7511A35E219B52B7008290E9 /* passafariFillForm.js in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */; };
 		7511A361219B53C5008290E9 /* passafariToast.css in Resources */ = {isa = PBXBuildFile; fileRef = 7511A360219B53C5008290E9 /* passafariToast.css */; };
@@ -33,7 +33,7 @@
 		75E07C17216E0DA700EA9CBD /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07C16216E0DA700EA9CBD /* SafariExtensionViewController.swift */; };
 		75E07C1A216E0DA700EA9CBD /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C18216E0DA700EA9CBD /* SafariExtensionViewController.xib */; };
 		75E07C23216E0DA700EA9CBD /* extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75E07C0F216E0DA700EA9CBD /* extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		89B4D4D91D31DB790F89EC6F /* Pods_extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45B93006617BFE9519B5CDBF /* Pods_extension.framework */; };
+		F0484A129EF26443FE217EEB /* Pods_extension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 240AF0F087A43740C93F9C98 /* Pods_extension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,9 +61,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		45B93006617BFE9519B5CDBF /* Pods_extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		5F9D7F30FF91678F8E23D396 /* Pods-passafari.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-passafari.release.xcconfig"; path = "Pods/Target Support Files/Pods-passafari/Pods-passafari.release.xcconfig"; sourceTree = "<group>"; };
-		6925DBCB5FD8A64A66B848EF /* Pods-extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-extension/Pods-extension.debug.xcconfig"; sourceTree = "<group>"; };
+		1A840AB531E7B3241D43AAC4 /* Pods-passafari.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-passafari.debug.xcconfig"; path = "Pods/Target Support Files/Pods-passafari/Pods-passafari.debug.xcconfig"; sourceTree = "<group>"; };
+		240AF0F087A43740C93F9C98 /* Pods_extension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_extension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6558B9DFB354896D3516A9A3 /* Pods-extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-extension/Pods-extension.release.xcconfig"; sourceTree = "<group>"; };
 		75044A5721B5BF0900A765B9 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		7511A360219B53C5008290E9 /* passafariToast.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = passafariToast.css; sourceTree = "<group>"; };
 		7542023821A4904600124A19 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIcon.pdf; path = Icons/ToolbarItemIcon.pdf; sourceTree = SOURCE_ROOT; };
@@ -94,9 +94,9 @@
 		75E07C1B216E0DA700EA9CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = passafariFillForm.js; sourceTree = "<group>"; };
 		75E07C20216E0DA700EA9CBD /* extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = extension.entitlements; sourceTree = "<group>"; };
-		83DCA2EE91A6FB8E0FAD22FE /* Pods_passafari.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_passafari.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		86ACBB2440B9BE4376FC6799 /* Pods-passafari.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-passafari.debug.xcconfig"; path = "Pods/Target Support Files/Pods-passafari/Pods-passafari.debug.xcconfig"; sourceTree = "<group>"; };
-		CDDAE74C369C2617BE7C3A8F /* Pods-extension.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-extension.release.xcconfig"; path = "Pods/Target Support Files/Pods-extension/Pods-extension.release.xcconfig"; sourceTree = "<group>"; };
+		76283E4A3B9C707F4948815D /* Pods_passafari.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_passafari.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C20DD9F8E3D90907494D64BC /* Pods-passafari.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-passafari.release.xcconfig"; path = "Pods/Target Support Files/Pods-passafari/Pods-passafari.release.xcconfig"; sourceTree = "<group>"; };
+		F6A9DBDFE609C4909F4CDD49 /* Pods-extension.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-extension.debug.xcconfig"; path = "Pods/Target Support Files/Pods-extension/Pods-extension.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +104,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AC6BEF3F34E679818E4CE99 /* Pods_passafari.framework in Frameworks */,
+				2203114B3D56ABA66BEA480C /* Pods_passafari.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,7 +113,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				75E07C12216E0DA700EA9CBD /* Cocoa.framework in Frameworks */,
-				89B4D4D91D31DB790F89EC6F /* Pods_extension.framework in Frameworks */,
+				F0484A129EF26443FE217EEB /* Pods_extension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -149,7 +149,7 @@
 				75E07C13216E0DA700EA9CBD /* extension */,
 				75E07C10216E0DA700EA9CBD /* Frameworks */,
 				75E07BDD216E0D8D00EA9CBD /* Products */,
-				A72F8947C2C0B46F9C6F81BE /* Pods */,
+				C696A25F7C8B18CC2D238782 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -184,8 +184,8 @@
 			isa = PBXGroup;
 			children = (
 				75E07C11216E0DA700EA9CBD /* Cocoa.framework */,
-				45B93006617BFE9519B5CDBF /* Pods_extension.framework */,
-				83DCA2EE91A6FB8E0FAD22FE /* Pods_passafari.framework */,
+				240AF0F087A43740C93F9C98 /* Pods_extension.framework */,
+				76283E4A3B9C707F4948815D /* Pods_passafari.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -207,13 +207,13 @@
 			path = extension;
 			sourceTree = "<group>";
 		};
-		A72F8947C2C0B46F9C6F81BE /* Pods */ = {
+		C696A25F7C8B18CC2D238782 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				6925DBCB5FD8A64A66B848EF /* Pods-extension.debug.xcconfig */,
-				CDDAE74C369C2617BE7C3A8F /* Pods-extension.release.xcconfig */,
-				86ACBB2440B9BE4376FC6799 /* Pods-passafari.debug.xcconfig */,
-				5F9D7F30FF91678F8E23D396 /* Pods-passafari.release.xcconfig */,
+				F6A9DBDFE609C4909F4CDD49 /* Pods-extension.debug.xcconfig */,
+				6558B9DFB354896D3516A9A3 /* Pods-extension.release.xcconfig */,
+				1A840AB531E7B3241D43AAC4 /* Pods-passafari.debug.xcconfig */,
+				C20DD9F8E3D90907494D64BC /* Pods-passafari.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -225,12 +225,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75E07C02216E0D8E00EA9CBD /* Build configuration list for PBXNativeTarget "passafari" */;
 			buildPhases = (
-				20B6F2A7B7DFDE866883DA16 /* [CP] Check Pods Manifest.lock */,
+				936556DD654E71A4E8F60890 /* [CP] Check Pods Manifest.lock */,
 				75E07BD8216E0D8D00EA9CBD /* Sources */,
 				75E07BD9216E0D8D00EA9CBD /* Frameworks */,
 				75E07BDA216E0D8D00EA9CBD /* Resources */,
 				75E07C27216E0DA700EA9CBD /* Embed App Extensions */,
-				00F18454C5D88C82920239A7 /* [CP] Embed Pods Frameworks */,
+				C28CD571D3DC53380D9E09A7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -246,7 +246,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75E07C24216E0DA700EA9CBD /* Build configuration list for PBXNativeTarget "extension" */;
 			buildPhases = (
-				685BF473B4C8584AC80C13FF /* [CP] Check Pods Manifest.lock */,
+				C0E996CE8158048842C6AB7C /* [CP] Check Pods Manifest.lock */,
 				75E07C0B216E0DA700EA9CBD /* Sources */,
 				75E07C0C216E0DA700EA9CBD /* Frameworks */,
 				75E07C0D216E0DA700EA9CBD /* Resources */,
@@ -337,31 +337,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		00F18454C5D88C82920239A7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-passafari/Pods-passafari-frameworks.sh",
-				"${PODS_ROOT}/ObjectivePGP/Frameworks/macosx/ObjectivePGP.framework",
-				"${PODS_ROOT}/ObjectivePGP/Frameworks/macosx/ObjectivePGP.framework.dSYM",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectivePGP.framework",
-				"${DWARF_DSYM_FOLDER_PATH}/ObjectivePGP.framework.dSYM",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-passafari/Pods-passafari-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		20B6F2A7B7DFDE866883DA16 /* [CP] Check Pods Manifest.lock */ = {
+		936556DD654E71A4E8F60890 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -383,7 +359,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		685BF473B4C8584AC80C13FF /* [CP] Check Pods Manifest.lock */ = {
+		C0E996CE8158048842C6AB7C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -403,6 +379,30 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C28CD571D3DC53380D9E09A7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-passafari/Pods-passafari-frameworks.sh",
+				"${PODS_ROOT}/ObjectivePGP/Frameworks/macosx/ObjectivePGP.framework",
+				"${PODS_ROOT}/ObjectivePGP/Frameworks/macosx/ObjectivePGP.framework.dSYM",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectivePGP.framework",
+				"${DWARF_DSYM_FOLDER_PATH}/ObjectivePGP.framework.dSYM",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-passafari/Pods-passafari-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -586,7 +586,7 @@
 		};
 		75E07C03216E0D8E00EA9CBD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 86ACBB2440B9BE4376FC6799 /* Pods-passafari.debug.xcconfig */;
+			baseConfigurationReference = 1A840AB531E7B3241D43AAC4 /* Pods-passafari.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -609,7 +609,7 @@
 		};
 		75E07C04216E0D8E00EA9CBD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5F9D7F30FF91678F8E23D396 /* Pods-passafari.release.xcconfig */;
+			baseConfigurationReference = C20DD9F8E3D90907494D64BC /* Pods-passafari.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -632,7 +632,7 @@
 		};
 		75E07C25216E0DA700EA9CBD /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6925DBCB5FD8A64A66B848EF /* Pods-extension.debug.xcconfig */;
+			baseConfigurationReference = F6A9DBDFE609C4909F4CDD49 /* Pods-extension.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = extension/extension.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
@@ -654,7 +654,7 @@
 		};
 		75E07C26216E0DA700EA9CBD /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CDDAE74C369C2617BE7C3A8F /* Pods-extension.release.xcconfig */;
+			baseConfigurationReference = 6558B9DFB354896D3516A9A3 /* Pods-extension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = extension/extension.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
