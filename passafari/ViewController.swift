@@ -155,4 +155,10 @@ class ViewController: NSViewController {
         }
         self.toggleStatusIcon(showStatusCheck)
     }
+    
+    @IBAction func showHelp(_ sender: Any) {
+        NSWorkspace.shared.open(URL(string: "https://github.com/adur1990?tab=repositories")!)
+    }
+    
+    
 }
