@@ -10,10 +10,12 @@ import Cocoa
 
 let storeKey = "password-store"
 let gpgKey = "GPG folder"
+let privKeyFilename = ".passafari-private"
 
 var firstRunPassPath: URL?
 var firstRunGPGKeyID: String?
 var firstRunKeyPath: URL?
+var firstRunPassphrase: String?
 
 func shake(_ shakeView: NSView) {
     let shake = CABasicAnimation(keyPath: "position")

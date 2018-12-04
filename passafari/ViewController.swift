@@ -79,7 +79,7 @@ class ViewController: NSViewController {
     }
     
     func initKey(gpgKeyringPathUrl: URL) {
-        let secKeyPath = gpgKeyringPathUrl.appendingPathComponent("private")
+        let secKeyPath = gpgKeyringPathUrl.appendingPathComponent(privKeyFilename)
         keyPathTextField.stringValue = secKeyPath.path
         
         if gpgKeyringPathUrl.startAccessingSecurityScopedResource() {
@@ -109,18 +109,17 @@ class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let passPathUrl = initPaths(forKey: "password-store") {
+        if let passPathUrl = initPaths(forKey: storeKey) {
             passPathTextField.stringValue = passPathUrl.path
             passwordstore = Passwordstore(score: 0.3, url: passPathUrl)
         }
         
-        let gpgKeyringPathUrl = initPaths(forKey: "GPG folder")
+        let gpgKeyringPathUrl = initPaths(forKey: gpgKey)
         
-        if gpgKeyringPathUrl == nil {
-            return
+        if gpgKeyringPathUrl != nil {
+            initKey(gpgKeyringPathUrl: gpgKeyringPathUrl!)
         }
         
-        initKey(gpgKeyringPathUrl: gpgKeyringPathUrl!)
         
         showStatusItem()
     }

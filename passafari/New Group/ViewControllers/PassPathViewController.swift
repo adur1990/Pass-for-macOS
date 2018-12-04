@@ -30,6 +30,7 @@ class PassPathViewController: NSViewController {
     
     @IBAction func browsePassPath(_ sender: Any) {
         if let urlFromPanel = promptForPath(titleString: storeKey) {
+            sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: storeKey)
             firstRunPassPath = urlFromPanel
             passPathTextField.stringValue = urlFromPanel.path
             if urlFromPanel.startAccessingSecurityScopedResource() {

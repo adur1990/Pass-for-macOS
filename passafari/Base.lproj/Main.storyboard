@@ -787,6 +787,9 @@ DQ
 Gw
 </string>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="dissmisWindow:" target="wGg-Fj-ndk" id="wlz-M8-Ltn"/>
+                                </connections>
                             </button>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZu-8Q-S76">
                                 <rect key="frame" x="128" y="156" width="144" height="24"/>
@@ -797,37 +800,26 @@ Gw
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tv9-78-Qtd">
-                                <rect key="frame" x="310" y="13" width="76" height="32"/>
+                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Tv9-78-Qtd">
+                                <rect key="frame" x="317" y="13" width="69" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Finish" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="0eJ-Lg-41r">
+                                <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="0eJ-Lg-41r">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="segueToPasswordView:" target="wGg-Fj-ndk" id="7wD-V5-ge6"/>
+                                </connections>
                             </button>
                             <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wb8-TS-gYY">
                                 <rect key="frame" x="18" y="114" width="364" height="34"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" enabled="NO" allowsUndo="NO" alignment="justified" title="Passafari needs your GPG private key. Export it using the command below and provide the path." id="Qlo-lD-d3Z">
+                                <textFieldCell key="cell" enabled="NO" allowsUndo="NO" alignment="justified" title="Passafari needs your GPG private key. Export it using the command below and provide the path to the exported file." id="Qlo-lD-d3Z">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dgz-Si-4T6">
-                                <rect key="frame" x="240" y="13" width="70" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mBn-tx-U8U">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                            </button>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grC-FF-vhF">
-                                <rect key="frame" x="20" y="84" width="360" height="22"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" continuous="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" id="boj-J5-9ae">
-                                    <font key="font" size="9" name="Menlo-Regular"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -847,19 +839,138 @@ Gw
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
+                                <connections>
+                                    <action selector="browseKeyPath:" target="wGg-Fj-ndk" id="pi4-vc-5JF"/>
+                                </connections>
+                            </button>
+                            <textField verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grC-FF-vhF">
+                                <rect key="frame" x="20" y="84" width="360" height="22"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" continuous="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" drawsBackground="YES" id="boj-J5-9ae">
+                                    <font key="font" size="9" name="Menlo-Regular"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dgz-Si-4T6">
+                                <rect key="frame" x="247" y="13" width="70" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="mBn-tx-U8U">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="segueToPassPath:" target="wGg-Fj-ndk" id="xfn-XX-eRn"/>
+                                </connections>
                             </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="commandLabel" destination="grC-FF-vhF" id="mmR-Mr-pNW"/>
+                        <outlet property="keyPathTextField" destination="R6s-Nn-Lhv" id="2CR-qi-Hxh"/>
+                        <outlet property="nextViewButton" destination="Tv9-78-Qtd" id="5dW-T0-zFa"/>
+                        <segue destination="PqU-4K-tbY" kind="custom" identifier="segueBackToPassPath" customClass="ReplaceSegue" customModule="Passafari" customModuleProvider="target" id="TxR-qu-mDy"/>
+                        <segue destination="t7Z-8k-JPM" kind="custom" identifier="segueToPassword" customClass="ReplaceSegue" customModule="Passafari" customModuleProvider="target" id="pKa-7H-6LJ"/>
                     </connections>
                 </viewController>
                 <customObject id="iFR-2j-lO3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="638" y="1362"/>
         </scene>
+        <!--Password View Controller-->
+        <scene sceneID="Vu2-af-eMi">
+            <objects>
+                <viewController id="t7Z-8k-JPM" customClass="PasswordViewController" customModule="Passafari" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="bT6-Fz-gQb">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="200"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vfw-KH-7c6">
+                                <rect key="frame" x="14" y="13" width="66" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="eAO-gO-0eF">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="dissmisWindow:" target="t7Z-8k-JPM" id="ETB-Qu-ApX"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B3t-C4-71M">
+                                <rect key="frame" x="132" y="156" width="137" height="24"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" title="Key passphrase" id="PJY-in-Jwt">
+                                    <font key="font" metaFont="system" size="20"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="th6-ZU-kIN">
+                                <rect key="frame" x="317" y="13" width="69" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="Drq-BU-jFD">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="segueToAppearenceView:" target="t7Z-8k-JPM" id="hNn-Mf-hJN"/>
+                                </connections>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k7R-GO-bGs">
+                                <rect key="frame" x="247" y="13" width="70" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="gqM-5p-hAj">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="segueToKeyPath:" target="t7Z-8k-JPM" id="9tB-XM-N4r"/>
+                                </connections>
+                            </button>
+                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NKM-ZC-Hhi">
+                                <rect key="frame" x="20" y="58" width="360" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Passphrase" drawsBackground="YES" usesSingleLineMode="YES" id="XTp-De-Nw8">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                            </secureTextField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuQ-ZP-5Hq">
+                                <rect key="frame" x="18" y="97" width="364" height="51"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" enabled="NO" allowsUndo="NO" alignment="justified" id="OPe-3d-RBd">
+                                    <font key="font" metaFont="system"/>
+                                    <string key="title">If you want, Passafari can remember the passphrase for the private key. If you do not want this or if your key has no passphrase, simply skip this step.</string>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="nextViewButton" destination="th6-ZU-kIN" id="A8e-w9-cj1"/>
+                        <outlet property="passphraseField" destination="NKM-ZC-Hhi" id="2I2-Hj-L5g"/>
+                        <segue destination="wGg-Fj-ndk" kind="custom" identifier="segueBackToKeyPath" customClass="ReplaceSegue" customModule="Passafari" customModuleProvider="target" id="rMX-ax-els"/>
+                    </connections>
+                </viewController>
+                <customObject id="RKN-QJ-AjH" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="638" y="1692"/>
+        </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="rMX-ax-els"/>
+        <segue reference="TxR-qu-mDy"/>
         <segue reference="f2e-Lr-cd6"/>
     </inferredMetricsTieBreakers>
 </document>
