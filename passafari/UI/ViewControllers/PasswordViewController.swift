@@ -15,7 +15,11 @@ class PasswordViewController: NSViewController {
     @IBAction func segueToAppearenceView(_ sender: Any) {
         if !passphraseField.stringValue.isEmpty {
             firstRunPassphrase = passphraseField.stringValue
-            passwordstore?.passphrase = passphraseField.stringValue
+            do{
+                try storePassphrase(passphrase: passphraseField.stringValue)
+            } catch {
+                print("Can not store passphrase with reason \(error)")
+            }
         }
         performSegue(withIdentifier: "segueToAppearence", sender: sender)
     }

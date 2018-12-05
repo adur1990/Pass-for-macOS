@@ -17,6 +17,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var keyPathTextField: NSTextField!
     @IBOutlet weak var keyPathBrowseButton: NSButton!
     
+    @IBOutlet weak var passphraseField: NSSecureTextField!
+
     @IBOutlet weak var showDockCheck: NSButton!
     let dockIconStateKey: String = "dockIconState"
     
@@ -108,6 +110,27 @@ class ViewController: NSViewController {
         }
     }
     
+    @IBAction func updatePassphrase(_ sender: Any) {
+        let passphrase = passphraseField.stringValue
+        if passphrase.isEmpty {
+            do {
+                try deletePassphrase()
+            } catch {
+                print("Could not delete the passphrase due to reason \(error)")
+            }
+        } else {
+            do {
+                try Passafari.updatePassphrase(passphrase: passphrase)
+            } catch {
+                do {
+                    try storePassphrase(passphrase: passphrase)
+                } catch {
+                    print("Could not store passphrase due to reason \(error)")
+                }
+            }
+        }
+    }
+    
     override func viewDidAppear() {
         let alreadyRun = UserDefaults.standard.bool(forKey: isFirstRunKey)
         
@@ -135,6 +158,12 @@ class ViewController: NSViewController {
         
         if gpgKeyringPathUrl != nil {
             initKey(gpgKeyringPathUrl: gpgKeyringPathUrl!)
+        }
+        
+        do {
+            passphraseField.stringValue = try searchPassphrase()
+        } catch {
+            print("Error getting passphrase with reason \(error)")
         }
         
         showStatusItem()

@@ -13,7 +13,6 @@ import ObjectivePGP
 class Passwordstore {
     var passwordStoreUrl: URL
     var pgpKeyRing: Keyring = Keyring()
-    var passphrase: String = ""
     
     init(url passwordStoreUrl: URL){
         self.passwordStoreUrl = passwordStoreUrl
