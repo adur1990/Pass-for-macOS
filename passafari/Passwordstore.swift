@@ -74,6 +74,7 @@ class Passwordstore {
                 
                 resultPassword = String(data: decryptedPassword, encoding: .utf8) ?? ""
             } catch {
+                self.passwordStoreUrl.stopAccessingSecurityScopedResource()
                 return ""
             }
             
