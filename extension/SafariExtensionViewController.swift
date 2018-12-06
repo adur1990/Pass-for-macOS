@@ -29,8 +29,8 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         popoverViewController().showSearchResults(fromSearchField: true)
     }
     
-        let height = (resultsPasswords!.count * 20)
     func showSearchResults(fromSearchField: Bool = false) {
+        let height = resultsPasswords!.count < 10 ? (resultsPasswords!.count * 20) : (10 * 20)
         popoverViewController().heightConstraint.animator().constant = CGFloat(height)
         
         var width = (resultsPasswords!.max(by: {$1.count > $0.count})?.count)! * 7
