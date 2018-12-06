@@ -46,11 +46,7 @@ class Passwordstore {
                         continue
                     }
 
-                    var matched = false
-                    matched = matched || fullPath.range(of: password, options: .caseInsensitive) != nil
-                    matched = matched || fullPath.range(of: password, options: .caseInsensitive) != nil
-                    
-                    if matched {
+                    if fullPath.localizedCaseInsensitiveContains(password) {
                         resultPaths.append(fsNodeName)
                     }
                 }
