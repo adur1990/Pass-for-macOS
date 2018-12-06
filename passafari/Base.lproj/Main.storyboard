@@ -142,7 +142,7 @@
         <scene sceneID="Gp4-g0-MsQ">
             <objects>
                 <windowController storyboardIdentifier="passphrasePrompt" id="8vI-Og-1Jf" sceneMemberID="viewController">
-                    <window key="window" title="Passafari Passphrase" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="fcU-4z-e5q" customClass="FirstRunWindow" customModule="Passafari" customModuleProvider="target">
+                    <window key="window" title="Passafari Passphrase" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="fcU-4z-e5q">
                         <windowStyleMask key="styleMask" titled="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="249" width="400" height="116"/>
