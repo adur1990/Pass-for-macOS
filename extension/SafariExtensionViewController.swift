@@ -26,6 +26,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     @IBAction func searchPassword(_ sender: NSSearchField) {
         resultsPasswords = sharedClientHandler.searchPasswords(searchString: sender.stringValue)
+        popoverViewController().showSearchResults()
     }
     
     func showSearchResults() {
