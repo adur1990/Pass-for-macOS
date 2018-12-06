@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import os.log
 
 class ViewController: NSViewController {
     var statusBarItem : NSStatusItem? = nil
@@ -101,6 +102,7 @@ class ViewController: NSViewController {
             do {
                 try passwordstore!.importKeys(keyFilePath: secKeyPath.path)
             } catch {
+                os_log(.error, log: logger, "%s", "Can not import private key because \(error).")
                 gpgKeyringPathUrl.stopAccessingSecurityScopedResource()
                 return
             }
@@ -116,7 +118,7 @@ class ViewController: NSViewController {
             do {
                 try deletePassphrase()
             } catch {
-                print("Could not delete the passphrase due to reason \(error)")
+                os_log(.error, log: logger, "%s", "Could not delete the passphrase due to reason \(error).")
             }
         } else {
             do {
@@ -125,7 +127,7 @@ class ViewController: NSViewController {
                 do {
                     try storePassphrase(passphrase: passphrase)
                 } catch {
-                    print("Could not store passphrase due to reason \(error)")
+                    os_log(.error, log: logger, "%s", "Could not store passphrase due to reason \(error).")
                 }
             }
         }
@@ -163,7 +165,7 @@ class ViewController: NSViewController {
         do {
             passphraseField.stringValue = try searchPassphrase()
         } catch {
-            print("Error getting passphrase with reason \(error)")
+            os_log(.error, log: logger, "%s", "Error getting passphrase with reason \(error).")
         }
         
         showStatusItem()
@@ -188,6 +190,4 @@ class ViewController: NSViewController {
     @IBAction func showHelp(_ sender: Any) {
         NSWorkspace.shared.open(URL(string: "https://github.com/adur1990?tab=repositories")!)
     }
-    
-    
 }

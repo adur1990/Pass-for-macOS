@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 let sharedSecureBookmarkHandler = SecureBookmarkHandler()
 
@@ -17,10 +18,12 @@ class SecureBookmarkHandler {
             
             let url = try! (NSURL(resolvingBookmarkData: data, options: [.withoutUI, .withSecurityScope], relativeTo: nil, bookmarkDataIsStale: &bookmarkDataIsStale) as URL)
             if bookmarkDataIsStale.boolValue {
+                os_log(.error, log: logger, "%s", "Could not get path from bookmark, because bookmark is \(url) stale.")
                 return nil
             }
             return url
         }
+        os_log(.error, log: logger, "%s", "Key \(key) was not found in bookmark store.")
         return nil
     }
     

@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import os.log
 
 class PasswordViewController: NSViewController {
     @IBOutlet weak var nextViewButton: NSButton!
@@ -18,7 +19,7 @@ class PasswordViewController: NSViewController {
             do{
                 try storePassphrase(passphrase: passphraseField.stringValue)
             } catch {
-                print("Can not store passphrase with reason \(error)")
+                os_log(.error, log: logger, "%s", "Can not store passphrase with reason \(error).")
             }
         }
         performSegue(withIdentifier: "segueToAppearence", sender: sender)

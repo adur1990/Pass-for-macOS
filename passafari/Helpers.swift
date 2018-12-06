@@ -7,6 +7,9 @@
 //
 
 import Cocoa
+import os.log
+
+let logger = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "Extension")
 
 let storeKey = "password-store"
 let gpgKey = "GPG folder"

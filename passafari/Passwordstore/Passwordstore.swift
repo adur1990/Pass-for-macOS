@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 import ObjectivePGP
 
@@ -70,7 +71,7 @@ class Passwordstore {
                 
                 return String(data: decryptedPassword, encoding: .utf8) ?? ""
             } catch {
-                print("Could not decrypt password due to error \(error)")
+                os_log(.error, log: logger, "%s", "Could not decrypt password due to error \(error)")
                 return ""
             }
         }
@@ -88,7 +89,7 @@ class Passwordstore {
                 
                 return String(data: decryptedPassword, encoding: .utf8) ?? ""
             } catch {
-                print("Could not decrpyt password due to error \(error)")
+                os_log(.error, log: logger, "%s", "Could not decrpyt password due to error \(error)")
                 return ""
             }
         }
@@ -105,13 +106,13 @@ class Passwordstore {
             do {
                 passphrase = try searchPassphrase()
             } catch {
-                print("Could not find passphrase because \(error)")
+                os_log(.error, log: logger, "%s", "Could not find passphrase because \(error)")
             }
             
             do {
                 encryptedFile = try Data(contentsOf: encryptedFileUrl)
             } catch {
-                print("Could not read password file.")
+                os_log(.error, log: logger, "%s", "Could not read password file: \(error)")
                 self.passwordStoreUrl.stopAccessingSecurityScopedResource()
                 return ""
             }
@@ -122,6 +123,7 @@ class Passwordstore {
             
             return resultPassword
         }
+        os_log(.error, log: logger, "%s", "Could not access security scoped resource in decryption.")
         
         return ""
     }

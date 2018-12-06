@@ -8,6 +8,9 @@
 
 import Foundation
 import SafariServices
+import os.log
+
+let logger = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "Extension")
 
 func fillPasswordFromSelection(pass: String? = nil) {
     let credentials: [String]
@@ -19,6 +22,7 @@ func fillPasswordFromSelection(pass: String? = nil) {
     var item = pass
     if pass == nil {
         if SafariExtensionViewController.shared.searchResultsTable.selectedRow < 0 {
+            os_log(.error, log: logger, "%s", "Something went wrong. There are not results in the results table")
             return
         }
         item = resultsPasswords?[SafariExtensionViewController.shared.searchResultsTable.selectedRow]

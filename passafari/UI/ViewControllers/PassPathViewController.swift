@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import os.log
 
 class PassPathViewController: NSViewController {
     @IBOutlet weak var nextViewButton: NSButton!
@@ -38,6 +39,7 @@ class PassPathViewController: NSViewController {
                 do{
                     firstRunGPGKeyID = try String(contentsOf: keyIDUrl, encoding: .utf8).trimmingCharacters(in: .whitespacesAndNewlines)
                 } catch {
+                    os_log(.error, log: logger, "%s", "Can not read GPG key ID because \(error).")
                     urlFromPanel.stopAccessingSecurityScopedResource()
                     return
                 }

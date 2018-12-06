@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import os.log
 
 let sharedClientHandler = ClientHandler()
 
@@ -31,6 +32,7 @@ class ClientHandler {
             let searchString = String(data: receivedData, encoding: .utf8)!
             return searchString.split(separator: ";").map {String($0)}
         } else {
+            os_log(.error, log: logger, "%s", "Could not dispatch password search with state \(status)")
             return nil
         }
         
@@ -52,6 +54,7 @@ class ClientHandler {
             let decryptedPassword = String(data: receivedData, encoding: .utf8)!
             return decryptedPassword
         } else {
+            os_log(.error, log: logger, "%s", "Could not dispatch password decryption with state \(status)")
             return nil
         }
         
