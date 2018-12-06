@@ -17,6 +17,8 @@ var firstRunGPGKeyID: String?
 var firstRunKeyPath: URL?
 var firstRunPassphrase: String?
 
+var tmpPassphrase: String = ""
+
 func shake(_ shakeView: NSView) {
     let shake = CABasicAnimation(keyPath: "position")
     let xDelta = CGFloat(10)
@@ -50,4 +52,23 @@ func promptForPath(titleString: String) -> URL? {
         return openPanel.url
     }
     return nil
+}
+
+func promptForPassphrase() -> String {
+    let storyboard = NSStoryboard(name: "Main", bundle: nil)
+    let passPromptWindowController = storyboard.instantiateController(withIdentifier: "passphrasePrompt") as! NSWindowController
+    
+    if let passPromptWindow = passPromptWindowController.window {
+        passPromptWindow.makeKey()
+        if NSApp.runModal(for: passPromptWindow) == NSApplication.ModalResponse.OK {
+            passPromptWindowController.close()
+        } else {
+            passPromptWindowController.close()
+        }
+    }
+    
+    let passphraseToReturn = tmpPassphrase
+    tmpPassphrase = ""
+    
+    return passphraseToReturn
 }

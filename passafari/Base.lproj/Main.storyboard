@@ -138,6 +138,94 @@
             </objects>
             <point key="canvasLocation" x="638" y="250"/>
         </scene>
+        <!--Window Controller-->
+        <scene sceneID="Gp4-g0-MsQ">
+            <objects>
+                <windowController storyboardIdentifier="passphrasePrompt" id="8vI-Og-1Jf" sceneMemberID="viewController">
+                    <window key="window" title="Passafari Passphrase" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="fcU-4z-e5q" customClass="FirstRunWindow" customModule="Passafari" customModuleProvider="target">
+                        <windowStyleMask key="styleMask" titled="YES"/>
+                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+                        <rect key="contentRect" x="196" y="249" width="400" height="116"/>
+                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
+                        <connections>
+                            <outlet property="delegate" destination="8vI-Og-1Jf" id="YuD-ej-PRg"/>
+                        </connections>
+                    </window>
+                    <connections>
+                        <segue destination="W7S-iE-T3U" kind="relationship" relationship="window.shadowedContentViewController" id="wCg-JB-qfK"/>
+                    </connections>
+                </windowController>
+                <customObject id="UVV-kz-lWb" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175" y="234"/>
+        </scene>
+        <!--Pass Prompt View Controller-->
+        <scene sceneID="wDG-fe-fgw">
+            <objects>
+                <viewController id="W7S-iE-T3U" customClass="PassPromptViewController" customModule="Passafari" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="nBQ-Uz-qQF">
+                        <rect key="frame" x="0.0" y="0.0" width="400" height="116"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="agm-P4-2aI">
+                                <rect key="frame" x="20" y="49" width="360" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" allowsUndo="NO" borderStyle="bezel" drawsBackground="YES" usesSingleLineMode="YES" id="DyD-xa-vgM">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
+                                </secureTextFieldCell>
+                            </secureTextField>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pPm-0i-cvV">
+                                <rect key="frame" x="14" y="13" width="82" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="8fw-z2-vgb">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="cancelButton:" target="W7S-iE-T3U" id="zNb-cX-HJs"/>
+                                </connections>
+                            </button>
+                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="V1H-HU-zbu">
+                                <rect key="frame" x="303" y="13" width="83" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Unlock" bezelStyle="rounded" alignment="center" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="U7N-aS-zhg">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="okButton:" target="W7S-iE-T3U" id="mbv-3z-SUE"/>
+                                </connections>
+                            </button>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f7K-EJ-DbX">
+                                <rect key="frame" x="67" y="79" width="266" height="17"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="Please enter your passphrase for Passafari." id="Sv6-mC-8TA">
+                                    <font key="font" usesAppearanceFont="YES"/>
+                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </view>
+                    <connections>
+                        <outlet property="passphraseField" destination="agm-P4-2aI" id="t61-nX-r35"/>
+                    </connections>
+                </viewController>
+                <customObject id="gcy-jd-Kpu" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1175" y="489"/>
+        </scene>
         <!--Intro View Controller-->
         <scene sceneID="VAi-TG-fLD">
             <objects>
@@ -376,6 +464,9 @@ DQ
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    <allowedInputSourceLocales>
+                                        <string>NSAllRomanInputSourcesLocaleIdentifier</string>
+                                    </allowedInputSourceLocales>
                                 </secureTextFieldCell>
                                 <connections>
                                     <action selector="updatePassphrase:" target="XfG-lQ-9wD" id="IU0-Bm-KoH"/>
@@ -720,7 +811,7 @@ DQ
     <inferredMetricsTieBreakers>
         <segue reference="9Ur-lx-tHP"/>
         <segue reference="rMX-ax-els"/>
-        <segue reference="TxR-qu-mDy"/>
+        <segue reference="aBY-Z6-U3b"/>
         <segue reference="fYE-tY-4Kj"/>
     </inferredMetricsTieBreakers>
 </document>

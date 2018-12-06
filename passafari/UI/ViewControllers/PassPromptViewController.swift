@@ -9,10 +9,15 @@
 import Cocoa
 
 class PassPromptViewController: NSViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do view setup here.
+    @IBOutlet weak var passphraseField: NSSecureTextField!
+    
+    @IBAction func okButton(_ sender: Any) {
+        tmpPassphrase = passphraseField.stringValue
+        NSApp.stopModal(withCode: NSApplication.ModalResponse.OK)
     }
     
+    @IBAction func cancelButton(_ sender: Any) {
+        tmpPassphrase = ""
+        NSApp.stopModal(withCode: NSApplication.ModalResponse.cancel)
+    }
 }

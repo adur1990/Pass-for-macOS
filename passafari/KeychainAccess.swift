@@ -44,7 +44,6 @@ func searchPassphrase() throws -> String {
     guard let passphraseData = item as? Data,
         let passphrase = String(data: passphraseData, encoding: .utf8)
         else {
-            print(item as! Data)
             throw KeychainError.unexpectedPasswordData
     }
 

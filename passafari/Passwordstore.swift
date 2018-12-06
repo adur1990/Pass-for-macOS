@@ -61,27 +61,69 @@ class Passwordstore {
         return resultPaths
     }
     
+    func decrypt(passphrase: String, encryptedFile: Data) -> String {
+        if !passphrase.isEmpty {
+            do {
+                let decryptedPassword = try ObjectivePGP.decrypt(encryptedFile, andVerifySignature: false, using: self.pgpKeyRing.keys, passphraseForKey: { (key) -> String? in
+                    return passphrase
+                })
+                
+                return String(data: decryptedPassword, encoding: .utf8) ?? ""
+            } catch {
+                print("Could not decrypt password due to error \(error)")
+                return ""
+            }
+        }
+        
+        do {
+            let decryptedPassword = try ObjectivePGP.decrypt(encryptedFile, andVerifySignature: false, using: self.pgpKeyRing.keys)
+            
+            return String(data: decryptedPassword, encoding: .utf8) ?? ""
+        } catch {
+            let tmpPassphrase = promptForPassphrase()
+            do {
+                let decryptedPassword = try ObjectivePGP.decrypt(encryptedFile, andVerifySignature: false, using: self.pgpKeyRing.keys, passphraseForKey: { (key) -> String? in
+                    return tmpPassphrase
+                })
+                
+                return String(data: decryptedPassword, encoding: .utf8) ?? ""
+            } catch {
+                print("Could not decrpyt password due to error \(error)")
+                return ""
+            }
+        }
+    }
+    
     func passDecrypt(pathToFile: String) -> String {
         var resultPassword = ""
         if self.passwordStoreUrl.startAccessingSecurityScopedResource() {
+            let encryptedFileUrl = passwordstore!.passwordStoreUrl.appendingPathComponent(pathToFile)
+            
+            var passphrase: String = ""
+            var encryptedFile: Data?
+            
             do {
-                let encryptedFileUrl = passwordstore!.passwordStoreUrl.appendingPathComponent(pathToFile)
-                let encryptedFile = try Data(contentsOf: encryptedFileUrl)
-                
-                let decryptedPassword = try ObjectivePGP.decrypt(encryptedFile, andVerifySignature: false, using: self.pgpKeyRing.keys, passphraseForKey: { (key) -> String? in
-                    return "supersecretpassphrase"
-                })
-                
-                resultPassword = String(data: decryptedPassword, encoding: .utf8) ?? ""
+                passphrase = try searchPassphrase()
             } catch {
+                print("Could not find passphrase because \(error)")
+            }
+            
+            do {
+                encryptedFile = try Data(contentsOf: encryptedFileUrl)
+            } catch {
+                print("Could not read password file.")
                 self.passwordStoreUrl.stopAccessingSecurityScopedResource()
                 return ""
             }
             
+            resultPassword = decrypt(passphrase: passphrase, encryptedFile: encryptedFile!)
+            
             self.passwordStoreUrl.stopAccessingSecurityScopedResource()
+            
+            return resultPassword
         }
         
-        return resultPassword
+        return ""
     }
     
     func importKeys(keyFilePath: String) throws {

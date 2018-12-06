@@ -25,6 +25,7 @@
 		7552F50521B70817007C8D8C /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7552F4FE21B70817007C8D8C /* DoneViewController.swift */; };
 		755A16A721986EFD00F5E66B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A16A621986EFD00F5E66B /* Helpers.swift */; };
 		7560B42821B849CD00DF3F60 /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560B42721B849CD00DF3F60 /* KeychainAccess.swift */; };
+		7560B42A21B874AB00DF3F60 /* PassPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560B42921B874AB00DF3F60 /* PassPromptViewController.swift */; };
 		756E0B9A2185F9DA0079B98C /* Passwordstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E0B992185F9DA0079B98C /* Passwordstore.swift */; };
 		75E07BE0216E0D8D00EA9CBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */; };
 		75E07BE2216E0D8D00EA9CBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BE1216E0D8D00EA9CBD /* ViewController.swift */; };
@@ -82,6 +83,7 @@
 		7552F4FE21B70817007C8D8C /* DoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		755A16A621986EFD00F5E66B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		7560B42721B849CD00DF3F60 /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccess.swift; sourceTree = "<group>"; };
+		7560B42921B874AB00DF3F60 /* PassPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassPromptViewController.swift; sourceTree = "<group>"; };
 		756E0B992185F9DA0079B98C /* Passwordstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passwordstore.swift; sourceTree = "<group>"; };
 		75E07BDC216E0D8D00EA9CBD /* Passafari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passafari.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +144,7 @@
 				7552F4FC21B70817007C8D8C /* KeyPathViewController.swift */,
 				7552F4FD21B70817007C8D8C /* PassPathViewController.swift */,
 				7552F4FE21B70817007C8D8C /* DoneViewController.swift */,
+				7560B42921B874AB00DF3F60 /* PassPromptViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -430,6 +433,7 @@
 				7552F50221B70817007C8D8C /* PasswordViewController.swift in Sources */,
 				7552F50421B70817007C8D8C /* PassPathViewController.swift in Sources */,
 				7552F50021B70817007C8D8C /* FirstRunWindow.swift in Sources */,
+				7560B42A21B874AB00DF3F60 /* PassPromptViewController.swift in Sources */,
 				75044A5821B5BF0900A765B9 /* Helpers.swift in Sources */,
 				7552F50121B70817007C8D8C /* IntroViewController.swift in Sources */,
 				75E07BE2216E0D8D00EA9CBD /* ViewController.swift in Sources */,
