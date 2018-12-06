@@ -26,11 +26,11 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     @IBAction func searchPassword(_ sender: NSSearchField) {
         resultsPasswords = sharedClientHandler.searchPasswords(searchString: sender.stringValue)
-        popoverViewController().showSearchResults()
+        popoverViewController().showSearchResults(fromSearchField: true)
     }
     
-    func showSearchResults() {
         let height = (resultsPasswords!.count * 20)
+    func showSearchResults(fromSearchField: Bool = false) {
         popoverViewController().heightConstraint.animator().constant = CGFloat(height)
         
         var width = (resultsPasswords!.max(by: {$1.count > $0.count})?.count)! * 7
@@ -48,8 +48,10 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             }
         }
         
-        popoverViewController().searchResultsTable.selectRowIndexes(NSIndexSet(index: 0) as IndexSet, byExtendingSelection: true)
-        popoverViewController().view.window?.makeFirstResponder(popoverViewController().searchResultsTable)
+        if !fromSearchField {
+            popoverViewController().searchResultsTable.selectRowIndexes(NSIndexSet(index: 0) as IndexSet, byExtendingSelection: true)
+            popoverViewController().view.window?.makeFirstResponder(popoverViewController().searchResultsTable)
+        }
     }
     
     override func viewDidLoad() {
