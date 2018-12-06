@@ -70,8 +70,8 @@
 		75044A5721B5BF0900A765B9 /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		7511A360219B53C5008290E9 /* passafariToast.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = passafariToast.css; sourceTree = "<group>"; };
 		7542023821A4904600124A19 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIcon.pdf; path = Icons/ToolbarItemIcon.pdf; sourceTree = SOURCE_ROOT; };
-		75494A0A218CCC7F00148925 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerHandler.swift; sourceTree = "<group>"; };
-		75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecureBookmarkHandler.swift; sourceTree = "<group>"; };
+		75494A0A218CCC7F00148925 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServerHandler.swift; path = passafari/Communications/ServerHandler.swift; sourceTree = SOURCE_ROOT; };
+		75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SecureBookmarkHandler.swift; path = passafari/Communications/SecureBookmarkHandler.swift; sourceTree = SOURCE_ROOT; };
 		75494A0E218CCEBD00148925 /* ClientHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHandler.swift; sourceTree = "<group>"; };
 		754ABD1121B71DB90051AA18 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		7552F4F721B70817007C8D8C /* ReplaceSegue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReplaceSegue.swift; sourceTree = "<group>"; };
@@ -82,7 +82,7 @@
 		7552F4FD21B70817007C8D8C /* PassPathViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassPathViewController.swift; sourceTree = "<group>"; };
 		7552F4FE21B70817007C8D8C /* DoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
 		755A16A621986EFD00F5E66B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
-		7560B42721B849CD00DF3F60 /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainAccess.swift; sourceTree = "<group>"; };
+		7560B42721B849CD00DF3F60 /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeychainAccess.swift; path = passafari/Communications/KeychainAccess.swift; sourceTree = SOURCE_ROOT; };
 		7560B42921B874AB00DF3F60 /* PassPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassPromptViewController.swift; sourceTree = "<group>"; };
 		756E0B992185F9DA0079B98C /* Passwordstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passwordstore.swift; sourceTree = "<group>"; };
 		75E07BDC216E0D8D00EA9CBD /* Passafari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passafari.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -126,6 +126,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7520122621B9A8B5004D2942 /* Communications */ = {
+			isa = PBXGroup;
+			children = (
+				75494A0A218CCC7F00148925 /* ServerHandler.swift */,
+				75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */,
+				7560B42721B849CD00DF3F60 /* KeychainAccess.swift */,
+			);
+			path = Communications;
+			sourceTree = "<group>";
+		};
+		7520122721B9A989004D2942 /* Passwordstore */ = {
+			isa = PBXGroup;
+			children = (
+				756E0B992185F9DA0079B98C /* Passwordstore.swift */,
+			);
+			path = Passwordstore;
+			sourceTree = "<group>";
+		};
 		7552F4F621B70817007C8D8C /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,8 +190,9 @@
 		75E07BDE216E0D8D00EA9CBD /* passafari */ = {
 			isa = PBXGroup;
 			children = (
+				7520122721B9A989004D2942 /* Passwordstore */,
+				7520122621B9A8B5004D2942 /* Communications */,
 				7552F4F621B70817007C8D8C /* UI */,
-				756E0B992185F9DA0079B98C /* Passwordstore.swift */,
 				75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */,
 				754ABD1121B71DB90051AA18 /* Credits.html */,
 				75E07BE1216E0D8D00EA9CBD /* ViewController.swift */,
@@ -181,10 +200,7 @@
 				75E07BE5216E0D8E00EA9CBD /* Main.storyboard */,
 				75E07BE8216E0D8E00EA9CBD /* Info.plist */,
 				75E07BE9216E0D8E00EA9CBD /* passafari.entitlements */,
-				75494A0A218CCC7F00148925 /* ServerHandler.swift */,
-				75494A0C218CCD8000148925 /* SecureBookmarkHandler.swift */,
 				75044A5721B5BF0900A765B9 /* Helpers.swift */,
-				7560B42721B849CD00DF3F60 /* KeychainAccess.swift */,
 			);
 			path = passafari;
 			sourceTree = "<group>";
