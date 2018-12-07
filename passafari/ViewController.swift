@@ -212,6 +212,6 @@ class ViewController: NSViewController {
     }
     
     @IBAction func showHelp(_ sender: Any) {
-        NSWorkspace.shared.open(URL(string: "https://github.com/adur1990?tab=repositories")!)
+        NSWorkspace.shared.open(URL(string: "https://github.com/adur1990/Passafari")!)
     }
 }
