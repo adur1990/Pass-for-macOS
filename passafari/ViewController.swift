@@ -147,25 +147,7 @@ class ViewController: NSViewController {
         }
     }
     
-    override func viewDidAppear() {
-        // Check, if the app is already set up.
-        // If not, run the initial setup sheet.
-        let alreadyRun = UserDefaults.standard.bool(forKey: isFirstRunKey)
-        if !alreadyRun {
-            let storyboard = NSStoryboard(name: "Main", bundle: nil)
-            let firstRunWindowController = storyboard.instantiateController(withIdentifier: "FirstRun") as! NSWindowController
-            
-            if let firstRunWindow = firstRunWindowController.window {
-                NSApplication.shared.mainWindow?.beginSheet(firstRunWindow, completionHandler: { (response) in
-                    if response == NSApplication.ModalResponse.stop {
-                        NSApp.terminate(self)
-                    } else if response == NSApplication.ModalResponse.OK {
-                        UserDefaults.standard.set(true, forKey: self.isFirstRunKey)
-                    }
-                })
-            }
-        }
-        
+    func initApp() {
         // Init the passwordstore.
         if let passPathUrl = initPaths(forKey: storeKey) {
             passPathTextField.stringValue = passPathUrl.path
@@ -203,6 +185,30 @@ class ViewController: NSViewController {
             showStatusCheck.state = .off
         }
         self.toggleStatusIcon(showStatusCheck)
+    }
+    
+    override func viewDidAppear() {
+        // Check, if the app is already set up.
+        // If not, run the initial setup sheet.
+        let alreadyRun = UserDefaults.standard.bool(forKey: isFirstRunKey)
+        if !alreadyRun {
+            let storyboard = NSStoryboard(name: "Main", bundle: nil)
+            let firstRunWindowController = storyboard.instantiateController(withIdentifier: "FirstRun") as! NSWindowController
+            
+            if let firstRunWindow = firstRunWindowController.window {
+                NSApplication.shared.mainWindow?.beginSheet(firstRunWindow, completionHandler: { (response) in
+                    if response == NSApplication.ModalResponse.stop {
+                        NSApp.terminate(self)
+                    } else if response == NSApplication.ModalResponse.OK {
+                        UserDefaults.standard.set(true, forKey: self.isFirstRunKey)
+                        self.initApp()
+                    }
+                })
+            }
+        } else {
+            initApp()
+        }
+        
     }
     
     @IBAction func showHelp(_ sender: Any) {
