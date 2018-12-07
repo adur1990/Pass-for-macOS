@@ -52,7 +52,7 @@ We try to have as few dependencies as possible. But there still is one dependenc
 Checkout this repo and install the dependencies using Cocoapods:
 
 ```
-$ git clone TODO
+$ git clone git@github.com:adur1990/Passafari.git
 $ cd passafari
 $ pod install
 ```
@@ -145,4 +145,4 @@ Unfortunately, Apple does not offer an option to invoke the toolbar popover when
 You will see a little notification on the top right if a password is autofilled using the shortcut.
 
 ## Contributing
-Any help is welcome, regardles if issue, pull request or comment. Feel free to open issues if something happens, create pull requests if you have any fixes, updates or new features or ping me via mail if you have questions.
+Any help is welcome, regardles if issue, pull request or comment. Feel free to open issues if something happens, create pull requests if you have any fixes, updates or new features or ping me via mail if you have questions. But please, be as precise as possible when creating issues. Give me as much information as possible, to make it possible for me to find, reproduce and fix your issues.
