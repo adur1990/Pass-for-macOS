@@ -25,23 +25,32 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     
     @IBAction func searchPassword(_ sender: NSSearchField) {
+        // This function is used, when the searchfield is used.
         resultsPasswords = sharedClientHandler.searchPasswords(searchString: sender.stringValue)
         popoverViewController().showSearchResults(fromSearchField: true)
     }
     
     func showSearchResults(fromSearchField: Bool = false) {
+        // Show the results in the table
+        
+        // Set the height of the popover.
+        // Limit the size to 10 elements
         let height = resultsPasswords!.count < 10 ? (resultsPasswords!.count * 20) : (10 * 20)
         popoverViewController().heightConstraint.animator().constant = CGFloat(height)
         
+        // Set the width of the popover, so that all results fit.
+        // It should be at least 330 wide.
         var width = (resultsPasswords!.max(by: {$1.count > $0.count})?.count)! * 7
         if width < 330 {
             width = 330
         }
         popoverViewController().widthConstraint.animator().constant = CGFloat(width)
         
+        // show the table
         popoverViewController().searchResultsTable.isHidden = false
         popoverViewController().searchResultsTable.reloadData()
         
+        // Do not set the focus, if app is not running, no passwords where found or the shortcut was used.
         if resultsPasswords!.count == 1 {
             if resultsPasswords![0] == "The Passafari app is not running."  || resultsPasswords![0] == "No matching password found." {
                 return
@@ -70,6 +79,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     override func keyDown(with event: NSEvent) {
         if event.keyCode == 36 {
+            // If the enter key was pressed, the selected password will be used for auto fill
             fillPasswordFromSelection()
         }
     }

@@ -9,6 +9,7 @@
 import Foundation
 
 class ServerHandler {
+    // This class handles the host's server part of the mach port communication between the extension and the host app.
     init() {
         let port = CFMessagePortCreateLocal(nil, "BR355MFMD5.de.artursterz.passafari.messageport" as CFString, serverHandler(), nil, nil)
         let runLoopSource = CFMessagePortCreateRunLoopSource(nil, port, 0)
@@ -18,6 +19,7 @@ class ServerHandler {
     func serverHandler() -> CFMessagePortCallBack {
         return { (messagePort: CFMessagePort?, messageID: Int32, data: CFData?, info: UnsafeMutableRawPointer?) -> Unmanaged<CFData>? in
             
+            // Search
             if messageID == 0x1 {
                 let receivedData = data! as Data
                 let searchString = String(data: receivedData, encoding: .utf8)!
@@ -28,12 +30,15 @@ class ServerHandler {
                     foundPasswords = ["No matching password found."]
                 }
                 
+                // This is a fairly simple serialization for the mach port. Just make a big string containing all passwords seperated by ;
                 let returnPasswords = foundPasswords.joined(separator: ";")
                 
                 let returnData = CFDataCreate(nil, returnPasswords, returnPasswords.count)!
                 
                 return Unmanaged.passRetained(returnData)
-            } else if messageID == 0x2 {
+            } else
+                // Decrypt
+            if messageID == 0x2 {
                 let receivedData = data! as Data
                 let passwordFile = String(data: receivedData, encoding: .utf8)!
                 

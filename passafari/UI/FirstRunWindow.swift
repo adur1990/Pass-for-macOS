@@ -10,6 +10,8 @@ import Cocoa
 
 class FirstRunWindow: NSWindow {
     
+    // When the app is executed for the first time, we need a sheet window.
+    // But sheets cat not become key windows by default, so we need this tiny custom NSWindow class.
     override var canBecomeKey: Bool {
         return true
     }

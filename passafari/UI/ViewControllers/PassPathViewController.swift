@@ -30,6 +30,7 @@ class PassPathViewController: NSViewController {
     }
     
     @IBAction func browsePassPath(_ sender: Any) {
+        // Ask user for the passwordstore path, remember it using bookmarks and get the key id for the next view.
         if let urlFromPanel = promptForPath(titleString: storeKey) {
             sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: storeKey)
             firstRunPassPath = urlFromPanel
@@ -49,6 +50,7 @@ class PassPathViewController: NSViewController {
     }
     
     override func viewDidLoad() {
+        // This is used for filling the textfield, if the user comes back after already going to the next view
         if (firstRunPassPath != nil) {
             passPathTextField.stringValue = firstRunPassPath!.path
         }

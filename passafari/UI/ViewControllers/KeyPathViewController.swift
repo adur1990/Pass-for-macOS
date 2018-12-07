@@ -15,14 +15,17 @@ class KeyPathViewController: NSViewController {
     
     @IBAction func segueToPasswordView(_ sender: Any) {
         if keyPathTextField.stringValue.isEmpty {
+            // Make sure, the path to the key is set.
             shake(keyPathTextField)
         } else {
             if firstRunKeyPath!.startAccessingSecurityScopedResource() {
                 let fileManager = FileManager.default
+                // We have to make sure, the private key is in the path the user gave us.
                 if fileManager.fileExists(atPath: firstRunKeyPath!.appendingPathComponent(privKeyFilename).path) {
                     firstRunKeyPath!.stopAccessingSecurityScopedResource()
                     performSegue(withIdentifier: "segueToPassword", sender: sender)
                 } else {
+                    // If the private key is not available, shake.
                     shake(keyPathTextField)
                     firstRunKeyPath!.stopAccessingSecurityScopedResource()
                 }
@@ -39,6 +42,7 @@ class KeyPathViewController: NSViewController {
     }
     
     @IBAction func browseKeyPath(_ sender: Any) {
+        // Ask the user, where the private key is, remember this path in bookmarks.
         if let urlFromPanel = promptForPath(titleString: gpgKey) {
             firstRunKeyPath = urlFromPanel
             keyPathTextField.stringValue = urlFromPanel.path
@@ -53,10 +57,12 @@ class KeyPathViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // This is used for filling the textfield, if the user comes back after already going to the next view
         if (firstRunKeyPath != nil) {
             keyPathTextField.stringValue = firstRunKeyPath!.path
         }
         
+        // We show the user a hint how to export the private key.
         let command = "gpg --export-secret-keys \(firstRunGPGKeyID!) > ~/.gnupg/\(privKeyFilename)"
         commandLabel.stringValue = command
     }

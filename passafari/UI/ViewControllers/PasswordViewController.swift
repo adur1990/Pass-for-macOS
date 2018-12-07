@@ -15,6 +15,7 @@ class PasswordViewController: NSViewController {
     
     @IBAction func segueToAppearenceView(_ sender: Any) {
         if !passphraseField.stringValue.isEmpty {
+            // In this case, the user wants the passphrase to be stored in the keychain.
             firstRunPassphrase = passphraseField.stringValue
             do{
                 try storePassphrase(passphrase: passphraseField.stringValue)
@@ -41,6 +42,7 @@ class PasswordViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        // This is used for filling the textfield, if the user comes back after already going to the next view
         if (firstRunPassphrase != nil) {
             passphraseField.stringValue = firstRunPassphrase!
         }

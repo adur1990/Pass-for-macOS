@@ -22,6 +22,7 @@ class Passwordstore {
     func passSearch(password: String) -> [String] {
         var resultPaths = [String]()
         
+        // Start accessing the user provided path to the passwordstore and get all files in it.
         if self.passwordStoreUrl.startAccessingSecurityScopedResource() {
             let fileSystem = FileManager.default
             if let fsTree = fileSystem.enumerator(atPath: self.passwordStoreUrl.path) {
@@ -37,7 +38,7 @@ class Passwordstore {
                         continue
                     }
                     
-                    // If a password store is a git folder, we do not want to iterate over the entire repository, but only the current working copy.
+                    // If a password store is a git folder, we do not want to iterate over the entire repository, but only the current copy.
                     // Therefore, we need to exclude all folders containing .git from the search items.
                     if pathComponents.contains(where:
                         { (pathComponent) -> Bool in
@@ -46,6 +47,7 @@ class Passwordstore {
                         continue
                     }
 
+                    // This is the search. Just check, if the password is in the fullpath.
                     if fullPath.localizedCaseInsensitiveContains(password) {
                         resultPaths.append(fsNodeName)
                     }
@@ -60,6 +62,7 @@ class Passwordstore {
     
     func decrypt(passphrase: String, encryptedFile: Data) -> String {
         if !passphrase.isEmpty {
+            // This is the case, when the user uses the remember function. Just decrypt the password and return it.
             do {
                 let decryptedPassword = try ObjectivePGP.decrypt(encryptedFile, andVerifySignature: false, using: self.pgpKeyRing.keys, passphraseForKey: { (key) -> String? in
                     return passphrase
@@ -73,10 +76,13 @@ class Passwordstore {
         }
         
         do {
+            // In this case, the user has not stored the passphrase. We assume, that there is no passphrase required for decryption.
             let decryptedPassword = try ObjectivePGP.decrypt(encryptedFile, andVerifySignature: false, using: self.pgpKeyRing.keys)
             
             return String(data: decryptedPassword, encoding: .utf8) ?? ""
         } catch {
+            // If we land here, a passphrase is required, but the user did not store it.
+            // So, spawn a new window asking the user for the passphrase.
             let tmpPassphrase = promptForPassphrase()
             do {
                 let decryptedPassword = try ObjectivePGP.decrypt(encryptedFile, andVerifySignature: false, using: self.pgpKeyRing.keys, passphraseForKey: { (key) -> String? in
@@ -92,19 +98,26 @@ class Passwordstore {
     }
     
     func passDecrypt(pathToFile: String) -> String {
+        // This function dispatches the decryption. Read below for more information...
         var resultPassword = ""
+        
+        // Start accessing the passwordstore path.
         if self.passwordStoreUrl.startAccessingSecurityScopedResource() {
             let encryptedFileUrl = passwordstore!.passwordStoreUrl.appendingPathComponent(pathToFile)
             
             var passphrase: String = ""
             var encryptedFile: Data?
             
+            // Try to get the keys passphrase from keychain.
+            // If there is no passphrase, just leave it empty.
             do {
                 passphrase = try searchPassphrase()
             } catch {
                 os_log(.error, log: logger, "%s", "Could not find passphrase because \(error)")
             }
             
+            // We have to read the file to be decrypted. This can fail for various reasons.
+            // If it fails, we have to stop the decryption here.
             do {
                 encryptedFile = try Data(contentsOf: encryptedFileUrl)
             } catch {
@@ -113,6 +126,7 @@ class Passwordstore {
                 return ""
             }
             
+            // Call the decryption function and and return the decrypted passphrase.
             resultPassword = decrypt(passphrase: passphrase, encryptedFile: encryptedFile!)
             
             self.passwordStoreUrl.stopAccessingSecurityScopedResource()

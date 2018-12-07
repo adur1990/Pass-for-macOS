@@ -23,6 +23,8 @@ var firstRunPassphrase: String?
 var tmpPassphrase: String = ""
 
 func shake(_ shakeView: NSView) {
+    // Shake the given view.
+    // Is used if the given user path do not work or are empty.
     let shake = CABasicAnimation(keyPath: "position")
     let xDelta = CGFloat(10)
     shake.duration = 0.05

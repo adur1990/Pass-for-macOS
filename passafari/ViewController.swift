@@ -29,6 +29,8 @@ class ViewController: NSViewController {
     let isFirstRunKey: String = "firstRun"
 
     @IBAction func browsePassPath(_ sender: Any) {
+        // Ask the user for the passwordstore path, remember it and init a passwordstore object.
+        // This function is only used, if the user wants to change the path after the inital setup
         if let urlFromPanel = promptForPath(titleString: storeKey) {
             sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: storeKey)
             passPathTextField.stringValue = urlFromPanel.path
@@ -36,7 +38,9 @@ class ViewController: NSViewController {
         }
     }
     
-    @IBAction func browseKeyPath(_ sender: Any) {        
+    @IBAction func browseKeyPath(_ sender: Any) {
+        // Ask the user for the key path, remember it and init the keyring.
+        // This function is only used, if the user wants to change the path after the inital setup
         if let urlFromPanel = promptForPath(titleString: gpgKey) {
             sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: gpgKey)
             initKey(gpgKeyringPathUrl: urlFromPanel)
@@ -44,6 +48,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func toggleDockIcon(_ sender: Any) {
+        // Toggles, if the dock icon should be visible and remembers the state.
         let defaults = UserDefaults.standard
         if showDockCheck.state == .on {
             defaults.set(true, forKey: dockIconStateKey)
@@ -61,6 +66,7 @@ class ViewController: NSViewController {
     }
     
     @IBAction func toggleStatusIcon(_ sender: Any) {
+        // Toggles, if the status bar icon should be visible and remembers the state.
         let defaults = UserDefaults.standard
         if showStatusCheck.state == .on {
             defaults.set(true, forKey: statusIconStateKey)
@@ -74,6 +80,7 @@ class ViewController: NSViewController {
     }
     
     func showStatusItem() {
+        // If the status bar icon should be visible, we have to build the menu manually.
         statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
         statusBarItem?.button?.image = NSImage(named: "statusIcon")
         
@@ -85,6 +92,8 @@ class ViewController: NSViewController {
     }
     
     func initPaths(forKey key: String) -> URL? {
+        // If the path for the key is in the bookmarks, get it from there. Otherwise, we have to ask the user,
+        // which is done in a separate function.
         let passPathUrlFromBookmark = sharedSecureBookmarkHandler.getPathFromBookmark(forKey: key)
         
         if passPathUrlFromBookmark == nil {
@@ -95,6 +104,7 @@ class ViewController: NSViewController {
     }
     
     func initKey(gpgKeyringPathUrl: URL) {
+        // Read the key from the URL and write it to the keyring
         let secKeyPath = gpgKeyringPathUrl.appendingPathComponent(privKeyFilename)
         keyPathTextField.stringValue = secKeyPath.path
         
@@ -115,6 +125,7 @@ class ViewController: NSViewController {
     @IBAction func updatePassphrase(_ sender: Any) {
         let passphrase = passphraseField.stringValue
         if passphrase.isEmpty {
+            // If the user decides to remove the passphrase from the keychain, we try to delete it.
             do {
                 try deletePassphrase()
             } catch {
@@ -122,9 +133,12 @@ class ViewController: NSViewController {
             }
         } else {
             do {
+                // Here, two options are possible. There is already a passphrase.
+                // Then try to update it.
                 try Passafari.updatePassphrase(passphrase: passphrase)
             } catch {
                 do {
+                    // If the update fails, there seems to be no passphrase, so create a new one.
                     try storePassphrase(passphrase: passphrase)
                 } catch {
                     os_log(.error, log: logger, "%s", "Could not store passphrase due to reason \(error).")
@@ -134,8 +148,9 @@ class ViewController: NSViewController {
     }
     
     override func viewDidAppear() {
+        // Check, if the app is already set up.
+        // If not, run the initial setup sheet.
         let alreadyRun = UserDefaults.standard.bool(forKey: isFirstRunKey)
-        
         if !alreadyRun {
             let storyboard = NSStoryboard(name: "Main", bundle: nil)
             let firstRunWindowController = storyboard.instantiateController(withIdentifier: "FirstRun") as! NSWindowController
@@ -151,11 +166,13 @@ class ViewController: NSViewController {
             }
         }
         
+        // Init the passwordstore.
         if let passPathUrl = initPaths(forKey: storeKey) {
             passPathTextField.stringValue = passPathUrl.path
             passwordstore = Passwordstore(url: passPathUrl)
         }
         
+        // Init the key
         let gpgKeyringPathUrl = initPaths(forKey: gpgKey)
         
         if gpgKeyringPathUrl != nil {
@@ -170,6 +187,7 @@ class ViewController: NSViewController {
         
         showStatusItem()
         
+        // Get dockicon and status bar icon states and set the icon visibilities accordingly.
         let dockIconState = UserDefaults.standard.bool(forKey: dockIconStateKey)
         if dockIconState {
             showDockCheck.state = .on
