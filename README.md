@@ -38,7 +38,7 @@ login: John Appleseed
 You have two options to use Passafari: build it yourself or use the releases. I plan to publish it using the Mac App Store and brew once it leaves the beta.
 
 ### Option 1: Use the Releases
-Download the DMG from the releases page, download the latest version and drop the containing `Passafari.app` in your applications folder (or where ever you want). Thats it.
+Download the latest version of the app from the releases page and drop it in your applications folder (or where ever you want). Thats it.
 
 If you want to update Passafari, replace the `Passafari.app` file with the newer version.
 
