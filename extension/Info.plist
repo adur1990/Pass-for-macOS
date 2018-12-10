@@ -66,6 +66,6 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2018 Artur Sterz. All rights reserved.</string>
 	<key>NSHumanReadableDescription</key>
-	<string>Passafari is a Safari extension for zx2c4&apos;s pass, the standard UNIX password manager.</string>
+	<string>Passafari is a Safari extension for zx2c4's pass, the standard UNIX password manager.</string>
 </dict>
 </plist>
