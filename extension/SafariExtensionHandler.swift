@@ -29,11 +29,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                     // search password, if the toolbar item was clicked
                     let urlHost = pageProperties!.url?.host
                     
-                    var urlHostComponents = urlHost!.split(separator: ".")
-                    if urlHostComponents[0] == "www" {
-                        urlHostComponents.remove(at: 0)
-                    }
-                    dispatchPasswordSearch(forURL: urlHostComponents.joined(separator: "."))
+                    dispatchPasswordSearch(forURL: urlHost!)
                 }
             }
         }

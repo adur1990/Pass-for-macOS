@@ -52,8 +52,14 @@ func fillPasswordFromSelection(pass: String? = nil) {
 }
 
 func dispatchPasswordSearch(forURL urlHost: String, fromShortcut: Bool = false) {
+    var urlHostComponents = urlHost.split(separator: ".")
+    if urlHostComponents[0] == "www" {
+        urlHostComponents.remove(at: 0)
+    }
+    let url = urlHostComponents.joined(separator: ".")
+    
     if fromShortcut {
-        resultsPasswords = sharedClientHandler.searchPasswords(searchString: urlHost)
+        resultsPasswords = sharedClientHandler.searchPasswords(searchString: url)
         let passwordToFill = resultsPasswords![0]
         fillPasswordFromSelection(pass: passwordToFill)
     } else {
@@ -61,7 +67,7 @@ func dispatchPasswordSearch(forURL urlHost: String, fromShortcut: Bool = false) 
         let searchField = popoverViewController.searchField
         DispatchQueue.main.async {
             searchField!.window?.makeFirstResponder(nil)
-            searchField!.stringValue = urlHost
+            searchField!.stringValue = url
             popoverViewController.searchPassword(searchField!)
             popoverViewController.showSearchResults()
         }
