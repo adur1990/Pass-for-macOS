@@ -623,7 +623,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = passafari/passafari.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BR355MFMD5;
 				INFOPLIST_FILE = passafari/Info.plist;
@@ -645,8 +645,8 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = passafari/passafari.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BR355MFMD5;
 				INFOPLIST_FILE = passafari/Info.plist;
@@ -667,7 +667,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = extension/extension.entitlements;
 				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = BR355MFMD5;
 				INFOPLIST_FILE = extension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -688,8 +688,8 @@
 			baseConfigurationReference = 6558B9DFB354896D3516A9A3 /* Pods-extension.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = extension/extension.entitlements;
-				CODE_SIGN_IDENTITY = "Mac Developer";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "3rd Party Mac Developer Application";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = BR355MFMD5;
 				INFOPLIST_FILE = extension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
