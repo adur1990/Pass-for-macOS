@@ -2,7 +2,7 @@
 
 **Note: Passafari is currenlty a beta. Consider it broken expect errors and crashes.**
 
-Passafari is a Safari extension for zx2c4's pass, a UNIX based password manager. It retrieves your decrypted passwords for the current domain and allows you to auto-fill login forms.
+Passafari is a Safari extension for zx2c4's pass, the standard UNIX password manager. It retrieves your decrypted passwords for the current domain and allows you to auto-fill login forms.
 It uses Apples new [Safari App Extensions](https://developer.apple.com/documentation/safariservices/safari_app_extensions) API to communicate with a native sandboxed host app to do the security related stuff.
 
 ### Features
