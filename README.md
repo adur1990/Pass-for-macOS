@@ -57,7 +57,8 @@ $ cd passafari
 $ pod install
 ```
 
-Now, open the `passafari.xcworkspace` file (NOT `passafari.xcodeproj`), go to the General tab of the `passafari` target and use your own Team in the signing section.
+Now, open the `passafari.xcworkspace` file (NOT `passafari.xcodeproj`), go to the General tab of the `passafari`.
+Here, check "Automatically manage signing" in the Signing section and select your own Team.
 Do the same for the `extension` target.
 
 #### Building
