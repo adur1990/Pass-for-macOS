@@ -9,7 +9,8 @@
 import Cocoa
 
 class KeyPathViewController: NSViewController {
-    @IBOutlet weak var commandLabel: NSTextField!
+    @IBOutlet weak var commandScrollView: NSScrollView!
+    @IBOutlet weak var commandLabel: NSTextView!
     @IBOutlet weak var copyToClipboard: NSButton!
     @IBOutlet weak var nextViewButton: NSButton!
     @IBOutlet weak var keyPathTextField: NSTextField!
@@ -43,7 +44,7 @@ class KeyPathViewController: NSViewController {
     }
     
     @IBAction func copyToClipboard(_ sender: Any) {
-        copyToClipBoard(textToCopy: commandLabel.stringValue)
+        copyToClipBoard(textToCopy: commandLabel.string)
     }
     
     @IBAction func browseKeyPath(_ sender: Any) {
@@ -67,9 +68,20 @@ class KeyPathViewController: NSViewController {
             keyPathTextField.stringValue = firstRunKeyPath!.path
         }
         
+        let font = NSFont(name: "Menlo", size: 13)
+        let attributes = NSDictionary(object: font!, forKey: NSAttributedString.Key.font as NSCopying)
+        commandLabel.typingAttributes = attributes as! [NSAttributedString.Key : Any]
+        commandLabel.textColor = keyPathTextField.textColor
+        
+        commandScrollView.hasHorizontalScroller = true
+        commandLabel.maxSize = NSMakeSize(CGFloat(Float.greatestFiniteMagnitude), CGFloat(Float.greatestFiniteMagnitude))
+        commandLabel.isHorizontallyResizable = true
+        commandLabel.textContainer?.widthTracksTextView = false
+        commandLabel.textContainer?.containerSize = NSMakeSize(CGFloat(Float.greatestFiniteMagnitude), CGFloat(Float.greatestFiniteMagnitude))
+        
         // We show the user a hint how to export the private key.
         let command = "gpg --export-secret-keys \(firstRunGPGKeyID!) > ~/.gnupg/\(privKeyFilename)"
-        commandLabel.stringValue = command
+        commandLabel.string = command
     }
     
     private func copyToClipBoard(textToCopy: String) {
