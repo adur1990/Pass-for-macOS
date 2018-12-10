@@ -10,6 +10,7 @@ import Cocoa
 
 class KeyPathViewController: NSViewController {
     @IBOutlet weak var commandLabel: NSTextField!
+    @IBOutlet weak var copyToClipboard: NSButton!
     @IBOutlet weak var nextViewButton: NSButton!
     @IBOutlet weak var keyPathTextField: NSTextField!
     
@@ -41,6 +42,10 @@ class KeyPathViewController: NSViewController {
         self.view.window?.sheetParent?.endSheet(self.view.window!, returnCode: NSApplication.ModalResponse.stop)
     }
     
+    @IBAction func copyToClipboard(_ sender: Any) {
+        copyToClipBoard(textToCopy: commandLabel.stringValue)
+    }
+    
     @IBAction func browseKeyPath(_ sender: Any) {
         // Ask the user, where the private key is, remember this path in bookmarks.
         if let urlFromPanel = promptForPath(titleString: gpgKey) {
@@ -65,6 +70,12 @@ class KeyPathViewController: NSViewController {
         // We show the user a hint how to export the private key.
         let command = "gpg --export-secret-keys \(firstRunGPGKeyID!) > ~/.gnupg/\(privKeyFilename)"
         commandLabel.stringValue = command
+    }
+    
+    private func copyToClipBoard(textToCopy: String) {
+        let pasteBoard = NSPasteboard.general
+        pasteBoard.clearContents()
+        pasteBoard.setString(textToCopy, forType: .string)
     }
     
 }

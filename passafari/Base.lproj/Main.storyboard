@@ -607,10 +607,10 @@ DQ
                                 </connections>
                             </button>
                             <textField verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grC-FF-vhF">
-                                <rect key="frame" x="20" y="84" width="360" height="22"/>
+                                <rect key="frame" x="20" y="84" width="279" height="22"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" continuous="YES" allowsUndo="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" alignment="center" drawsBackground="YES" id="boj-J5-9ae">
-                                    <font key="font" size="9" name="Menlo-Regular"/>
+                                    <font key="font" size="13" name="Menlo-Regular"/>
                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
@@ -626,10 +626,22 @@ DQ
                                     <action selector="segueToPassPath:" target="wGg-Fj-ndk" id="xfn-XX-eRn"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JBa-4C-5b8">
+                                <rect key="frame" x="301" y="77" width="85" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Copy" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="BOj-Kf-Rh3">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="copyToClipboard:" target="wGg-Fj-ndk" id="gwP-Yk-g6e"/>
+                                </connections>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
                         <outlet property="commandLabel" destination="grC-FF-vhF" id="mmR-Mr-pNW"/>
+                        <outlet property="copyToClipboard" destination="JBa-4C-5b8" id="cAF-Kx-bh9"/>
                         <outlet property="keyPathTextField" destination="R6s-Nn-Lhv" id="2CR-qi-Hxh"/>
                         <outlet property="nextViewButton" destination="Tv9-78-Qtd" id="5dW-T0-zFa"/>
                         <segue destination="PqU-4K-tbY" kind="custom" identifier="segueBackToPassPath" customClass="ReplaceSegue" customModule="Passafari" customModuleProvider="target" id="TxR-qu-mDy"/>
@@ -809,9 +821,9 @@ DQ
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="9Ur-lx-tHP"/>
+        <segue reference="pKa-7H-6LJ"/>
         <segue reference="rMX-ax-els"/>
-        <segue reference="aBY-Z6-U3b"/>
+        <segue reference="TxR-qu-mDy"/>
         <segue reference="fYE-tY-4Kj"/>
     </inferredMetricsTieBreakers>
 </document>
