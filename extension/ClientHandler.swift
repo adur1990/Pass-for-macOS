@@ -17,7 +17,7 @@ class ClientHandler {
         let messageID: sint32 = 0x1
         let sendTimeout: CFTimeInterval = 5
         let recvTimeout: CFTimeInterval = 60
-        let remotePort: CFMessagePort? = CFMessagePortCreateRemote(nil, "BR355MFMD5.de.artursterz.passafari.messageport" as CFString)
+        let remotePort: CFMessagePort? = CFMessagePortCreateRemote(nil, "group.de.artursterz.passafari.messageport" as CFString)
         let returnDataPtr: UnsafeMutablePointer<Unmanaged<CFData>?> = UnsafeMutablePointer.allocate(capacity: 1)
         defer { returnDataPtr.deallocate() }
         
@@ -43,7 +43,7 @@ class ClientHandler {
         let messageID: sint32 = 0x2
         let sendTimeout: CFTimeInterval = 5
         let recvTimeout: CFTimeInterval = 60
-        let remotePort: CFMessagePort = CFMessagePortCreateRemote(nil, "BR355MFMD5.de.artursterz.passafari.messageport" as CFString)
+        let remotePort: CFMessagePort = CFMessagePortCreateRemote(nil, "group.de.artursterz.passafari.messageport" as CFString)
         let returnDataPtr: UnsafeMutablePointer<Unmanaged<CFData>?> = UnsafeMutablePointer.allocate(capacity: 1)
         defer { returnDataPtr.deallocate() }
         
