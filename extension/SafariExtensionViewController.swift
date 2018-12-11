@@ -7,6 +7,9 @@
 //
 
 import SafariServices
+import os.log
+
+let logger = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "Extension")
 
 class SafariExtensionViewController: SFSafariExtensionViewController {
     static let shared: SafariExtensionViewController = {
@@ -28,6 +31,45 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         // This function is used, when the searchfield is used.
         resultsPasswords = sharedClientHandler.searchPasswords(searchString: sender.stringValue)
         popoverViewController().showSearchResults(fromSearchField: true)
+    }
+    
+    func fillPasswordFromSelection(pass: String? = nil) {
+        let credentials: [String]
+        let password: String
+        let login: String
+        var shortcut: String = "true"
+        var message: String = ""
+        
+        var item = pass
+        if pass == nil {
+            if popoverViewController().searchResultsTable.selectedRow < 0 {
+                os_log(.error, log: logger, "%s", "Something went wrong. There are not results in the results table")
+                return
+            }
+            item = resultsPasswords?[popoverViewController().searchResultsTable.selectedRow]
+            shortcut = ""
+        }
+        
+        if item == "No matching password found." || item == "The Passafari app is not running." {
+            password = ""
+            login = ""
+            message = item!
+        } else {
+            credentials = (sharedClientHandler.getPassword(passwordFile: item!)?.components(separatedBy: "\n"))!
+            password = credentials[0]
+            login = credentials[1].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)
+        }
+        
+        SFSafariApplication.getActiveWindow { (window) in
+            window!.getActiveTab { (activeTab) in
+                activeTab!.getActivePage { (activePage) in
+                    activePage!.dispatchMessageToScript(withName: "credentials", userInfo: ["password": password, "login": login, "shortcut": shortcut, "message": message])
+                }
+            }
+        }
+        if pass == nil {
+            popoverViewController().dismiss(SafariExtensionViewController.shared)
+        }
     }
     
     func showSearchResults(fromSearchField: Bool = false) {

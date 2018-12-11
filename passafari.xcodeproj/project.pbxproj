@@ -23,7 +23,6 @@
 		7552F50321B70817007C8D8C /* KeyPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7552F4FC21B70817007C8D8C /* KeyPathViewController.swift */; };
 		7552F50421B70817007C8D8C /* PassPathViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7552F4FD21B70817007C8D8C /* PassPathViewController.swift */; };
 		7552F50521B70817007C8D8C /* DoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7552F4FE21B70817007C8D8C /* DoneViewController.swift */; };
-		755A16A721986EFD00F5E66B /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 755A16A621986EFD00F5E66B /* Helpers.swift */; };
 		7560B42821B849CD00DF3F60 /* KeychainAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560B42721B849CD00DF3F60 /* KeychainAccess.swift */; };
 		7560B42A21B874AB00DF3F60 /* PassPromptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7560B42921B874AB00DF3F60 /* PassPromptViewController.swift */; };
 		756E0B9A2185F9DA0079B98C /* Passwordstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E0B992185F9DA0079B98C /* Passwordstore.swift */; };
@@ -81,7 +80,6 @@
 		7552F4FC21B70817007C8D8C /* KeyPathViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPathViewController.swift; sourceTree = "<group>"; };
 		7552F4FD21B70817007C8D8C /* PassPathViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PassPathViewController.swift; sourceTree = "<group>"; };
 		7552F4FE21B70817007C8D8C /* DoneViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DoneViewController.swift; sourceTree = "<group>"; };
-		755A16A621986EFD00F5E66B /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		7560B42721B849CD00DF3F60 /* KeychainAccess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = KeychainAccess.swift; path = passafari/Communications/KeychainAccess.swift; sourceTree = SOURCE_ROOT; };
 		7560B42921B874AB00DF3F60 /* PassPromptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassPromptViewController.swift; sourceTree = "<group>"; };
 		756E0B992185F9DA0079B98C /* Passwordstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passwordstore.swift; sourceTree = "<group>"; };
@@ -226,7 +224,6 @@
 				75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */,
 				75E07C20216E0DA700EA9CBD /* extension.entitlements */,
 				75494A0E218CCEBD00148925 /* ClientHandler.swift */,
-				755A16A621986EFD00F5E66B /* Helpers.swift */,
 				7511A360219B53C5008290E9 /* passafariToast.css */,
 			);
 			path = extension;
@@ -466,7 +463,6 @@
 				75E07C17216E0DA700EA9CBD /* SafariExtensionViewController.swift in Sources */,
 				75494A0F218CCEBD00148925 /* ClientHandler.swift in Sources */,
 				75E07C15216E0DA700EA9CBD /* SafariExtensionHandler.swift in Sources */,
-				755A16A721986EFD00F5E66B /* Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
