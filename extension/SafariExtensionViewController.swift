@@ -26,6 +26,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     @IBOutlet weak var searchResultsTable: NSTableView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    var resultsPasswords: [String]?
     
     @IBAction func searchPassword(_ sender: NSSearchField) {
         // This function is used, when the searchfield is used.

@@ -8,39 +8,41 @@
 
 import SafariServices
 
-var resultsPasswords: [String]?
-
-class SafariExtensionHandler: SFSafariExtensionHandler {
-    
-    func dispatchPasswordSearch(forURL urlHost: String, fromShortcut: Bool = false) {
-        var urlHostComponents = urlHost.split(separator: ".")
-        if urlHostComponents[0] == "www" {
-            urlHostComponents.remove(at: 0)
-        }
-        let url = urlHostComponents.joined(separator: ".")
-        
-        if fromShortcut {
-            resultsPasswords = sharedClientHandler.searchPasswords(searchString: url)
-            let passwordToFill = resultsPasswords![0]
-            SafariExtensionViewController.shared.fillPasswordFromSelection(pass: passwordToFill)
-        } else {
-            let popoverViewController = SafariExtensionViewController.shared
-            let searchField = popoverViewController.searchField
-            DispatchQueue.main.async {
-                searchField!.window?.makeFirstResponder(nil)
-                searchField!.stringValue = url
-                popoverViewController.searchPassword(searchField!)
-                popoverViewController.showSearchResults()
-            }
-        }
-    }
-    
+class SafariExtensionHandler: SFSafariExtensionHandler {    
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
         page.getPropertiesWithCompletionHandler { pageProperties in
             // search password, if the shordcut was used.
             if messageName == "fillShortcutPressed" {
                 let urlHost = pageProperties!.url?.host
-                self.dispatchPasswordSearch(forURL: urlHost!, fromShortcut: true)
+                var urlHostComponents = urlHost!.split(separator: ".")
+                if urlHostComponents[0] == "www" {
+                    urlHostComponents.remove(at: 0)
+                }
+                let url = urlHostComponents.joined(separator: ".")
+                let passwordToFill = sharedClientHandler.searchPasswords(searchString: url)![0]
+                
+                let credentials: [String]
+                let password: String
+                let login: String
+                var message: String = ""
+                
+                if passwordToFill == "No matching password found." || passwordToFill == "The Passafari app is not running." {
+                    password = ""
+                    login = ""
+                    message = passwordToFill
+                } else {
+                    credentials = (sharedClientHandler.getPassword(passwordFile: passwordToFill)?.components(separatedBy: "\n"))!
+                    password = credentials[0]
+                    login = credentials[1].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)
+                }
+                
+                SFSafariApplication.getActiveWindow { (window) in
+                    window!.getActiveTab { (activeTab) in
+                        activeTab!.getActivePage { (activePage) in
+                            activePage!.dispatchMessageToScript(withName: "credentials", userInfo: ["password": password, "login": login, "shortcut": "true", "message": message])
+                        }
+                    }
+                }
             }
         }
     }
@@ -52,7 +54,20 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                     // search password, if the toolbar item was clicked
                     let urlHost = pageProperties!.url?.host
                     
-                    self.dispatchPasswordSearch(forURL: urlHost!)
+                    var urlHostComponents = urlHost!.split(separator: ".")
+                    if urlHostComponents[0] == "www" {
+                        urlHostComponents.remove(at: 0)
+                    }
+                    let url = urlHostComponents.joined(separator: ".")
+                    
+                    let popoverViewController = SafariExtensionViewController.shared
+                    let searchField = popoverViewController.searchField
+                    DispatchQueue.main.async {
+                        searchField!.window?.makeFirstResponder(nil)
+                        searchField!.stringValue = url
+                        popoverViewController.searchPassword(searchField!)
+                        popoverViewController.showSearchResults()
+                    }
                 }
             }
         }
