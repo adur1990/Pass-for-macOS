@@ -55,6 +55,18 @@ class Passwordstore {
             }
         }
         
+        // In this case, no password could be found. This can be due to subdomains.
+        // If you have a password for apple.com, but not secure.apple.com, the latter would
+        // not be found. Using this part, the secure. prefix will be removed and apple.com will be searched.
+        if resultPaths.isEmpty {
+            let passwordParts = password.components(separatedBy: ".")
+            
+            if passwordParts.count > 2 {
+                let shortPassword = passwordParts.suffix(2).joined(separator: ".")
+                return passSearch(password: shortPassword)
+            }
+        }
+        
         self.passwordStoreUrl.stopAccessingSecurityScopedResource()
         
         return resultPaths
