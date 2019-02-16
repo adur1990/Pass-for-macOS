@@ -26,7 +26,14 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     @IBOutlet weak var searchResultsTable: NSTableView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var startPassafariButton: NSButton!
+    
     var resultsPasswords: [String]?
+    
+    @IBAction func startPassafari(_ sender: Any) {
+        let bundlePath = NSWorkspace.shared.fullPath(forApplication: "Passafari.app")
+        NSWorkspace.shared.launchApplication(bundlePath!)
+    }
     
     @IBAction func searchPassword(_ sender: NSSearchField) {
         // This function is used, when the searchfield is used.
@@ -75,29 +82,42 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     func showSearchResults(fromSearchField: Bool = false) {
         // Show the results in the table
+        startPassafariButton.isHidden = true
         
         // Set the height of the popover.
         // Limit the size to 10 elements
-        let height = resultsPasswords!.count < 10 ? (resultsPasswords!.count * 20) : (10 * 20)
-        popoverViewController().heightConstraint.animator().constant = CGFloat(height)
-        
+        var height = resultsPasswords!.count < 10 ? (resultsPasswords!.count * 20) : (10 * 20)
+
         // Set the width of the popover, so that all results fit.
         // It should be at least 330 wide.
         var width = (resultsPasswords!.max(by: {$1.count > $0.count})?.count)! * 7
         if width < 330 {
             width = 330
         }
+        
+        // Do not set the focus, if app is not running, no passwords where found or the shortcut was used.
+        var fail: Bool = false;
+        if resultsPasswords!.count == 1 {
+            if resultsPasswords![0] == "The Passafari app is not running." {
+                startPassafariButton.isHidden = false
+                height = height + 22
+                fail = true
+            }
+            if resultsPasswords![0] == "No matching password found." {
+                fail = true
+            }
+        }
+        
+        // Animate the size of the popover
+        popoverViewController().heightConstraint.animator().constant = CGFloat(height)
         popoverViewController().widthConstraint.animator().constant = CGFloat(width)
         
         // show the table
         popoverViewController().searchResultsTable.isHidden = false
         popoverViewController().searchResultsTable.reloadData()
         
-        // Do not set the focus, if app is not running, no passwords where found or the shortcut was used.
-        if resultsPasswords!.count == 1 {
-            if resultsPasswords![0] == "The Passafari app is not running."  || resultsPasswords![0] == "No matching password found." {
-                return
-            }
+        if fail {
+            return
         }
         
         if !fromSearchField {
