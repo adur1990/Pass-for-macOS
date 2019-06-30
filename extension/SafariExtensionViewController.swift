@@ -44,7 +44,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     func fillPasswordFromSelection(pass: String? = nil) {
         let credentials: [String]
         let password: String
-        let login: String
+        var login: String = ""
         var shortcut: String = "true"
         var message: String = ""
         
@@ -65,7 +65,12 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         } else {
             credentials = (sharedClientHandler.getPassword(passwordFile: item!)?.components(separatedBy: "\n"))!
             password = credentials[0]
-            login = credentials[1].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)
+
+            if credentials.count > 1 {
+                if credentials[1].count > 0 {
+                    login = credentials[1].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)
+                }
+            }
         }
         
         SFSafariApplication.getActiveWindow { (window) in

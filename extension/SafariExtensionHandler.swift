@@ -23,7 +23,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 
                 let credentials: [String]
                 let password: String
-                let login: String
+                var login: String = ""
                 var message: String = ""
                 
                 if passwordToFill == "No matching password found." || passwordToFill == "The Passafari app is not running." {
@@ -33,7 +33,12 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                 } else {
                     credentials = (sharedClientHandler.getPassword(passwordFile: passwordToFill)?.components(separatedBy: "\n"))!
                     password = credentials[0]
-                    login = credentials[1].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)
+
+                    if credentials.count > 1 {
+                        if credentials[1].count > 0 {
+                            login = credentials[1].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)
+                        }
+                    }
                 }
                 
                 SFSafariApplication.getActiveWindow { (window) in
