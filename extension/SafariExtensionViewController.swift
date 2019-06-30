@@ -68,7 +68,8 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
 
             if credentials.count > 1 {
                 if credentials[1].count > 0 {
-                    login = credentials[1].split(separator: ":")[1].trimmingCharacters(in: .whitespacesAndNewlines)
+                    let loginDirty = credentials[1].drop(while: {$0 != ":"})
+                    login = String(loginDirty.dropFirst()).trimmingCharacters(in: .whitespacesAndNewlines)
                 }
             }
         }
