@@ -11,16 +11,9 @@ import os.log
 
 let logger = OSLog(subsystem: Bundle.main.bundleIdentifier!, category: "Extension")
 
-let storeKey = "password-store"
-let gpgKey = "GPG folder"
-let privKeyFilename = ".passafari-private"
+let storeKey = "pass-path"
 
 var firstRunPassPath: URL?
-var firstRunGPGKeyID: String?
-var firstRunKeyPath: URL?
-var firstRunPassphrase: String?
-
-var tmpPassphrase: String = ""
 
 func shake(_ shakeView: NSView) {
     // Shake the given view.
@@ -57,23 +50,4 @@ func promptForPath(titleString: String) -> URL? {
         return openPanel.url
     }
     return nil
-}
-
-func promptForPassphrase() -> String {
-    let storyboard = NSStoryboard(name: "Main", bundle: nil)
-    let passPromptWindowController = storyboard.instantiateController(withIdentifier: "passphrasePrompt") as! NSWindowController
-    
-    if let passPromptWindow = passPromptWindowController.window {
-        passPromptWindow.makeKey()
-        if NSApp.runModal(for: passPromptWindow) == NSApplication.ModalResponse.OK {
-            passPromptWindowController.close()
-        } else {
-            passPromptWindowController.close()
-        }
-    }
-    
-    let passphraseToReturn = tmpPassphrase
-    tmpPassphrase = ""
-    
-    return passphraseToReturn
 }

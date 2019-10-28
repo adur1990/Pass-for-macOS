@@ -9,11 +9,8 @@
 import Foundation
 import os.log
 
-import ObjectivePGP
-
 class Passwordstore {
     var passwordStoreUrl: URL
-    var pgpKeyRing: Keyring = Keyring()
     
     init(url passwordStoreUrl: URL){
         self.passwordStoreUrl = passwordStoreUrl
@@ -72,85 +69,8 @@ class Passwordstore {
         return resultPaths
     }
     
-    func decrypt(passphrase: String, encryptedFile: Data) -> String {
-        if !passphrase.isEmpty {
-            // This is the case, when the user uses the remember function. Just decrypt the password and return it.
-            do {
-                let decryptedPassword = try ObjectivePGP.decrypt(encryptedFile, andVerifySignature: false, using: self.pgpKeyRing.keys, passphraseForKey: { (key) -> String? in
-                    return passphrase
-                })
-                
-                return String(data: decryptedPassword, encoding: .utf8) ?? ""
-            } catch {
-                os_log(.error, log: logger, "%s", "Could not decrypt password due to error \(error)")
-                return ""
-            }
-        }
-        
-        do {
-            // In this case, the user has not stored the passphrase. We assume, that there is no passphrase required for decryption.
-            let decryptedPassword = try ObjectivePGP.decrypt(encryptedFile, andVerifySignature: false, using: self.pgpKeyRing.keys)
-            
-            return String(data: decryptedPassword, encoding: .utf8) ?? ""
-        } catch {
-            // If we land here, a passphrase is required, but the user did not store it.
-            // So, spawn a new window asking the user for the passphrase.
-            let tmpPassphrase = promptForPassphrase()
-            do {
-                let decryptedPassword = try ObjectivePGP.decrypt(encryptedFile, andVerifySignature: false, using: self.pgpKeyRing.keys, passphraseForKey: { (key) -> String? in
-                    return tmpPassphrase
-                })
-                
-                return String(data: decryptedPassword, encoding: .utf8) ?? ""
-            } catch {
-                os_log(.error, log: logger, "%s", "Could not decrpyt password due to error \(error)")
-                return ""
-            }
-        }
-    }
-    
     func passDecrypt(pathToFile: String) -> String {
         // This function dispatches the decryption. Read below for more information...
-        var resultPassword = ""
-        
-        // Start accessing the passwordstore path.
-        if self.passwordStoreUrl.startAccessingSecurityScopedResource() {
-            let encryptedFileUrl = passwordstore!.passwordStoreUrl.appendingPathComponent(pathToFile)
-            
-            var passphrase: String = ""
-            var encryptedFile: Data?
-            
-            // Try to get the keys passphrase from keychain.
-            // If there is no passphrase, just leave it empty.
-            do {
-                passphrase = try searchPassphrase()
-            } catch {
-                os_log(.error, log: logger, "%s", "Could not find passphrase because \(error)")
-            }
-            
-            // We have to read the file to be decrypted. This can fail for various reasons.
-            // If it fails, we have to stop the decryption here.
-            do {
-                encryptedFile = try Data(contentsOf: encryptedFileUrl)
-            } catch {
-                os_log(.error, log: logger, "%s", "Could not read password file: \(error)")
-                self.passwordStoreUrl.stopAccessingSecurityScopedResource()
-                return ""
-            }
-            
-            // Call the decryption function and and return the decrypted passphrase.
-            resultPassword = decrypt(passphrase: passphrase, encryptedFile: encryptedFile!)
-            
-            self.passwordStoreUrl.stopAccessingSecurityScopedResource()
-            
-            return resultPassword
-        }
-        os_log(.error, log: logger, "%s", "Could not access security scoped resource in decryption.")
-        
         return ""
-    }
-    
-    func importKeys(keyFilePath: String) throws {
-        self.pgpKeyRing.import(keys: try! ObjectivePGP.readKeys(fromPath: keyFilePath))
     }
 }
