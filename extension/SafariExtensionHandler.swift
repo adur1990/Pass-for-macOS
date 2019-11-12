@@ -15,8 +15,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             if messageName == "fillShortcutPressed" {
                 let urlHost = pageProperties!.url?.host
                 var urlHostComponents = urlHost!.split(separator: ".")
-                if urlHostComponents[0] == "www" {
-                    urlHostComponents.remove(at: 0)
+                if urlHostComponents.first == "www" {
+                    urlHostComponents.removeFirst()
                 }
                 let url = urlHostComponents.joined(separator: ".")
                 let passwordToFill = sharedClientHandler.searchPasswords(searchString: url)![0]
@@ -61,8 +61,8 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                     let urlHost = pageProperties!.url?.host
                     
                     var urlHostComponents = urlHost!.split(separator: ".")
-                    if urlHostComponents[0] == "www" {
-                        urlHostComponents.remove(at: 0)
+                    if urlHostComponents.first == "www" {
+                        urlHostComponents.removeFirst()
                     }
                     let url = urlHostComponents.joined(separator: ".")
                     

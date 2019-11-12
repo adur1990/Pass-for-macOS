@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15400"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="15505"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -295,15 +295,6 @@
                             </menuItem>
                             <menuItem title="Help" id="wpr-3q-Mcd">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Help" systemMenu="help" id="F2S-fz-NVQ">
-                                    <items>
-                                        <menuItem title="Passafari Help" keyEquivalent="?" id="FKE-Sm-Kum">
-                                            <connections>
-                                                <action selector="showHelp:" target="Ady-hI-5gd" id="y7X-2Q-9no"/>
-                                            </connections>
-                                        </menuItem>
-                                    </items>
-                                </menu>
                             </menuItem>
                         </items>
                     </menu>
@@ -338,185 +329,6 @@
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--Window Controller-->
-        <scene sceneID="PwL-Ui-xPF">
-            <objects>
-                <windowController storyboardIdentifier="FirstRun" id="MX9-Kw-jAb" sceneMemberID="viewController">
-                    <window key="window" title="First Run" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" titleVisibility="hidden" id="9PY-UF-8WF" customClass="FirstRunWindow" customModule="Passafari" customModuleProvider="target">
-                        <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="249" width="400" height="161"/>
-                        <rect key="screenRect" x="0.0" y="0.0" width="1440" height="900"/>
-                        <connections>
-                            <outlet property="delegate" destination="MX9-Kw-jAb" id="kgk-dO-r3Z"/>
-                        </connections>
-                    </window>
-                    <connections>
-                        <segue destination="Xxa-Ti-7z4" kind="relationship" relationship="window.shadowedContentViewController" id="fYE-tY-4Kj"/>
-                    </connections>
-                </windowController>
-                <customObject id="3Dm-CY-bwV" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="638" y="250"/>
-        </scene>
-        <!--Intro View Controller-->
-        <scene sceneID="VAi-TG-fLD">
-            <objects>
-                <viewController id="Xxa-Ti-7z4" customClass="IntroViewController" customModule="Passafari" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="A6S-N6-8xa">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="161"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZBl-6a-diB">
-                                <rect key="frame" x="105" y="117" width="190" height="24"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" title="Welcome to Passafari" id="vD5-v4-Kma">
-                                    <font key="font" metaFont="system" size="20"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wk2-E5-H7Y">
-                                <rect key="frame" x="14" y="13" width="66" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="y5w-8i-cxf">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="dismissWindow:" target="Xxa-Ti-7z4" id="qFC-2m-7ew"/>
-                                </connections>
-                            </button>
-                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Evc-AF-CdA">
-                                <rect key="frame" x="317" y="13" width="69" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Next" bezelStyle="rounded" alignment="center" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="1D0-6p-qa6">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="performSegueToPassPathSelection:" target="Xxa-Ti-7z4" id="PXa-TM-NKB"/>
-                                </connections>
-                            </button>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r92-hH-UyU">
-                                <rect key="frame" x="18" y="65" width="364" height="32"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" enabled="NO" allowsUndo="NO" alignment="justified" title="Since Passafari uses pass to fill passwords automatically, you need to specify the path to pass first." id="qHn-rn-Brv">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                        </subviews>
-                    </view>
-                    <connections>
-                        <outlet property="nextViewButton" destination="Evc-AF-CdA" id="Ot6-Br-TiL"/>
-                        <segue destination="PqU-4K-tbY" kind="custom" identifier="segueToPassPath" customClass="ReplaceSegue" customModule="Passafari" customModuleProvider="target" id="aBY-Z6-U3b"/>
-                    </connections>
-                </viewController>
-                <customObject id="JFk-X6-9vx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="638" y="654.5"/>
-        </scene>
-        <!--Pass Path View Controller-->
-        <scene sceneID="XzN-T1-PeV">
-            <objects>
-                <viewController id="PqU-4K-tbY" customClass="PassPathViewController" customModule="Passafari" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="8Jj-ZL-hiv">
-                        <rect key="frame" x="0.0" y="0.0" width="400" height="161"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1KM-oL-PFU">
-                                <rect key="frame" x="14" y="13" width="66" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Quit" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="edL-U5-rbe">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-Gw
-</string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="dissmisWindow:" target="PqU-4K-tbY" id="R3L-EY-Ztc"/>
-                                </connections>
-                            </button>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xyY-YM-Htl">
-                                <rect key="frame" x="145" y="117" width="111" height="24"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" enabled="NO" allowsUndo="NO" title="Path to pass" id="2sm-Mf-roP">
-                                    <font key="font" metaFont="system" size="20"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button focusRingType="none" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9Dw-iv-XQW">
-                                <rect key="frame" x="314" y="13" width="72" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Done" bezelStyle="rounded" alignment="center" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="9wr-i9-E1R">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                    <string key="keyEquivalent" base64-UTF8="YES">
-DQ
-</string>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="setupDone:" target="PqU-4K-tbY" id="YRG-zy-Pdh"/>
-                                </connections>
-                            </button>
-                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="raJ-7X-TAF">
-                                <rect key="frame" x="18" y="93" width="364" height="16"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" enabled="NO" allowsUndo="NO" alignment="justified" title="Please provide the path to pass." id="YCV-q1-xwL">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7gc-Nl-11c">
-                                <rect key="frame" x="20" y="63" width="279" height="22"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Path to pass" drawsBackground="YES" id="Mrc-QX-fwN">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dof-zv-GsE">
-                                <rect key="frame" x="301" y="56" width="85" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" refusesFirstResponder="YES" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="noU-OY-MEx">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="browsePassPath:" target="PqU-4K-tbY" id="be8-rh-M13"/>
-                                </connections>
-                            </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ddC-dz-agk">
-                                <rect key="frame" x="244" y="13" width="70" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Back" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="rZt-71-CkE">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="segueToIntro:" target="PqU-4K-tbY" id="uLm-gv-cdj"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                    </view>
-                    <connections>
-                        <outlet property="nextViewButton" destination="9Dw-iv-XQW" id="Jf7-dF-Cla"/>
-                        <outlet property="passPathTextField" destination="7gc-Nl-11c" id="g5F-jt-zgy"/>
-                        <segue destination="Xxa-Ti-7z4" kind="custom" identifier="segueBackToIntro" customClass="ReplaceSegue" customModule="Passafari" customModuleProvider="target" id="f2e-Lr-cd6"/>
-                    </connections>
-                </viewController>
-                <customObject id="gfY-RI-gXX" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="638" y="1025.5"/>
-        </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
@@ -525,45 +337,28 @@ DQ
                         <rect key="frame" x="0.0" y="0.0" width="480" height="116"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fxF-JA-hxx">
-                                <rect key="frame" x="18" y="77" width="128" height="16"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" refusesFirstResponder="YES" alignment="right" title="Passwordstore path:" id="H3K-O3-s38">
-                                    <font key="font" usesAppearanceFont="YES"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="r4C-qs-l8d">
+                                <rect key="frame" x="20" y="45" width="433" height="52"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="2QK-gC-4dw"/>
+                                </constraints>
+                                <textFieldCell key="cell" lineBreakMode="clipping" id="zab-wP-ffd">
+                                    <font key="font" metaFont="system"/>
+                                    <string key="title">To use Passafari you have to enable it in Safari. To do so, open Safari Preferences and enable Passafari in the Extensions tab. It is also required that this host app is running in background.</string>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DPR-go-wEp">
-                                <rect key="frame" x="152" y="75" width="227" height="21"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" refusesFirstResponder="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Passwordstore" drawsBackground="YES" id="IGY-Mj-uck">
-                                    <font key="font" metaFont="system"/>
-                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
-                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                </textFieldCell>
-                            </textField>
-                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q9a-zQ-TJ2">
-                                <rect key="frame" x="381" y="67" width="85" height="32"/>
-                                <buttonCell key="cell" type="push" title="Browse" bezelStyle="rounded" alignment="center" refusesFirstResponder="YES" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="oOT-h2-Kwm">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="browsePassPath:" target="XfG-lQ-9wD" id="LvP-VT-rPh"/>
-                                </connections>
-                            </button>
-                            <box verticalHuggingPriority="750" ambiguous="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="MTr-Kw-Cr6">
-                                <rect key="frame" x="20" y="63" width="440" height="5"/>
-                            </box>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UgZ-L1-Ls5">
-                                <rect key="frame" x="76" y="41" width="71" height="16"/>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UgZ-L1-Ls5">
+                                <rect key="frame" x="20" y="21" width="71" height="16"/>
                                 <textFieldCell key="cell" lineBreakMode="clipping" refusesFirstResponder="YES" alignment="right" title="Show icon:" id="asa-9K-xuE">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-Yf-B79">
-                                <rect key="frame" x="151" y="38" width="85" height="18"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hXc-Yf-B79">
+                                <rect key="frame" x="95" y="18" width="85" height="18"/>
                                 <buttonCell key="cell" type="check" title="Status Bar" bezelStyle="regularSquare" imagePosition="leading" alignment="left" refusesFirstResponder="YES" state="on" inset="2" id="Jdd-0B-X6Q">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -572,8 +367,8 @@ DQ
                                     <action selector="toggleStatusIcon:" target="XfG-lQ-9wD" id="N2E-Un-DRc"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XhP-7l-cem">
-                                <rect key="frame" x="151" y="18" width="54" height="18"/>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="XhP-7l-cem">
+                                <rect key="frame" x="184" y="18" width="54" height="18"/>
                                 <buttonCell key="cell" type="check" title="Dock" bezelStyle="regularSquare" imagePosition="left" alignment="left" refusesFirstResponder="YES" state="on" inset="2" id="ix1-BC-FWh">
                                     <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -584,28 +379,25 @@ DQ
                             </button>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="hXc-Yf-B79" firstAttribute="top" secondItem="MTr-Kw-Cr6" secondAttribute="bottom" constant="11" id="3TE-ZJ-1hI"/>
-                            <constraint firstItem="q9a-zQ-TJ2" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="21" id="89m-Wo-LHd"/>
-                            <constraint firstItem="MTr-Kw-Cr6" firstAttribute="top" secondItem="q9a-zQ-TJ2" secondAttribute="bottom" constant="8" id="91G-Eb-Fbb"/>
-                            <constraint firstItem="fxF-JA-hxx" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="23" id="TIw-4C-ipG"/>
-                            <constraint firstItem="DPR-go-wEp" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="iic-E6-Yon"/>
-                            <constraint firstItem="UgZ-L1-Ls5" firstAttribute="top" secondItem="MTr-Kw-Cr6" secondAttribute="bottom" constant="8" id="uNs-zr-AlN"/>
-                            <constraint firstItem="XhP-7l-cem" firstAttribute="top" secondItem="hXc-Yf-B79" secondAttribute="bottom" constant="6" id="zH5-Px-loo"/>
+                            <constraint firstAttribute="trailing" secondItem="r4C-qs-l8d" secondAttribute="trailing" constant="29" id="CVP-4q-XmJ"/>
+                            <constraint firstItem="r4C-qs-l8d" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="22" id="Hav-eF-cvB"/>
+                            <constraint firstItem="hXc-Yf-B79" firstAttribute="leading" secondItem="UgZ-L1-Ls5" secondAttribute="trailing" constant="8" symbolic="YES" id="L7Y-iH-77X"/>
+                            <constraint firstItem="XhP-7l-cem" firstAttribute="baseline" secondItem="hXc-Yf-B79" secondAttribute="baseline" id="WX5-Xa-fiE"/>
+                            <constraint firstItem="XhP-7l-cem" firstAttribute="leading" secondItem="hXc-Yf-B79" secondAttribute="trailing" constant="8" symbolic="YES" id="Wx6-Xj-Y5a"/>
+                            <constraint firstItem="r4C-qs-l8d" firstAttribute="leading" secondItem="UgZ-L1-Ls5" secondAttribute="leading" id="fAb-aY-AXv"/>
+                            <constraint firstItem="hXc-Yf-B79" firstAttribute="top" secondItem="r4C-qs-l8d" secondAttribute="bottom" constant="11" id="fQI-9f-DpV"/>
+                            <constraint firstItem="UgZ-L1-Ls5" firstAttribute="top" secondItem="r4C-qs-l8d" secondAttribute="bottom" constant="8" symbolic="YES" id="kDi-tu-MaN"/>
+                            <constraint firstAttribute="bottom" secondItem="hXc-Yf-B79" secondAttribute="bottom" constant="20" symbolic="YES" id="uUE-TK-3TK"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="passPathBrowseButton" destination="q9a-zQ-TJ2" id="b5Y-bd-6AR"/>
-                        <outlet property="passPathTextField" destination="DPR-go-wEp" id="TbG-zf-f3u"/>
                         <outlet property="showDockCheck" destination="XhP-7l-cem" id="fd4-Bz-qEc"/>
                         <outlet property="showStatusCheck" destination="hXc-Yf-B79" id="Zkh-bs-54F"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="569.5"/>
+            <point key="canvasLocation" x="75" y="569"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="f2e-Lr-cd6"/>
-    </inferredMetricsTieBreakers>
 </document>

@@ -11,27 +11,12 @@ import os.log
 
 class ViewController: NSViewController {
     var statusBarItem : NSStatusItem? = nil
-    
-    @IBOutlet weak var passPathTextField: NSTextField!
-    @IBOutlet weak var passPathBrowseButton: NSButton!
 
     @IBOutlet weak var showDockCheck: NSButton!
     let dockIconStateKey: String = "dockIconState"
     
     @IBOutlet weak var showStatusCheck: NSButton!
     let statusIconStateKey: String = "statusIconState"
-    
-    let isFirstRunKey: String = "firstRun"
-
-    @IBAction func browsePassPath(_ sender: Any) {
-        // Ask the user for the passwordstore path, remember it and init a passwordstore object.
-        // This function is only used, if the user wants to change the path after the inital setup
-        if let urlFromPanel = promptForPath(titleString: storeKey) {
-            sharedSecureBookmarkHandler.savePathToBookmark(url: urlFromPanel, forKey: storeKey)
-            passPathTextField.stringValue = urlFromPanel.path
-            passwordstore = Passwordstore(url: urlFromPanel)
-        }
-    }
     
     @IBAction func toggleDockIcon(_ sender: Any) {
         // Toggles, if the dock icon should be visible and remembers the state.
@@ -77,27 +62,11 @@ class ViewController: NSViewController {
         statusBarItem?.menu = menu
     }
     
-    func initPaths(forKey key: String) -> URL? {
-        // If the path for the key is in the bookmarks, get it from there. Otherwise, we have to ask the user,
-        // which is done in a separate function.
-        let passPathUrlFromBookmark = sharedSecureBookmarkHandler.getPathFromBookmark(forKey: key)
-        
-        if passPathUrlFromBookmark == nil {
-            return nil
-        }
-        
-        return passPathUrlFromBookmark!
-    }
-    
-    func initApp() {
-        // Init the passwordstore.
-        if let passPathUrl = initPaths(forKey: storeKey) {
-            passPathTextField.stringValue = passPathUrl.path
-            passwordstore = Passwordstore(url: passPathUrl)
-        }
-        
+    override func viewDidAppear() {
+        passwordstore = Passwordstore()
+
         showStatusItem()
-        
+
         // Get dockicon and status bar icon states and set the icon visibilities accordingly.
         let dockIconState = UserDefaults.standard.bool(forKey: dockIconStateKey)
         if dockIconState {
@@ -105,49 +74,15 @@ class ViewController: NSViewController {
         } else {
             showDockCheck.state = .off
         }
-        self.toggleDockIcon(showDockCheck)
-        
+        self.toggleDockIcon(showDockCheck as Any)
+
         let statusIconState = UserDefaults.standard.bool(forKey: statusIconStateKey)
         if statusIconState {
             showStatusCheck.state = .on
         } else {
             showStatusCheck.state = .off
         }
-        self.toggleStatusIcon(showStatusCheck)
-    }
-    
-    override func viewDidAppear() {
-        // Check, if the app is already set up.
-        // If not, run the initial setup sheet.
+        self.toggleStatusIcon(showStatusCheck as Any)
         
-        let path = "/usr/bin/say"
-        let arguments = ["hello world"]
-        
-        let task = Process.launchedProcess(launchPath: path, arguments: arguments)
-        task.waitUntilExit()
-        
-        let alreadyRun = UserDefaults.standard.bool(forKey: isFirstRunKey)
-        if !alreadyRun {
-            let storyboard = NSStoryboard(name: "Main", bundle: nil)
-            let firstRunWindowController = storyboard.instantiateController(withIdentifier: "FirstRun") as! NSWindowController
-            
-            if let firstRunWindow = firstRunWindowController.window {
-                NSApplication.shared.mainWindow?.beginSheet(firstRunWindow, completionHandler: { (response) in
-                    if response == NSApplication.ModalResponse.stop {
-                        NSApp.terminate(self)
-                    } else if response == NSApplication.ModalResponse.OK {
-                        UserDefaults.standard.set(true, forKey: self.isFirstRunKey)
-                        self.initApp()
-                    }
-                })
-            }
-        } else {
-            initApp()
-        }
-        
-    }
-    
-    @IBAction func showHelp(_ sender: Any) {
-        NSWorkspace.shared.open(URL(string: "https://github.com/adur1990/Passafari")!)
     }
 }
