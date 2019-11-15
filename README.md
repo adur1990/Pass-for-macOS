@@ -64,8 +64,10 @@ Click on the build button (or use the `cmd-return` shortcut) and Passafari will 
 For updates, simply pull the version you want from the repo and build it again.
 
 ## Usage
+To the best of my knowledge, it is not possible to enable the hardened runtime for this app. Therefore, it is also not possible to get the [app notarized by Apple](https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution), which is (required)[https://www.cdfinder.de/guide/blog/apple_hell.html] starting with macOS 10.14.5 (last Mojave release).
+Therefore, you have to **right-click** or **ctrl-click** on `Passafari.app` and select `open`. macOS will ask you, if you are really sure to open this "potentially malicous" app. If you confirm, you are free to use Passafari.
 
-To use Passafari, start Safari, go to Preferences and enable the extension.
+After that, start Safari, go to Preferences and enable the extension.
 
 ### The host app
 <figure>
