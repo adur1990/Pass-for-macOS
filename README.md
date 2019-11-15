@@ -36,14 +36,23 @@ login: John Appleseed
 ```
 
 ## Installation
-You have two options to use Passafari: build it yourself or use the releases. I plan to publish it via homebrew once it leaves the beta.
+You have three options to use Passafari: use the Github releases, homebrew or build it yourself.
 
 ### Option 1: Use the Releases
 Download the latest version of the app from the releases page and drop it in your applications folder (or where ever you want). Thats it.
 
 If you want to update Passafari, replace the `Passafari.app` file with the newer version.
 
-### Option 2: Build it yourself
+### Option 2: Use Homebrew
+You can install Passafari using homebrew. Just run the following command:
+
+```
+brew cask install adur1990/tap/passafari
+```
+
+If you want to update Passafari, run `brew upgrade`.
+
+### Option 3: Build it yourself
 You can  build Passafari yourself. Here are the required steps.
 
 #### Checkout and prepare
