@@ -2,6 +2,8 @@
 
 **Note: Passafari is currenlty a beta. Consider it broken, and expect errors and crashes.**
 
+**Note: If you used Passafari versions 0.3.2 or lower, you can safely delete the exported private key and your private key passphrase in the macOS keychain, if you stored it. Versions 0.4 or higher does not require this information anymore**
+
 Passafari is a Safari extension for zx2c4's pass, the standard UNIX password manager. It retrieves your decrypted passwords for the current domain and allows you to auto-fill login forms.
 It uses Apples new [Safari App Extensions](https://developer.apple.com/documentation/safariservices/safari_app_extensions) API to communicate securely with a native host app.
 
