@@ -122,3 +122,4 @@ You will see a little notification on the top right if a password is autofilled 
 
 ## Contributing
 Any help is welcome, regardles if issue, pull request or comment. Feel free to open issues if something happens, create pull requests if you have any fixes, updates or new features or ping me via mail if you have questions. But please, be as precise as possible when creating issues. Give me as much information as possible, to make it possible for me to find, reproduce and fix your issues.
+Finally, have a look into the [contribution guide](.github/CONTRIBUTING).
