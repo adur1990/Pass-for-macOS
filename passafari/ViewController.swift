@@ -2,87 +2,105 @@
 //  ViewController.swift
 //  passafari
 //
-//  Created by Artur Sterz on 10.10.18.
-//  Copyright © 2018 Artur Sterz. All rights reserved.
+//  Created by Artur Sterz on 19.11.19.
+//  Copyright © 2019 Artur Sterz. All rights reserved.
 //
 
 import Cocoa
-import os.log
 
 class ViewController: NSViewController {
-    var statusBarItem : NSStatusItem? = nil
 
-    @IBOutlet weak var showDockCheck: NSButton!
-    let dockIconStateKey: String = "dockIconState"
+    @IBOutlet weak var searchField: NSSearchField!
+    @IBOutlet weak var searchResultsTable: NSTableView!
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
-    @IBOutlet weak var showStatusCheck: NSButton!
-    let statusIconStateKey: String = "statusIconState"
+    var resultsPasswords: [String]?
+
+    @IBAction func searchPassword(_ sender: NSSearchField) {
+        if sender.stringValue.count == 0 {
+            return
+        }
+        resultsPasswords = passwordstore!.passSearch(password: sender.stringValue)
+        showSearchResults()
+    }
     
-    @IBAction func toggleDockIcon(_ sender: Any) {
-        // Toggles, if the dock icon should be visible and remembers the state.
-        let defaults = UserDefaults.standard
-        if showDockCheck.state == .on {
-            defaults.set(true, forKey: dockIconStateKey)
-            defaults.synchronize()
-            NSApp.setActivationPolicy(.regular)
-        } else if showDockCheck.state == .off {
-            defaults.set(false, forKey: dockIconStateKey)
-            defaults.synchronize()
-            NSApp.setActivationPolicy(.accessory)
-            DispatchQueue.main.async {
-                NSApp.activate(ignoringOtherApps: true)
-                NSApp.windows.forEach { $0.makeKeyAndOrderFront(self) }
+    func showSearchResults() {
+        // Do not set the focus, if app is not running, no passwords where found or the shortcut was used.
+        if resultsPasswords!.isEmpty {
+            resultsPasswords!.append("No matching password found.")
+        }
+        
+        // Set the height of the popover.
+        // Limit the size to 10 elements
+        let height = resultsPasswords!.count < 10 ? (resultsPasswords!.count * 20) : (10 * 20)
+
+        // Set the width of the popover, so that all results fit.
+        // It should be at least 330 wide.
+        var width = (resultsPasswords!.max(by: {$1.count > $0.count})?.count)! * 7
+        if width < 330 {
+            width = 330
+        }
+        
+        // Animate the size of the popover
+        heightConstraint.animator().constant = CGFloat(height)
+        widthConstraint.animator().constant = CGFloat(width)
+        
+        // show the table
+        searchResultsTable.isHidden = false
+        searchResultsTable.reloadData()
+    }
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        searchResultsTable.delegate = self
+        searchResultsTable.dataSource = self
+        searchResultsTable.target = self
+        searchResultsTable.doubleAction = #selector(tableViewDoubleClick(_:))
+        searchResultsTable.isHidden = true
+    }
+
+    @objc func tableViewDoubleClick(_ sender: AnyObject) {
+        //fillPasswordFromSelection()
+    }
+    
+}
+
+extension ViewController: NSTableViewDataSource, NSTableViewDelegate {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return resultsPasswords?.count ?? 0
+    }
+
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+        return (resultsPasswords!)[row]
+    }
+}
+
+extension NSSearchField {
+    override open func performKeyEquivalent(with event: NSEvent) -> Bool {
+        let commandKey = NSEvent.ModifierFlags.command.rawValue
+        if event.type == NSEvent.EventType.keyDown {
+            if (event.modifierFlags.rawValue & NSEvent.ModifierFlags.deviceIndependentFlagsMask.rawValue) == commandKey {
+                switch event.charactersIgnoringModifiers! {
+                    case "x":
+                        if NSApp.sendAction(#selector(NSText.cut(_:)), to:nil, from:self) { return true }
+                    case "c":
+                        if NSApp.sendAction(#selector(NSText.copy(_:)), to:nil, from:self) { return true }
+                    case "v":
+                        if NSApp.sendAction(#selector(NSText.paste(_:)), to:nil, from:self) { return true }
+                    case "z":
+                        if NSApp.sendAction(Selector(("undo:")), to:nil, from:self) { return true }
+                    case "a":
+                        if NSApp.sendAction(#selector(NSResponder.selectAll(_:)), to:nil, from:self) { return true }
+                    default:
+                        break
+                }
+            }
+            
+            if event.keyCode == 125 {
             }
         }
-    }
-    
-    @IBAction func toggleStatusIcon(_ sender: Any) {
-        // Toggles, if the status bar icon should be visible and remembers the state.
-        let defaults = UserDefaults.standard
-        if showStatusCheck.state == .on {
-            defaults.set(true, forKey: statusIconStateKey)
-            defaults.synchronize()
-            showStatusItem()
-        } else if showStatusCheck.state == .off {
-            defaults.set(false, forKey: statusIconStateKey)
-            defaults.synchronize()
-            NSStatusBar.system.removeStatusItem(statusBarItem!)
-        }
-    }
-    
-    func showStatusItem() {
-        // If the status bar icon should be visible, we have to build the menu manually.
-        statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.variableLength)
-        statusBarItem?.button?.image = NSImage(named: "statusIcon")
-        
-        let menu = NSMenu()
-        menu.addItem(NSMenuItem(title: "Show", action: #selector(AppDelegate.revealWindow), keyEquivalent: "s"))
-        menu.addItem(NSMenuItem.separator())
-        menu.addItem(NSMenuItem(title: "Quit", action: #selector(AppDelegate.quitApp), keyEquivalent: "q"))
-        statusBarItem?.menu = menu
-    }
-    
-    override func viewDidAppear() {
-        passwordstore = Passwordstore()
-
-        showStatusItem()
-
-        // Get dockicon and status bar icon states and set the icon visibilities accordingly.
-        let dockIconState = UserDefaults.standard.bool(forKey: dockIconStateKey)
-        if dockIconState {
-            showDockCheck.state = .on
-        } else {
-            showDockCheck.state = .off
-        }
-        self.toggleDockIcon(showDockCheck as Any)
-
-        let statusIconState = UserDefaults.standard.bool(forKey: statusIconStateKey)
-        if statusIconState {
-            showStatusCheck.state = .on
-        } else {
-            showStatusCheck.state = .off
-        }
-        self.toggleStatusIcon(showStatusCheck as Any)
-        
+        return super.performKeyEquivalent(with: event)
     }
 }
