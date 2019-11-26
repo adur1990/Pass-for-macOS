@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Carbon
 
 import SafariServices
 
@@ -30,6 +31,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         popover.contentViewController = ViewController.newController()
         popover.behavior = NSPopover.Behavior.transient;
+
+        Shortcut.register(
+            UInt32(kVK_ANSI_P),
+            modifiers: UInt32((shiftKey | controlKey)),
+            block: {
+                self.togglePopover(nil)
+            }
+        )
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
