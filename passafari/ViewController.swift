@@ -62,7 +62,30 @@ class ViewController: NSViewController {
     }
 
     @objc func tableViewDoubleClick(_ sender: AnyObject) {
-        //fillPasswordFromSelection()
+        passwordToClipboard()
+    }
+
+    override func keyDown(with event: NSEvent) {
+        if event.keyCode == 36 {
+            passwordToClipboard()
+        }
+    }
+
+    func passwordToClipboard() {
+        if searchResultsTable.selectedRow < 0 {
+            print("Something went wrong. There are not results in the results table")
+            return
+        }
+        let item = (resultsPasswords?[searchResultsTable.selectedRow])!
+
+        let returned = passwordstore?.passwordToClipboard(pathToFile: item)
+
+        if returned!.components(separatedBy: " ").first == "Error:" {
+            return
+        }
+
+        let delegate = NSApplication.shared.delegate as! AppDelegate
+        delegate.togglePopover(nil)
     }
     
 }

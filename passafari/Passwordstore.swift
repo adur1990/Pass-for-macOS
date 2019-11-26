@@ -73,20 +73,27 @@ class Passwordstore {
         return resultPaths
     }
     
-    func passDecrypt(pathToFile: String) -> String {
+    func passShellCommand(passSubCommand: String) -> String {
         let shell = ProcessInfo.processInfo.environment["SHELL"]
         
         let task = Process()
         task.launchPath = shell
-        task.arguments = ["-l", "-c", "pass \(pathToFile)"]
+        task.arguments = ["-l", "-c", "pass \(passSubCommand)"]
 
         let pipe = Pipe()
         task.standardOutput = pipe
         task.launch()
 
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let decrypted: String = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
-        
-        return decrypted
+        return NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+    }
+
+    func passDecrypt(pathToFile: String) -> String {
+        return passShellCommand(passSubCommand: pathToFile)
+    }
+
+    func passwordToClipboard(pathToFile: String) -> String {
+        let subCommand = "-c \(pathToFile)"
+        return passShellCommand(passSubCommand: subCommand)
     }
 }
