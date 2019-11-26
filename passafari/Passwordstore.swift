@@ -26,19 +26,11 @@ class Passwordstore {
         var resultPaths = [String]()
         
         let fileSystem = FileManager.default
-        if let fsTree = fileSystem.enumerator(atPath: self.passwordStoreUrl.path) {
+        if let fsTree = fileSystem.enumerator(at: self.passwordStoreUrl, includingPropertiesForKeys: [.isRegularFileKey]) {
             // Iterate over all files and folders in the default store path. Several checks will be done.
-            while let nodeName = fsTree.nextObject() as? String {
-                
-                var nodeNameComponents = nodeName.components(separatedBy: ".")
-                if nodeNameComponents.last == "gpg" { // If there is a file extension
-                  nodeNameComponents.removeLast()
-                }
-                
-                let fsNodeName = nodeNameComponents.joined(separator: ".")
-                
-                let fullPath = "\(String(describing: self.passwordStoreUrl))\(fsNodeName)"
-                let pathComponents = URL(fileURLWithPath: fullPath).pathComponents
+            while let nodeUrl = fsTree.nextObject() as? URL {
+                let nodeName = nodeUrl.path
+                let pathComponents = URL(fileURLWithPath: nodeName).pathComponents
                 
                 // If a password store is a git folder, we do not want to iterate over the entire repository, but only the current copy.
                 // Therefore, we need to exclude all folders containing .git from the search items.
@@ -49,9 +41,19 @@ class Passwordstore {
                     continue
                 }
 
+                do {
+                    let fileAttributes = try nodeUrl.resourceValues(forKeys:[.isRegularFileKey])
+                    if !fileAttributes.isRegularFile! {
+                        continue
+                    }
+                } catch {
+                    print(error, nodeUrl)
+                }
+
                     // This is the search. Just check, if the password is in the fullpath.
-                if fullPath.localizedCaseInsensitiveContains(password) {
-                    resultPaths.append(fsNodeName)
+                if nodeName.localizedCaseInsensitiveContains(password) {
+                    let extRemoved = nodeUrl.pathExtension == "gpg" ? nodeUrl.deletingPathExtension().path : nodeName
+                    resultPaths.append(extRemoved.replacingOccurrences(of: self.passwordStoreUrl.path + "/", with: ""))
                 }
             }
         }
@@ -67,8 +69,6 @@ class Passwordstore {
                 return passSearch(password: shortPassword)
             }
         }
-        
-        
         
         return resultPaths
     }
