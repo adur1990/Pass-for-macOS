@@ -2,16 +2,17 @@
 
 **Note: Passafari is currenlty a beta. Consider it broken, and expect errors and crashes.**
 
-**Note: If you used Passafari versions 0.3.2 or lower, you can safely delete the exported private key and your private key passphrase in the macOS keychain, if you stored it. Versions 0.4 or higher does not require this information anymore**
+**Note: If you used Passafari versions 0.3.2 or earlier, you can safely delete the exported private key and your private key passphrase in the macOS keychain, if you stored it. Versions 0.4 or higher do not require this information anymore**
 
 Passafari is a Safari extension for zx2c4's pass, the standard UNIX password manager. It retrieves your decrypted passwords for the current domain and allows you to auto-fill login forms.
 It uses Apples new [Safari App Extensions](https://developer.apple.com/documentation/safariservices/safari_app_extensions) API to communicate securely with a native host app.
 
 ### Features
 * Automatically searches passwords for the current domain.
-* Search any password.
 * Autofill passwords from the list of found passwords.
 * Autofill passwords using a shortcut.
+* Search any password from the macOS status bar.
+* Copy any password to your clipboard for 45 seconds using the macOS status bar.
 
 ### Limitations
 * The popover view can not be shown using the shortcut. Therefore, the first password for the current domain will be autofilled if multiple exist.
@@ -56,7 +57,7 @@ If you want to update Passafari, run `brew upgrade`.
 You can  build Passafari yourself. Here are the required steps.
 
 #### Checkout and prepare
-First, checkout the repository:
+First, checkout this repository:
 
 ```
 $ git clone git@github.com:adur1990/Passafari.git
@@ -73,7 +74,7 @@ Click on the build button (or use the `cmd-return` shortcut) and Passafari will 
 For updates, simply pull the version you want from the repo and build it again.
 
 ## Usage
-To the best of my knowledge, it is not possible to enable the hardened runtime for this app. Therefore, it is also not possible to get the [app notarized by Apple](https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution), which is (required)[https://www.cdfinder.de/guide/blog/apple_hell.html] starting with macOS 10.14.5 (last Mojave release).
+To the best of my knowledge, it is not possible to enable the hardened runtime for this app. Therefore, it is also not possible to get the [app notarized by Apple](https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution), which is [required](https://www.cdfinder.de/guide/blog/apple_hell.html) starting with macOS 10.14.5 (last Mojave release).
 Therefore, you have to **right-click** or **ctrl-click** on `Passafari.app` and select `open`. macOS will ask you, if you are really sure to open this "potentially malicous" app. If you confirm, you are free to use Passafari.
 
 After that, start Safari, go to Preferences and enable the extension.
@@ -86,9 +87,10 @@ After that, start Safari, go to Preferences and enable the extension.
 	</center>
 </figure>
 
-Since Passafari uses the host app to handle the security related password stuff, it has to run all the time. But you can safely close the window, just leave the app running.
+Since Passafari uses the host app to handle the security related password stuff, it has to run all the time.
 
-Further, you can decide if an icon should be shown in the dock or the status bar or both or none.
+To give the host app some meaning instead of just "beeing there", you can either click on the status bar item or use the `shift-ctrl-p` shortcur to open a popover.
+In this popover, you can search passwords and copy the to your clipboard for 45 seconds, exactly as `pass -c <password>` does.
 
 ### The extension
 The extension has two modes. You can click the toolbar item or use a shortcut.
@@ -123,3 +125,6 @@ You will see a little notification on the top right if a password is autofilled 
 ## Contributing
 Any help is welcome, regardles if issue, pull request or comment. Feel free to open issues if something happens, create pull requests if you have any fixes, updates or new features or ping me via mail if you have questions. But please, be as precise as possible when creating issues. Give me as much information as possible, to make it possible for me to find, reproduce and fix your issues.
 Finally, have a look into the [contribution guide](.github/CONTRIBUTING).
+
+### Contributors
+* Thank you, [jakajancar](https://github.com/jakajancar), for the [idea using a status bar host app](https://github.com/adur1990/Passafari/issues/16) instead of a meaningless window app.
