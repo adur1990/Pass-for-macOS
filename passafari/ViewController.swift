@@ -116,12 +116,11 @@ extension NSSearchField {
                         if NSApp.sendAction(Selector(("undo:")), to:nil, from:self) { return true }
                     case "a":
                         if NSApp.sendAction(#selector(NSResponder.selectAll(_:)), to:nil, from:self) { return true }
+                    case "q":
+                        NSApplication.shared.terminate(self)
                     default:
                         break
                 }
-            }
-            
-            if event.keyCode == 125 {
             }
         }
         return super.performKeyEquivalent(with: event)
