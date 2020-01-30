@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:passafari.xcodeproj">
+      location = "self:/Users/artur/Documents/Privat/passformacos/passformacos.xcodeproj">
    </FileRef>
 </Workspace>

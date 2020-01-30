@@ -4,14 +4,14 @@ safari.self.addEventListener("message", function (event) {
             if (event.message.login) {
                 toast("Filling password for ".concat(window.top.location.hostname));
             } else {
-                if (event.message.message == "The Passafari app is not running.") {
+                if (event.message.message == "Pass for macOS is not running.") {
                     toast(event.message.message)
                 } else {
                     toast("No matching password found for ".concat(window.top.location.hostname));
                 }
             }
         }
-    passafariFillForm(event.message.password, event.message.login);
+    passformacosFillForm(event.message.password, event.message.login);
     } else {
         console.log("Received a message named: " + event.name);
     }
@@ -50,7 +50,7 @@ window.toast = function(message) {
                2000);
 }
 
-window.passafariFillForm = function (p, u) {
+window.passformacosFillForm = function (p, u) {
     const FORM_MARKERS = [
         "login",
         "log-in",

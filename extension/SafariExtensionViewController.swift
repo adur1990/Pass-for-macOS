@@ -26,12 +26,12 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     @IBOutlet weak var searchResultsTable: NSTableView!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
-    @IBOutlet weak var startPassafariButton: NSButton!
+    @IBOutlet weak var startPassformacosButton: NSButton!
     
     var resultsPasswords: [String]?
     
-    @IBAction func startPassafari(_ sender: Any) {
-        let bundlePath = NSWorkspace.shared.fullPath(forApplication: "Passafari.app")
+    @IBAction func startPassformacos(_ sender: Any) {
+        let bundlePath = NSWorkspace.shared.fullPath(forApplication: "Pass for macOS.app")
         NSWorkspace.shared.launchApplication(bundlePath!)
     }
     
@@ -58,7 +58,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             shortcut = ""
         }
         
-        if item == "No matching password found." || item == "The Passafari app is not running." {
+        if item == "No matching password found." || item == "Pass for macOS is not running." {
             password = ""
             login = ""
             message = item!
@@ -88,7 +88,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
     
     func showSearchResults(fromSearchField: Bool = false) {
         // Show the results in the table
-        startPassafariButton.isHidden = true
+        startPassformacosButton.isHidden = true
         
         // Set the height of the popover.
         // Limit the size to 10 elements
@@ -104,8 +104,8 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         // Do not set the focus, if app is not running, no passwords where found or the shortcut was used.
         var fail: Bool = false;
         if resultsPasswords!.count == 1 {
-            if resultsPasswords![0] == "The Passafari app is not running." {
-                startPassafariButton.isHidden = false
+            if resultsPasswords![0] == "Pass for macOS is not running." {
+                startPassformacosButton.isHidden = false
                 height = height + 22
                 fail = true
             }

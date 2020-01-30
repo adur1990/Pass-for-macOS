@@ -1,6 +1,6 @@
 //
 //  Passwordstore.swift
-//  passafari
+//  Pass for macOS
 //
 //  Created by Artur Sterz on 28.10.18.
 //  Copyright © 2018 Artur Sterz. All rights reserved.

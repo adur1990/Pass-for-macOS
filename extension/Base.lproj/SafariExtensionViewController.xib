@@ -11,7 +11,7 @@
                 <outlet property="heightConstraint" destination="SV0-Ae-A2a" id="2EK-f9-tly"/>
                 <outlet property="searchField" destination="rnR-2m-fJL" id="4uF-tZ-BCl"/>
                 <outlet property="searchResultsTable" destination="4gY-te-H9m" id="VlM-8b-gy3"/>
-                <outlet property="startPassafariButton" destination="Gjk-6y-lsc" id="aAj-J0-wwy"/>
+                <outlet property="startPassformacosButton" destination="Gjk-6y-lsc" id="aAj-J0-wwy"/>
                 <outlet property="view" destination="c22-O7-iKe" id="vwT-Xx-Aiz"/>
                 <outlet property="widthConstraint" destination="BUF-Rw-yho" id="n5a-gH-XyA"/>
             </connections>
@@ -82,12 +82,12 @@
                 </scrollView>
                 <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gjk-6y-lsc">
                     <rect key="frame" x="-6" y="-7" width="342" height="32"/>
-                    <buttonCell key="cell" type="push" title="Start Passafari" bezelStyle="rounded" alignment="center" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="HUb-eB-6Nd">
+                    <buttonCell key="cell" type="push" title="Start Pass for macOS" bezelStyle="rounded" alignment="center" borderStyle="border" focusRingType="none" imageScaling="proportionallyDown" inset="2" id="HUb-eB-6Nd">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                     <connections>
-                        <action selector="startPassafari:" target="-2" id="yU2-eB-Q5F"/>
+                        <action selector="startPassformacos:" target="-2" id="yU2-eB-Q5F"/>
                     </connections>
                 </button>
             </subviews>

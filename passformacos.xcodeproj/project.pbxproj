@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7511A35E219B52B7008290E9 /* passafariFillForm.js in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */; };
-		7511A361219B53C5008290E9 /* passafariToast.css in Resources */ = {isa = PBXBuildFile; fileRef = 7511A360219B53C5008290E9 /* passafariToast.css */; };
+		7511A35E219B52B7008290E9 /* passformacosFillForm.js in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1C216E0DA700EA9CBD /* passformacosFillForm.js */; };
+		7511A361219B53C5008290E9 /* passformacosToast.css in Resources */ = {isa = PBXBuildFile; fileRef = 7511A360219B53C5008290E9 /* passformacosToast.css */; };
 		7542023921A4904600124A19 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7542023821A4904600124A19 /* ToolbarItemIcon.pdf */; };
 		75494A0B218CCC7F00148925 /* ServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0A218CCC7F00148925 /* ServerHandler.swift */; };
 		75494A0F218CCEBD00148925 /* ClientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0E218CCEBD00148925 /* ClientHandler.swift */; };
@@ -51,27 +51,27 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7511A360219B53C5008290E9 /* passafariToast.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = passafariToast.css; sourceTree = "<group>"; };
+		7511A360219B53C5008290E9 /* passformacosToast.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = passformacosToast.css; sourceTree = "<group>"; };
 		7542023821A4904600124A19 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIcon.pdf; path = Icons/ToolbarItemIcon.pdf; sourceTree = SOURCE_ROOT; };
-		75494A0A218CCC7F00148925 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServerHandler.swift; path = passafari/ServerHandler.swift; sourceTree = SOURCE_ROOT; };
+		75494A0A218CCC7F00148925 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServerHandler.swift; path = passformacos/ServerHandler.swift; sourceTree = SOURCE_ROOT; };
 		75494A0E218CCEBD00148925 /* ClientHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHandler.swift; sourceTree = "<group>"; };
 		754ABD1121B71DB90051AA18 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		756E0B992185F9DA0079B98C /* Passwordstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passwordstore.swift; sourceTree = "<group>"; };
 		75C922F0238D934D00F46563 /* Shurtcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shurtcut.swift; sourceTree = "<group>"; };
-		75E07BDC216E0D8D00EA9CBD /* Passafari.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Passafari.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		75E07BDC216E0D8D00EA9CBD /* Pass for macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pass for macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75E07BE1216E0D8D00EA9CBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		75E07BE3216E0D8E00EA9CBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75E07BE6216E0D8E00EA9CBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		75E07BE8216E0D8E00EA9CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75E07BE9216E0D8E00EA9CBD /* passafari.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = passafari.entitlements; sourceTree = "<group>"; };
+		75E07BE9216E0D8E00EA9CBD /* passformacos.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = passformacos.entitlements; sourceTree = "<group>"; };
 		75E07C0F216E0DA700EA9CBD /* extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = extension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E07C11216E0DA700EA9CBD /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		75E07C14216E0DA700EA9CBD /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
 		75E07C16216E0DA700EA9CBD /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
 		75E07C19216E0DA700EA9CBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SafariExtensionViewController.xib; sourceTree = "<group>"; };
 		75E07C1B216E0DA700EA9CBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = passafariFillForm.js; sourceTree = "<group>"; };
+		75E07C1C216E0DA700EA9CBD /* passformacosFillForm.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = passformacosFillForm.js; sourceTree = "<group>"; };
 		75E07C20216E0DA700EA9CBD /* extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = extension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,7 +97,7 @@
 		75E07BD3216E0D8D00EA9CBD = {
 			isa = PBXGroup;
 			children = (
-				75E07BDE216E0D8D00EA9CBD /* passafari */,
+				75E07BDE216E0D8D00EA9CBD /* passformacos */,
 				75E07C13216E0DA700EA9CBD /* extension */,
 				75E07C10216E0DA700EA9CBD /* Frameworks */,
 				75E07BDD216E0D8D00EA9CBD /* Products */,
@@ -107,13 +107,13 @@
 		75E07BDD216E0D8D00EA9CBD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				75E07BDC216E0D8D00EA9CBD /* Passafari.app */,
+				75E07BDC216E0D8D00EA9CBD /* Pass for macOS.app */,
 				75E07C0F216E0DA700EA9CBD /* extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		75E07BDE216E0D8D00EA9CBD /* passafari */ = {
+		75E07BDE216E0D8D00EA9CBD /* passformacos */ = {
 			isa = PBXGroup;
 			children = (
 				75494A0A218CCC7F00148925 /* ServerHandler.swift */,
@@ -124,10 +124,10 @@
 				75E07BE3216E0D8E00EA9CBD /* Assets.xcassets */,
 				75E07BE5216E0D8E00EA9CBD /* Main.storyboard */,
 				75E07BE8216E0D8E00EA9CBD /* Info.plist */,
-				75E07BE9216E0D8E00EA9CBD /* passafari.entitlements */,
+				75E07BE9216E0D8E00EA9CBD /* passformacos.entitlements */,
 				75C922F0238D934D00F46563 /* Shurtcut.swift */,
 			);
-			path = passafari;
+			path = passformacos;
 			sourceTree = "<group>";
 		};
 		75E07C10216E0DA700EA9CBD /* Frameworks */ = {
@@ -146,10 +146,10 @@
 				75E07C16216E0DA700EA9CBD /* SafariExtensionViewController.swift */,
 				75E07C18216E0DA700EA9CBD /* SafariExtensionViewController.xib */,
 				75E07C1B216E0DA700EA9CBD /* Info.plist */,
-				75E07C1C216E0DA700EA9CBD /* passafariFillForm.js */,
+				75E07C1C216E0DA700EA9CBD /* passformacosFillForm.js */,
 				75E07C20216E0DA700EA9CBD /* extension.entitlements */,
 				75494A0E218CCEBD00148925 /* ClientHandler.swift */,
-				7511A360219B53C5008290E9 /* passafariToast.css */,
+				7511A360219B53C5008290E9 /* passformacosToast.css */,
 			);
 			path = extension;
 			sourceTree = "<group>";
@@ -157,9 +157,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		75E07BDB216E0D8D00EA9CBD /* passafari */ = {
+		75E07BDB216E0D8D00EA9CBD /* passformacos */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 75E07C02216E0D8E00EA9CBD /* Build configuration list for PBXNativeTarget "passafari" */;
+			buildConfigurationList = 75E07C02216E0D8E00EA9CBD /* Build configuration list for PBXNativeTarget "passformacos" */;
 			buildPhases = (
 				75E07BD8216E0D8D00EA9CBD /* Sources */,
 				75E07BD9216E0D8D00EA9CBD /* Frameworks */,
@@ -171,9 +171,9 @@
 			dependencies = (
 				75E07C22216E0DA700EA9CBD /* PBXTargetDependency */,
 			);
-			name = passafari;
-			productName = passafari;
-			productReference = 75E07BDC216E0D8D00EA9CBD /* Passafari.app */;
+			name = passformacos;
+			productName = passformacos;
+			productReference = 75E07BDC216E0D8D00EA9CBD /* Pass for macOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 		75E07C0E216E0DA700EA9CBD /* extension */ = {
@@ -232,7 +232,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 75E07BD7216E0D8D00EA9CBD /* Build configuration list for PBXProject "passafari" */;
+			buildConfigurationList = 75E07BD7216E0D8D00EA9CBD /* Build configuration list for PBXProject "passformacos" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -245,7 +245,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				75E07BDB216E0D8D00EA9CBD /* passafari */,
+				75E07BDB216E0D8D00EA9CBD /* passformacos */,
 				75E07C0E216E0DA700EA9CBD /* extension */,
 			);
 		};
@@ -266,10 +266,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7511A35E219B52B7008290E9 /* passafariFillForm.js in Resources */,
+				7511A35E219B52B7008290E9 /* passformacosFillForm.js in Resources */,
 				75E07C1A216E0DA700EA9CBD /* SafariExtensionViewController.xib in Resources */,
 				7542023921A4904600124A19 /* ToolbarItemIcon.pdf in Resources */,
-				7511A361219B53C5008290E9 /* passafariToast.css in Resources */,
+				7511A361219B53C5008290E9 /* passformacosToast.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,10 +379,12 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -434,9 +436,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "";
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -448,19 +452,19 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = passafari/passafari.entitlements;
+				CODE_SIGN_ENTITLEMENTS = passformacos/passformacos.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BR355MFMD5;
-				INFOPLIST_FILE = passafari/Info.plist;
+				INFOPLIST_FILE = passformacos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 0.5;
-				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafari;
-				PRODUCT_NAME = Passafari;
+				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos;
+				PRODUCT_NAME = "Pass for macOS";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
@@ -471,19 +475,19 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = passafari/passafari.entitlements;
+				CODE_SIGN_ENTITLEMENTS = passformacos/passformacos.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = BR355MFMD5;
-				INFOPLIST_FILE = passafari/Info.plist;
+				INFOPLIST_FILE = passformacos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 0.5;
-				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafari;
-				PRODUCT_NAME = Passafari;
+				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos;
+				PRODUCT_NAME = "Pass for macOS";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 			};
@@ -503,7 +507,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MARKETING_VERSION = 0.5;
-				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafari.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -525,7 +529,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MARKETING_VERSION = 0.5;
-				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passafari.extension;
+				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
@@ -536,7 +540,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		75E07BD7216E0D8D00EA9CBD /* Build configuration list for PBXProject "passafari" */ = {
+		75E07BD7216E0D8D00EA9CBD /* Build configuration list for PBXProject "passformacos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75E07C00216E0D8E00EA9CBD /* Debug */,
@@ -545,7 +549,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		75E07C02216E0D8E00EA9CBD /* Build configuration list for PBXNativeTarget "passafari" */ = {
+		75E07C02216E0D8E00EA9CBD /* Build configuration list for PBXNativeTarget "passformacos" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				75E07C03216E0D8E00EA9CBD /* Debug */,

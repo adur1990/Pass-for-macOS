@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  passafari
+//  Pass for macOS
 //
 //  Created by Artur Sterz on 19.11.19.
 //  Copyright © 2019 Artur Sterz. All rights reserved.

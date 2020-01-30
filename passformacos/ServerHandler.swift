@@ -1,17 +1,17 @@
 //
 //  Server.swift
-//  passafari
+//  Pass for macOS
 //
 //  Created by Artur Sterz on 02.11.18.
 //  Copyright © 2018 Artur Sterz. All rights reserved.
-//
+//q
 
 import Foundation
 
 class ServerHandler {
     // This class handles the host's server part of the mach port communication between the extension and the host app.
     init() {
-        let port = CFMessagePortCreateLocal(nil, "group.de.artursterz.passafari.messageport" as CFString, serverHandler(), nil, nil)
+        let port = CFMessagePortCreateLocal(nil, "group.de.artursterz.passformacos.messageport" as CFString, serverHandler(), nil, nil)
         let runLoopSource = CFMessagePortCreateRunLoopSource(nil, port, 0)
         CFRunLoopAddSource(CFRunLoopGetCurrent(), runLoopSource, CFRunLoopMode.commonModes)
     }
