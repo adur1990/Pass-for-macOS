@@ -1,12 +1,29 @@
 # Pass for macOS
 
+![GitHub forks](https://img.shields.io/github/forks/adur1990/Pass-for-macOS)
+![GitHub stars](https://img.shields.io/github/stars/adur1990/Pass-for-macOS)
+![GitHub watchers](https://img.shields.io/github/watchers/adur1990/Pass-for-macOS)
+
+![GitHub](https://img.shields.io/github/license/adur1990/Pass-for-macOS)
+![GitHub tag (latest SemVer pre-release)](https://img.shields.io/github/v/tag/adur1990/Pass-for-macOS?include_prereleases&label=release)
+
+![GitHub repo size](https://img.shields.io/github/repo-size/adur1990/Pass-for-macOS)
+![GitHub All Releases](https://img.shields.io/github/downloads/adur1990/Pass-for-macOS/total)
+
+![GitHub issues](https://img.shields.io/github/issues/adur1990/Pass-for-macOS)
+![GitHub issues by-label](https://img.shields.io/github/issues/adur1990/Pass-for-macOS/help wanted)
+![GitHub issues by-label](https://img.shields.io/github/issues/adur1990/Pass-for-macOS/good first issue)
+![GitHub pull requests](https://img.shields.io/github/issues-pr/adur1990/Pass-for-macOS)
+![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/adur1990/Pass-for-macOS)
+
+> Pass for macOS is a macOS wrapper for zx2c4's `pass`, the standard UNIX password manager. It retrieves your decrypted passwords for the current domain and allows you to auto-fill login forms.
+
+Pass for macOS consists of two parts. First, a status bar app, which you can use to search passwords and copy them to the clipboard. Second, a [Safari App Extensions](https://developer.apple.com/documentation/safariservices/safari_app_extensions) to auto-fill passwords in Safari using `pass`.
+Note, that Pass for macOS does not come with its own pass installation, but assumes you have already `pass` installed somehow and it is in your `$PATH`.
+
 **Note: Pass for macOS is currenlty a beta. Consider it broken, and expect errors and crashes.**
 
 **Note: If you used Pass for macOS (formerly Passafari) versions 0.3.2 or earlier, you can safely delete the exported private key and your private key passphrase in the macOS keychain, if you stored it. Versions 0.4 or higher do not require this information anymore**
-
-Pass for macOS is a macOS wrapper for zx2c4's `pass`, the standard UNIX password manager. It retrieves your decrypted passwords for the current domain and allows you to auto-fill login forms.
-Pass for macOS consists of two parts. First, a status bar app, which you can use to search passwords and copy them to the clipboard. Second, a [Safari App Extensions](https://developer.apple.com/documentation/safariservices/safari_app_extensions) to auto-fill passwords in Safari using `pass`.
-Note, that Pass for macOS does not come with its own pass installation, but assumes you have already `pass` installed somehow and it is in your `$PATH`.
 
 ### Features
 * Search any password from the macOS status bar.
