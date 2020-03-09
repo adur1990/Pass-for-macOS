@@ -11,8 +11,6 @@
 ![GitHub All Releases](https://img.shields.io/github/downloads/adur1990/Pass-for-macOS/total)
 
 ![GitHub issues](https://img.shields.io/github/issues/adur1990/Pass-for-macOS)
-![GitHub issues by-label](https://img.shields.io/github/issues/adur1990/Pass-for-macOS/help wanted)
-![GitHub issues by-label](https://img.shields.io/github/issues/adur1990/Pass-for-macOS/good first issue)
 ![GitHub pull requests](https://img.shields.io/github/issues-pr/adur1990/Pass-for-macOS)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/adur1990/Pass-for-macOS)
 
