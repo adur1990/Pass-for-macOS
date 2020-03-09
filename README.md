@@ -1,9 +1,5 @@
 # Pass for macOS
 
-![GitHub forks](https://img.shields.io/github/forks/adur1990/Pass-for-macOS)
-![GitHub stars](https://img.shields.io/github/stars/adur1990/Pass-for-macOS)
-![GitHub watchers](https://img.shields.io/github/watchers/adur1990/Pass-for-macOS)
-
 ![GitHub](https://img.shields.io/github/license/adur1990/Pass-for-macOS)
 ![GitHub tag (latest SemVer pre-release)](https://img.shields.io/github/v/tag/adur1990/Pass-for-macOS?include_prereleases&label=release)
 
