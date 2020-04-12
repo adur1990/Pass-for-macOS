@@ -33,7 +33,7 @@ fi
 echo "Signature is correct. Packing app."
 
 cd $BUILD_PATH/
-zip -r "$APP_NAME.zip" "$APP_NAME"
+ditto -c -k --sequesterRsrc --keepParent "$APP_NAME" "$APP_NAME.zip"
 
 mv "$APP_NAME.zip" ../
 
