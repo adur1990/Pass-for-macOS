@@ -107,6 +107,7 @@
                     </connections>
                 </viewController>
                 <customObject id="Sjr-2D-2fm" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <customObject id="JHd-O9-rJ9" customClass="SUUpdater"/>
             </objects>
             <point key="canvasLocation" x="75" y="215"/>
         </scene>

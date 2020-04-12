@@ -15,23 +15,51 @@ import Carbon
 
 import SafariServices
 
+import Sparkle
+
 var passwordstore: Passwordstore? = nil
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    let checkDailySettingsKey = "checkDialy"
     let statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
     let popover = NSPopover()
 
+    var contextMenu = NSMenu()
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let _ = ServerHandler()
+
+        let userSettings = UserDefaults.standard
 
         passwordstore = Passwordstore()
 
         if let button = statusBarItem.button {
             button.image = NSImage(named: "statusIcon")
             button.action = #selector(togglePopover(_:))
+            button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
+
+        let dailyUpdateItem = NSMenuItem(title: "Check daily for updates", action: #selector(dailyUpdatesToggle), keyEquivalent: "")
+
+        if userSettings.bool(forKey: checkDailySettingsKey) {
+            dailyUpdateItem.state = .on
+            SUUpdater.shared().automaticallyChecksForUpdates = true
+        } else {
+            dailyUpdateItem.state = .off
+            SUUpdater.shared().automaticallyChecksForUpdates = false
+        }
+
+        let updateItem = NSMenuItem()
+        updateItem.title = "Check for updates"
+        updateItem.target = SUUpdater.shared()
+        updateItem.action = #selector(SUUpdater.shared().checkForUpdates)
+
+        contextMenu.addItem(dailyUpdateItem)
+        contextMenu.addItem(updateItem)
+        contextMenu.addItem(NSMenuItem.separator())
+        contextMenu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
 
         popover.contentViewController = ViewController.newController()
         popover.behavior = NSPopover.Behavior.transient;
@@ -49,12 +77,33 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
+    @objc func dailyUpdatesToggle(sender: Any?) {
+        let userSettings = UserDefaults.standard
+
+        let item = sender as! NSMenuItem
+
+        if item.state == .on {
+            item.state = .off
+            SUUpdater.shared().automaticallyChecksForUpdates = false
+            userSettings.set(false, forKey: checkDailySettingsKey)
+        } else {
+            item.state = .on
+            SUUpdater.shared().automaticallyChecksForUpdates = true
+            userSettings.set(true, forKey: checkDailySettingsKey)
+        }
+    }
+
     @objc func togglePopover(_ sender: Any?) {
-      if popover.isShown {
-        closePopover(sender: sender)
-      } else {
-        showPopover(sender: sender)
-      }
+        let event = NSApp.currentEvent!
+        if event.type == NSEvent.EventType.rightMouseUp {
+            statusBarItem.popUpMenu(contextMenu)
+        } else {
+            if popover.isShown {
+              closePopover(sender: sender)
+            } else {
+              showPopover(sender: sender)
+            }
+        }
     }
 
     func showPopover(sender: Any?) {

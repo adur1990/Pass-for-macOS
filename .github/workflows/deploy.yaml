@@ -58,3 +58,21 @@ jobs:
         env:
           VERSION: ${{ github.ref }}
         run: ./.github/scripts/update_cask.sh
+
+      - name: Update appcast
+        env:
+          VERSION: ${{ github.ref }}
+          SPARKLE_SIGNING_KEY: ${{ secrets.SPARKLE_SIGNING_KEY }}
+        run: ./.github/scripts/update_appcast.sh
+
+      - name: Commit appcast
+        run: |
+          git config --local user.email "github@artursterz.de"
+          git config --local user.name "GitHub Action"
+          git add appcast.xml
+          git commit -m "Update appcast.xml to version ${{ github.ref }} (automated commit)"
+
+      - name: Push appcast
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}

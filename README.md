@@ -54,16 +54,12 @@ You have three options to use Pass for macOS: use the Github releases, homebrew 
 ### Option 1: Use the Releases
 Download the latest version of the app from the releases page and drop it in your applications folder (or where ever you want). Thats it.
 
-If you want to update Pass for macOS, replace the `Pass for macOS.app` file with the newer version.
-
 ### Option 2: Use Homebrew
 You can install Pass for macOS using homebrew. Just run the following command:
 
 ```
 brew cask install adur1990/tap/passformacos
 ```
-
-If you want to update Pass for macOS, run `brew upgrade`.
 
 ### Option 3: Build it yourself
 You can  build Pass for macOS yourself. Here are the required steps.
@@ -79,11 +75,14 @@ Now, open the `passformacos.xcodeproj`, go to the General tab of `passformacos` 
 Here, check "Automatically manage signing" in the Signing section and select your own Team.
 Do the same for the `extension` target.
 
-#### Building
 Click on the build button (or use the `cmd-return` shortcut) and Pass for macOS will be build. Congrats. You can use your self-built Pass for macOS.
 
-#### Updates
-For updates, simply pull the version you want from the repo and build it again.
+### Updating Pass for macOS
+Starting with version 0.7, Pass for macOS uses the [Sparkle Project](https://sparkle-project.org) for automatic updates.
+Therefore, a new right-click context menu was added, which allows you to either check for updates manually or enable daily checks.
+
+For updating from versions < 0.7 to > 0.7, you need to uninstall Pass for macOS and disable the extension in Safari.
+After the installation, everything should be fine.
 
 ## Usage
 To the best of my knowledge, it is not possible to enable the hardened runtime for this app. Therefore, it is also not possible to get the [app notarized by Apple](https://developer.apple.com/documentation/xcode/notarizing_macos_software_before_distribution), which is [required](https://www.cdfinder.de/guide/blog/apple_hell.html) starting with macOS 10.14.5 (last Mojave release).

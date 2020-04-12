@@ -14,6 +14,8 @@
 		75494A0F218CCEBD00148925 /* ClientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0E218CCEBD00148925 /* ClientHandler.swift */; };
 		754ABD1221B71DB90051AA18 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 754ABD1121B71DB90051AA18 /* Credits.html */; };
 		756E0B9A2185F9DA0079B98C /* Passwordstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E0B992185F9DA0079B98C /* Passwordstore.swift */; };
+		75B908B024436777005DBEEC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B908AF24436777005DBEEC /* Sparkle.framework */; };
+		75B908B224436802005DBEEC /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75B908AF24436777005DBEEC /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75C922F1238D934D00F46563 /* Shurtcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C922F0238D934D00F46563 /* Shurtcut.swift */; };
 		75E07BE0216E0D8D00EA9CBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */; };
 		75E07BE2216E0D8D00EA9CBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BE1216E0D8D00EA9CBD /* ViewController.swift */; };
@@ -37,6 +39,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
+		75B908B1244367EB005DBEEC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				75B908B224436802005DBEEC /* Sparkle.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		75E07C27216E0DA700EA9CBD /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
@@ -57,6 +69,7 @@
 		75494A0E218CCEBD00148925 /* ClientHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHandler.swift; sourceTree = "<group>"; };
 		754ABD1121B71DB90051AA18 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		756E0B992185F9DA0079B98C /* Passwordstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passwordstore.swift; sourceTree = "<group>"; };
+		75B908AF24436777005DBEEC /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		75C922F0238D934D00F46563 /* Shurtcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shurtcut.swift; sourceTree = "<group>"; };
 		75E07BDC216E0D8D00EA9CBD /* Pass for macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pass for macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75B908B024436777005DBEEC /* Sparkle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -133,6 +147,7 @@
 		75E07C10216E0DA700EA9CBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				75B908AF24436777005DBEEC /* Sparkle.framework */,
 				75E07C11216E0DA700EA9CBD /* Cocoa.framework */,
 			);
 			name = Frameworks;
@@ -165,6 +180,7 @@
 				75E07BD9216E0D8D00EA9CBD /* Frameworks */,
 				75E07BDA216E0D8D00EA9CBD /* Resources */,
 				75E07C27216E0DA700EA9CBD /* Embed App Extensions */,
+				75B908B1244367EB005DBEEC /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -456,13 +472,18 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 0.7;
 				DEVELOPMENT_TEAM = BR355MFMD5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = passformacos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.6.2;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos;
 				PRODUCT_NAME = "Pass for macOS";
 				PROVISIONING_PROFILE_SPECIFIER = "Pass for macOS";
@@ -479,13 +500,18 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 0.7;
 				DEVELOPMENT_TEAM = BR355MFMD5;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = passformacos/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.6.2;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos;
 				PRODUCT_NAME = "Pass for macOS";
 				PROVISIONING_PROFILE_SPECIFIER = "Pass for macOS";
@@ -506,7 +532,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 0.6.2;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Pass for macOS Extension";
@@ -528,7 +554,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 0.6.2;
+				MARKETING_VERSION = 0.7;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Pass for macOS Extension";

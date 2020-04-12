@@ -23,7 +23,7 @@
 		<dict/>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.productivity</string>
 	<key>LSMinimumSystemVersion</key>
@@ -36,5 +36,9 @@
 	<string>Main</string>
 	<key>NSPrincipalClass</key>
 	<string>NSApplication</string>
+	<key>SUFeedURL</key>
+	<string>https://raw.githubusercontent.com/adur1990/Pass-for-macOS/master/appcast.xml</string>
+	<key>SUPublicEDKey</key>
+	<string>VP2j8HhTn7VSD6KNVgFYaZxFZirNMwBt0JSrHJJ8V8Q=</string>
 </dict>
 </plist>
