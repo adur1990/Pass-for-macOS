@@ -2,6 +2,7 @@
 
 set -eox pipefail
 
+VERSION=$(echo $VERSION | cut -d"/" -f3)
 HASH=$(shasum -a 256 "$PWD/Pass for macOS.app.zip" | /usr/bin/cut -d" " -f1)
 source ./.github/templates/passformacos.sh
 
