@@ -5,6 +5,27 @@
     <language>en</language>
 
     <item>
+      <title>Version v0.7</title>
+      <pubDate>Sun, 12 Apr 2020 17:20:40 +0000</pubDate>
+      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+## This update introduces an automatic update mechanism using the Sparkle Project.
+
+By default, the automatic update is disabled.
+Right-click on the Pass for macOS status bar item and either check of updates manually
+or enable the daily automatic update check.
+      ]]>
+      </description>
+      <enclosure
+        url="https://github.com/adur1990/Pass-for-macOS/releases/download/v0.7/Pass.for.macOS.app.zip"
+        sparkle:version="v0.7"
+        sparkle:shortVersionString="v0.7"
+        sparkle:edSignature="CDvNqOpHTVbp8h5KZIYm7wGW0AFcsphUUQ2GOWmm1hq8Hd7FrzMEVTzUXLmklm7/jiwF2OJXVmOy7kBoH7+CDg==" length="8936200"
+        type="application/octet-stream"/>
+    </item>
+
+
+    <item>
       <title>Version 0.6.2</title>
       <pubDate>Thu, 11 Apr 2020 07:51:32 +0000</pubDate>
       <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
