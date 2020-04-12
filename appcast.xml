@@ -5,7 +5,7 @@
     <language>en</language>
 
     <item>
-      <title>Version v0.7.1</title>
+      <title>Version 0.7.1</title>
       <pubDate>Sun, 12 Apr 2020 18:49:37 +0000</pubDate>
       <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
       <description><![CDATA[
@@ -17,15 +17,15 @@ No features were added or removed.
       </description>
       <enclosure
         url="https://github.com/adur1990/Pass-for-macOS/releases/download/v0.7.1/Pass.for.macOS.app.zip"
-        sparkle:version="v0.7.1"
-        sparkle:shortVersionString="v0.7.1"
+        sparkle:version="0.7.1"
+        sparkle:shortVersionString="0.7.1"
         sparkle:edSignature="/6Ean3fP07TPU1qvwmCzsstYZpPyWcc3/7+wDO/PtptN+ErpNRWVBsXudv/S9mdU8qv0KbmXUXzblH/EsyepBw==" length="5272170"
         type="application/octet-stream"/>
     </item>
 
 
     <item>
-      <title>Version v0.7</title>
+      <title>Version 0.7</title>
       <pubDate>Sun, 12 Apr 2020 18:41:34 +0000</pubDate>
       <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
       <description><![CDATA[
@@ -38,8 +38,8 @@ or enable the daily automatic update check.
       </description>
       <enclosure
         url="https://github.com/adur1990/Pass-for-macOS/releases/download/v0.7/Pass.for.macOS.app.zip"
-        sparkle:version="v0.7"
-        sparkle:shortVersionString="v0.7"
+        sparkle:version="0.7"
+        sparkle:shortVersionString="0.7"
         sparkle:edSignature="6Gh8tDs8WW+V8WszzBzaz2YA9NeZsjp4n17dbxwc+NNGa43WwWl5JM0ydZMZ+Bvk3OR2F2FPMkf12991HaqVAA==" length="5272158"
         type="application/octet-stream"/>
     </item>

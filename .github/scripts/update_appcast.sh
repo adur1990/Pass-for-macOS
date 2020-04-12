@@ -2,7 +2,7 @@
 
 set -exu
 
-VERSION=$(echo $VERSION | cut -d"/" -f3)
+VERSION=$(echo $VERSION | cut -d"/" -f3 | cut -d"v" -f2)
 DATE="$(date +'%a, %d %b %Y %H:%M:%S %z')"
 CHANGELOG=$(cat $PWD/.github/templates/release_notes.md)
 SIGNATURE=$(.github/scripts/sign_update -s $SPARKLE_SIGNING_KEY "$PWD/Pass for macOS.app.zip")
