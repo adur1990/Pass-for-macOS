@@ -35,7 +35,7 @@ jobs:
           tag_name: ${{ github.ref }}
           release_name: ${{ github.ref }}-beta
           bodyFromFile: ./.github/templates/release_notes.md
-          draft: true
+          draft: false
           prerelease: true
 
       - name: Upload App
