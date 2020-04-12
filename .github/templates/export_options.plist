@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        <key>teamID</key>
+        <string>BR355MFMD5</string>
+        <key>method</key>
+        <string>developer-id</string>
+        <key>signingStyle</key>
+        <string>manual</string>
+        <key>provisioningProfiles</key>
+        <dict>
+            <key>de.artursterz.passformacos</key>
+            <string>Pass for macOS</string>
+            <key>de.artursterz.passformacos.extension</key>
+            <string>Pass for macOS Extension</string>
+        </dict>
+        <key>signingCertificate</key>
+        <string>Developer ID</string>
+    </dict>
+</plist>

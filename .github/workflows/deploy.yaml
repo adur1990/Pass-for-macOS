@@ -1,0 +1,60 @@
+on:
+  push:
+    tags:
+    - 'v*' # Push events to matching v*, i.e. v0.7
+
+name: Deploy Pass for macOS
+
+jobs:
+  build:
+    name: Deploy
+    runs-on: macos-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Install requirements
+        run: brew install gnupg
+
+      - name: Prepare signing
+        env:
+          APP_PROFILE_PASSPHRASE: ${{ secrets.APP_PROFILE_PASSPHRASE }}
+          EXTENSION_PROFILE_PASSPHRASE: ${{ secrets.EXTENSION_PROFILE_PASSPHRASE }}
+          DEV_ID_PASSPHRASE: ${{ secrets.DEV_ID_PASSPHRASE }}
+        run: ./.github/scripts/decrypt_secrets.sh
+
+      - name: Build
+        run: ./.github/scripts/archive.sh
+
+      - name: Create Release
+        id: create_release
+        uses: jbolda/create-release@v1.1.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }
+          release_name: ${{ github.ref }-beta
+          bodyFromFile: ./.github/templates/release_notes.md
+          draft: true
+          prerelease: true
+
+      - name: Upload App
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: "./Pass for macOS.app.zip"
+          asset_name: Pass.for.macOS.app.zip
+          asset_content_type: application/zip
+
+      - name: Init SSH key
+        uses: webfactory/ssh-agent@v0.2.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Update homebrew cask
+        run: |
+          echo ::set-env name=VERSION::${GITHUB_REF:10}
+          ./.github/scripts/update_cask.sh
