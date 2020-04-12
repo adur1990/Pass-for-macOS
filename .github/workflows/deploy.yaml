@@ -55,6 +55,6 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
       - name: Update homebrew cask
-        run: |
-          echo ::set-env name=VERSION::${GITHUB_REF:10}
-          ./.github/scripts/update_cask.sh
+        env:
+          VERSION: ${{ github.ref }}
+        run: ./.github/scripts/update_cask.sh
