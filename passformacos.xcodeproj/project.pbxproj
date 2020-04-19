@@ -12,7 +12,6 @@
 		7542023921A4904600124A19 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7542023821A4904600124A19 /* ToolbarItemIcon.pdf */; };
 		75494A0B218CCC7F00148925 /* ServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0A218CCC7F00148925 /* ServerHandler.swift */; };
 		75494A0F218CCEBD00148925 /* ClientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0E218CCEBD00148925 /* ClientHandler.swift */; };
-		754ABD1221B71DB90051AA18 /* Credits.html in Resources */ = {isa = PBXBuildFile; fileRef = 754ABD1121B71DB90051AA18 /* Credits.html */; };
 		756E0B9A2185F9DA0079B98C /* Passwordstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E0B992185F9DA0079B98C /* Passwordstore.swift */; };
 		75B908B024436777005DBEEC /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 75B908AF24436777005DBEEC /* Sparkle.framework */; };
 		75B908B224436802005DBEEC /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 75B908AF24436777005DBEEC /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -67,7 +66,6 @@
 		7542023821A4904600124A19 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIcon.pdf; path = Icons/ToolbarItemIcon.pdf; sourceTree = SOURCE_ROOT; };
 		75494A0A218CCC7F00148925 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServerHandler.swift; path = passformacos/ServerHandler.swift; sourceTree = SOURCE_ROOT; };
 		75494A0E218CCEBD00148925 /* ClientHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHandler.swift; sourceTree = "<group>"; };
-		754ABD1121B71DB90051AA18 /* Credits.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Credits.html; sourceTree = "<group>"; };
 		756E0B992185F9DA0079B98C /* Passwordstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passwordstore.swift; sourceTree = "<group>"; };
 		75B908AF24436777005DBEEC /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
 		75C922F0238D934D00F46563 /* Shurtcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shurtcut.swift; sourceTree = "<group>"; };
@@ -133,7 +131,6 @@
 				75494A0A218CCC7F00148925 /* ServerHandler.swift */,
 				756E0B992185F9DA0079B98C /* Passwordstore.swift */,
 				75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */,
-				754ABD1121B71DB90051AA18 /* Credits.html */,
 				75E07BE1216E0D8D00EA9CBD /* ViewController.swift */,
 				75E07BE3216E0D8E00EA9CBD /* Assets.xcassets */,
 				75E07BE5216E0D8E00EA9CBD /* Main.storyboard */,
@@ -273,7 +270,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				75E07BE4216E0D8E00EA9CBD /* Assets.xcassets in Resources */,
-				754ABD1221B71DB90051AA18 /* Credits.html in Resources */,
 				75E07BE7216E0D8E00EA9CBD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,7 +468,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.7.1;
+				CURRENT_PROJECT_VERSION = 0.8;
 				DEVELOPMENT_TEAM = BR355MFMD5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -483,7 +479,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.7.1;
+				MARKETING_VERSION = 0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos;
 				PRODUCT_NAME = "Pass for macOS";
 				PROVISIONING_PROFILE_SPECIFIER = "Pass for macOS";
@@ -500,7 +496,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.7.1;
+				CURRENT_PROJECT_VERSION = 0.8;
 				DEVELOPMENT_TEAM = BR355MFMD5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -511,7 +507,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 0.7.1;
+				MARKETING_VERSION = 0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos;
 				PRODUCT_NAME = "Pass for macOS";
 				PROVISIONING_PROFILE_SPECIFIER = "Pass for macOS";
@@ -532,7 +528,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 0.7.1;
+				MARKETING_VERSION = 0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Pass for macOS Extension";
@@ -554,7 +550,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
-				MARKETING_VERSION = 0.7.1;
+				MARKETING_VERSION = 0.8;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Pass for macOS Extension";

@@ -67,9 +67,8 @@ class Passwordstore {
         // not be found. Using this part, the secure. prefix will be removed and apple.com will be searched.
         if resultPaths.isEmpty {
             let passwordParts = password.components(separatedBy: ".")
-            
             if passwordParts.count > 2 {
-                let shortPassword = passwordParts.suffix(2).joined(separator: ".")
+                let shortPassword = passwordParts.dropFirst().joined(separator: ".")
                 return passSearch(password: shortPassword)
             }
         }
