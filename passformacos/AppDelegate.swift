@@ -51,11 +51,18 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             SUUpdater.shared().automaticallyChecksForUpdates = false
         }
 
+        let version = Bundle.main.infoDictionary?["CFBundleVersion"] as! String
+        let versionItem = NSMenuItem()
+        versionItem.title = "Pass for macOS v\(version)"
+        versionItem.isEnabled = false
+
         let updateItem = NSMenuItem()
         updateItem.title = "Check for updates"
         updateItem.target = SUUpdater.shared()
         updateItem.action = #selector(SUUpdater.shared().checkForUpdates)
 
+        contextMenu.addItem(versionItem)
+        contextMenu.addItem(NSMenuItem.separator())
         contextMenu.addItem(dailyUpdateItem)
         contextMenu.addItem(updateItem)
         contextMenu.addItem(NSMenuItem.separator())
