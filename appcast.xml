@@ -5,6 +5,27 @@
     <language>en</language>
 
     <item>
+      <title>Version 0.8</title>
+      <pubDate>Sun, 19 Apr 2020 19:24:44 +0000</pubDate>
+      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+<h1>Bug fixes and slight improvements</h1>
+
+<ul>
+    <li>This release fixes a bug returning wrong search results (e0c890cbc2bb19525f8417c8324807b32b78af2b).</li>
+    <li>Version information was added to the right-click context menu (e6afcf34ce158bd1e143b9dfae31266bc38dcc98).</li>
+</ul>
+      ]]>
+      </description>
+      <enclosure
+        url="https://github.com/adur1990/Pass-for-macOS/releases/download/v0.8/Pass.for.macOS.app.zip"
+        sparkle:version="0.8"
+        sparkle:shortVersionString="0.8"
+        sparkle:edSignature="zEqLRz78i1tA+tdOyWps8ztwEjXsiwGvbXVba8dJfbEv/0+BBinGeupt1oieDb/7dGY+7reboLyO4cnR4y9OBg==" length="5269225"
+        type="application/octet-stream"/>
+    </item>
+
+    <item>
       <title>Version 0.7.1</title>
       <pubDate>Sun, 12 Apr 2020 18:49:37 +0000</pubDate>
       <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
