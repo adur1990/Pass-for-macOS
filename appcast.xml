@@ -5,6 +5,28 @@
     <language>en</language>
 
     <item>
+      <title>Version 0.8.1</title>
+      <pubDate>Mon, 03 Aug 2020 18:45:39 +0000</pubDate>
+      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+<h1>Bug fixes</h1>
+
+<ul>
+    <li>Fix bug, that caused Pass for macOS not to work with symlinks (06e21b96fda8e8880e7c8483fdead6f178993b46).</li>
+    <li>Show only relevant password files (e.g., exclude .DS_Store) (7265f2db1c1063a9f0863089fd7f98e266d2a25e).</li>
+</ul>
+      ]]>
+      </description>
+      <enclosure
+        url="https://github.com/adur1990/Pass-for-macOS/releases/download/0.8.1/Pass.for.macOS.app.zip"
+        sparkle:version="0.8.1"
+        sparkle:shortVersionString="0.8.1"
+        sparkle:edSignature="492lN0g0/zIFACMSkYwI4NyFT9LHpzcZlc50U2BM8nQMrH2wys2shHgbfU/5IEpnJHyQdORee9hoV3iH7qGsCQ==" length="5271036"
+        type="application/octet-stream"/>
+    </item>
+
+
+    <item>
       <title>Version 0.8</title>
       <pubDate>Sun, 19 Apr 2020 19:24:44 +0000</pubDate>
       <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
