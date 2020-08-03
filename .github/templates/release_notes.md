@@ -1,6 +1,6 @@
-<h1>Bug fixes and slight improvements</h1>
+<h1>Bug fixes</h1>
 
 <ul>
-    <li>This release fixes a bug returning wrong search results (e0c890cbc2bb19525f8417c8324807b32b78af2b).</li>
-    <li>Version information was added to the right-click context menu (e6afcf34ce158bd1e143b9dfae31266bc38dcc98).</li>
+    <li>Fix bug, that caused Pass for macOS not to work with symlinks (06e21b96fda8e8880e7c8483fdead6f178993b46).</li>
+    <li>Show only relevant password files (e.g., exclude .DS_Store) (7265f2db1c1063a9f0863089fd7f98e266d2a25e).</li>
 </ul>
