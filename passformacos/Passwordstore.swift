@@ -54,8 +54,11 @@ class Passwordstore {
                     print(error, nodeUrl)
                 }
 
-                    // This is the search. Just check, if the password is in the fullpath.
+                // This is the search. Just check, if the password is in the fullpath.
                 if nodeName.localizedCaseInsensitiveContains(password) {
+                    if nodeUrl.pathExtension != "gpg" {
+                        continue
+                    }
                     let extRemoved = nodeUrl.pathExtension == "gpg" ? nodeUrl.deletingPathExtension().path : nodeName
                     resultPaths.append(extRemoved.replacingOccurrences(of: self.passwordStoreUrl.path + "/", with: ""))
                 }
