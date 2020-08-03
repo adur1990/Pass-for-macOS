@@ -24,11 +24,19 @@ class Passwordstore {
             let userHome = ProcessInfo.processInfo.environment["HOME"]!
             self.passwordStoreUrl = URL(string: "\(userHome)/.password-store")!
         }
+
+        // This checks, if password store is a symlink and resolves it, if so.
+        // TODO: this is currently a work-around, as I did not find any way to do
+        // it in pure swift. The function resolveSymLink calls the readlink binary.
+        let resolved = resolveSymLink(path: self.passwordStoreUrl.absoluteString)
+        if !resolved.isEmpty {
+            self.passwordStoreUrl = URL(string: "\(resolved.filter { !$0.isWhitespace })")!
+        }
     }
     
     func passSearch(password: String) -> [String] {
         var resultPaths = [String]()
-        
+
         let fileSystem = FileManager.default
         if let fsTree = fileSystem.enumerator(at: self.passwordStoreUrl, includingPropertiesForKeys: [.isRegularFileKey]) {
             // Iterate over all files and folders in the default store path. Several checks will be done.
@@ -101,5 +109,20 @@ class Passwordstore {
     func passwordToClipboard(pathToFile: String) -> String {
         let subCommand = "-c \(pathToFile)"
         return passShellCommand(passSubCommand: subCommand)
+    }
+
+    func resolveSymLink(path: String) -> String {
+        let shell = ProcessInfo.processInfo.environment["SHELL"]
+
+        let task = Process()
+        task.launchPath = shell
+        task.arguments = ["-l", "-c", "readlink \(path)"]
+
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.launch()
+
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        return NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
     }
 }
