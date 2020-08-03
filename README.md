@@ -31,7 +31,7 @@ Second, a [Safari App Extensions](https://developer.apple.com/documentation/safa
 ### Limitations
 * The popover view in Safari can not be shown using the provided shortcut. Therefore, the first password for the current domain will be auto-filled if multiple exist.
 * OTP is not supported.
-* Pass for macOS was currently only tested using macOS Mojave with Safari 12 and 13, although it should work starting with macOS Sierra.
+* Pass for macOS was tested macOS Mojave (10.14) and Catalina (10.15) with Safari 12 and 13, although it should work starting with macOS Sierra. At the moment, it is unclear, if Pass for macOS works with macOS Big Sur (11.0). This will be tested as soon as it is released later this year.
 
 ## Table of Contents
 * [Requirements](#requirements)
