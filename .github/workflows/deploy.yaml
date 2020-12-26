@@ -50,7 +50,7 @@ jobs:
           asset_content_type: application/zip
 
       - name: Init SSH key
-        uses: webfactory/ssh-agent@@v0.4.1
+        uses: webfactory/ssh-agent@v0.4.1
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
