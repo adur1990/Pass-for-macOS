@@ -479,6 +479,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MARKETING_VERSION = 0.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos;
 				PRODUCT_NAME = "Pass for macOS";
@@ -507,6 +508,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MARKETING_VERSION = 0.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos;
 				PRODUCT_NAME = "Pass for macOS";
@@ -528,6 +530,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MARKETING_VERSION = 0.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -550,6 +553,7 @@
 					"@executable_path/../Frameworks",
 					"@executable_path/../../../../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
 				MARKETING_VERSION = 0.8.1;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
