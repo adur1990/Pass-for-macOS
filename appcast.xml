@@ -5,6 +5,25 @@
     <language>en</language>
 
     <item>
+      <title>Version 0.9</title>
+      <pubDate>Sun, 24 Jan 2021 12:14:53 +0000</pubDate>
+      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+<h1>New Preference Window and Shortcut Custimization</h1>
+
+This update introduces a new Preferences window. Here, you can customize the global shortcut for the host app as well as adjust the behaviour of the update mechanism.
+      ]]>
+      </description>
+      <enclosure
+        url="https://github.com/adur1990/Pass-for-macOS/releases/download/0.9/Pass.for.macOS.app.zip"
+        sparkle:version="0.9"
+        sparkle:shortVersionString="0.9"
+        sparkle:edSignature="WGvrr8zI/gW8cboeLj4YT0UY/xRQqbFe7Rz/LU1RppoToyd2+Qsm6uVIfADziu2mSJBZgEYcBO3F5wIE3UrOAQ==" length="6335506"
+        type="application/octet-stream"/>
+    </item>
+
+
+    <item>
       <title>Version 0.8.2</title>
       <pubDate>Sat, 26 Dec 2020 16:00:23 +0000</pubDate>
       <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
