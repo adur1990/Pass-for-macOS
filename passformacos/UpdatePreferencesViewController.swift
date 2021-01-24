@@ -11,43 +11,33 @@
 //THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Cocoa
-import Carbon
 
-class Shortcut {
-    init() {}
+import Sparkle
+import Preferences
 
-    static func register(_ keyCode: UInt32, modifiers: UInt32, block: @escaping () -> ()) {
-        var shortcut: EventHotKeyRef? = nil
-        var eventHandler: EventHandlerRef? = nil
-        let shortcutID = EventHotKeyID(signature: 1, id: 1)
-        var eventType = EventTypeSpec(
-            eventClass: OSType(kEventClassKeyboard),
-            eventKind: UInt32(kEventHotKeyPressed)
-        )
+final class UpdatePreferencesViewController: NSViewController, PreferencePane {
+    let preferencePaneIdentifier = Preferences.PaneIdentifier("update")
+    let preferencePaneTitle = "Updates"
 
-        let ptr = UnsafeMutablePointer<() -> ()>.allocate(capacity: 1)
-        ptr.initialize(to: block)
-
-        if InstallEventHandler(GetApplicationEventTarget(),
-            { (_: EventHandlerCallRef?, _: EventRef?, ptr: UnsafeMutableRawPointer?) -> OSStatus in
-                ptr.map({$0.assumingMemoryBound(to: (() -> ()).self).pointee()})
-                return noErr
-            },
-            1,
-            &eventType,
-            ptr,
-            &eventHandler
-        ) == noErr {
-            if RegisterEventHotKey(
-                keyCode,
-                modifiers,
-                shortcutID,
-                GetApplicationEventTarget(),
-                OptionBits(0),
-                &shortcut
-            ) != noErr {
-                fatalError("Failed to register global shortcut")
-            }
+    @IBOutlet weak var autoUpdateButton: NSButton!
+    @IBOutlet weak var intervalPopup: NSPopUpButton!
+    @IBOutlet weak var checkForUpdatesButton: NSButton!
+    
+    override var nibName: NSNib.Name? { "UpdatePreferencesView" }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    @IBAction func autoUpdateAction(_ sender: Any) {
+        if autoUpdateButton.state == .off {
+            intervalPopup.isEnabled = false
+        } else {
+            intervalPopup.isEnabled = true
         }
+    }
+    
+    @IBAction func checkForUpdates(_ sender: Any) {
+        SUUpdater.shared().checkForUpdates(sender)
     }
 }

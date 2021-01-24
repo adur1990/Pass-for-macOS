@@ -3,19 +3,26 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		7511A35E219B52B7008290E9 /* passformacosFillForm.js in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C1C216E0DA700EA9CBD /* passformacosFillForm.js */; };
 		7511A361219B53C5008290E9 /* passformacosToast.css in Resources */ = {isa = PBXBuildFile; fileRef = 7511A360219B53C5008290E9 /* passformacosToast.css */; };
+		7540890F25BB3F4500CC8A8A /* Shortcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540890E25BB3F4500CC8A8A /* Shortcut.swift */; };
+		7540891525BD788900CC8A8A /* Preferences in Frameworks */ = {isa = PBXBuildFile; productRef = 7540891425BD788900CC8A8A /* Preferences */; };
+		7540891825BD796C00CC8A8A /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540891725BD796C00CC8A8A /* Preferences.swift */; };
+		7540891B25BD79B200CC8A8A /* GeneralPreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540891A25BD79B200CC8A8A /* GeneralPreferencesViewController.swift */; };
+		7540891E25BD7A8000CC8A8A /* UpdatePreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7540891D25BD7A8000CC8A8A /* UpdatePreferencesViewController.swift */; };
+		7540892125BD7EEB00CC8A8A /* GeneralPreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7540892025BD7EEB00CC8A8A /* GeneralPreferencesView.xib */; };
+		7540892425BD811500CC8A8A /* UpdatePreferencesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7540892325BD811500CC8A8A /* UpdatePreferencesView.xib */; };
+		7540B90B25BAAA250051A116 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 7540B90A25BAAA250051A116 /* KeyboardShortcuts */; };
 		7542023921A4904600124A19 /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 7542023821A4904600124A19 /* ToolbarItemIcon.pdf */; };
 		75494A0B218CCC7F00148925 /* ServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0A218CCC7F00148925 /* ServerHandler.swift */; };
 		75494A0F218CCEBD00148925 /* ClientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0E218CCEBD00148925 /* ClientHandler.swift */; };
 		756E0B9A2185F9DA0079B98C /* Passwordstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E0B992185F9DA0079B98C /* Passwordstore.swift */; };
 		758C54892597928A0061F239 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758C5486259791E80061F239 /* Sparkle.framework */; };
 		758C548A2597928A0061F239 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 758C5486259791E80061F239 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		75C922F1238D934D00F46563 /* Shurtcut.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C922F0238D934D00F46563 /* Shurtcut.swift */; };
 		75E07BE0216E0D8D00EA9CBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */; };
 		75E07BE2216E0D8D00EA9CBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BE1216E0D8D00EA9CBD /* ViewController.swift */; };
 		75E07BE4216E0D8E00EA9CBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75E07BE3216E0D8E00EA9CBD /* Assets.xcassets */; };
@@ -63,12 +70,17 @@
 
 /* Begin PBXFileReference section */
 		7511A360219B53C5008290E9 /* passformacosToast.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = passformacosToast.css; sourceTree = "<group>"; };
+		7540890E25BB3F4500CC8A8A /* Shortcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shortcut.swift; sourceTree = "<group>"; };
+		7540891725BD796C00CC8A8A /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		7540891A25BD79B200CC8A8A /* GeneralPreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralPreferencesViewController.swift; sourceTree = "<group>"; };
+		7540891D25BD7A8000CC8A8A /* UpdatePreferencesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatePreferencesViewController.swift; sourceTree = "<group>"; };
+		7540892025BD7EEB00CC8A8A /* GeneralPreferencesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralPreferencesView.xib; sourceTree = "<group>"; };
+		7540892325BD811500CC8A8A /* UpdatePreferencesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdatePreferencesView.xib; sourceTree = "<group>"; };
 		7542023821A4904600124A19 /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; name = ToolbarItemIcon.pdf; path = Icons/ToolbarItemIcon.pdf; sourceTree = SOURCE_ROOT; };
 		75494A0A218CCC7F00148925 /* ServerHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ServerHandler.swift; path = passformacos/ServerHandler.swift; sourceTree = SOURCE_ROOT; };
 		75494A0E218CCEBD00148925 /* ClientHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientHandler.swift; sourceTree = "<group>"; };
 		756E0B992185F9DA0079B98C /* Passwordstore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Passwordstore.swift; sourceTree = "<group>"; };
 		758C5486259791E80061F239 /* Sparkle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Sparkle.framework; sourceTree = "<group>"; };
-		75C922F0238D934D00F46563 /* Shurtcut.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shurtcut.swift; sourceTree = "<group>"; };
 		75E07BDC216E0D8D00EA9CBD /* Pass for macOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pass for macOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		75E07BE1216E0D8D00EA9CBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -92,6 +104,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				758C54892597928A0061F239 /* Sparkle.framework in Frameworks */,
+				7540891525BD788900CC8A8A /* Preferences in Frameworks */,
+				7540B90B25BAAA250051A116 /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -136,7 +150,12 @@
 				75E07BE5216E0D8E00EA9CBD /* Main.storyboard */,
 				75E07BE8216E0D8E00EA9CBD /* Info.plist */,
 				75E07BE9216E0D8E00EA9CBD /* passformacos.entitlements */,
-				75C922F0238D934D00F46563 /* Shurtcut.swift */,
+				7540890E25BB3F4500CC8A8A /* Shortcut.swift */,
+				7540891725BD796C00CC8A8A /* Preferences.swift */,
+				7540891A25BD79B200CC8A8A /* GeneralPreferencesViewController.swift */,
+				7540892025BD7EEB00CC8A8A /* GeneralPreferencesView.xib */,
+				7540891D25BD7A8000CC8A8A /* UpdatePreferencesViewController.swift */,
+				7540892325BD811500CC8A8A /* UpdatePreferencesView.xib */,
 			);
 			path = passformacos;
 			sourceTree = "<group>";
@@ -185,6 +204,10 @@
 				75E07C22216E0DA700EA9CBD /* PBXTargetDependency */,
 			);
 			name = passformacos;
+			packageProductDependencies = (
+				7540B90A25BAAA250051A116 /* KeyboardShortcuts */,
+				7540891425BD788900CC8A8A /* Preferences */,
+			);
 			productName = passformacos;
 			productReference = 75E07BDC216E0D8D00EA9CBD /* Pass for macOS.app */;
 			productType = "com.apple.product-type.application";
@@ -254,6 +277,10 @@
 				Base,
 			);
 			mainGroup = 75E07BD3216E0D8D00EA9CBD;
+			packageReferences = (
+				7540B90925BAAA250051A116 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+				7540891325BD788900CC8A8A /* XCRemoteSwiftPackageReference "Preferences" */,
+			);
 			productRefGroup = 75E07BDD216E0D8D00EA9CBD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -269,7 +296,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7540892125BD7EEB00CC8A8A /* GeneralPreferencesView.xib in Resources */,
 				75E07BE4216E0D8E00EA9CBD /* Assets.xcassets in Resources */,
+				7540892425BD811500CC8A8A /* UpdatePreferencesView.xib in Resources */,
 				75E07BE7216E0D8E00EA9CBD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -292,11 +321,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				75C922F1238D934D00F46563 /* Shurtcut.swift in Sources */,
+				7540891B25BD79B200CC8A8A /* GeneralPreferencesViewController.swift in Sources */,
 				75494A0B218CCC7F00148925 /* ServerHandler.swift in Sources */,
 				75E07BE2216E0D8D00EA9CBD /* ViewController.swift in Sources */,
+				7540891825BD796C00CC8A8A /* Preferences.swift in Sources */,
+				7540891E25BD7A8000CC8A8A /* UpdatePreferencesViewController.swift in Sources */,
 				75E07BE0216E0D8D00EA9CBD /* AppDelegate.swift in Sources */,
 				756E0B9A2185F9DA0079B98C /* Passwordstore.swift in Sources */,
+				7540890F25BB3F4500CC8A8A /* Shortcut.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -468,7 +500,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.8.2;
+				CURRENT_PROJECT_VERSION = 0.9;
 				DEVELOPMENT_TEAM = BR355MFMD5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -480,7 +512,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 0.8.2;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos;
 				PRODUCT_NAME = "Pass for macOS";
 				PROVISIONING_PROFILE_SPECIFIER = "Pass for macOS";
@@ -497,7 +529,7 @@
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 0.8.2;
+				CURRENT_PROJECT_VERSION = 0.9;
 				DEVELOPMENT_TEAM = BR355MFMD5;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -509,7 +541,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 0.8.2;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos;
 				PRODUCT_NAME = "Pass for macOS";
 				PROVISIONING_PROFILE_SPECIFIER = "Pass for macOS";
@@ -523,6 +555,7 @@
 				CODE_SIGN_ENTITLEMENTS = extension/extension.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0.9;
 				DEVELOPMENT_TEAM = BR355MFMD5;
 				INFOPLIST_FILE = extension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -531,7 +564,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 0.8.2;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Pass for macOS Extension";
@@ -546,6 +579,7 @@
 				CODE_SIGN_ENTITLEMENTS = extension/extension.entitlements;
 				CODE_SIGN_IDENTITY = "Developer ID Application";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 0.9;
 				DEVELOPMENT_TEAM = BR355MFMD5;
 				INFOPLIST_FILE = extension/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -554,7 +588,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 0.8.2;
+				MARKETING_VERSION = 0.9;
 				PRODUCT_BUNDLE_IDENTIFIER = de.artursterz.passformacos.extension;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "Pass for macOS Extension";
@@ -594,6 +628,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7540891325BD788900CC8A8A /* XCRemoteSwiftPackageReference "Preferences" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/Preferences";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.2.0;
+			};
+		};
+		7540B90925BAAA250051A116 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7540891425BD788900CC8A8A /* Preferences */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7540891325BD788900CC8A8A /* XCRemoteSwiftPackageReference "Preferences" */;
+			productName = Preferences;
+		};
+		7540B90A25BAAA250051A116 /* KeyboardShortcuts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7540B90925BAAA250051A116 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			productName = KeyboardShortcuts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 75E07BD4216E0D8D00EA9CBD /* Project object */;
 }

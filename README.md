@@ -16,7 +16,7 @@ Pass for macOS consists of two parts.
 First, a status bar app, which you can use to search passwords and copy them to the clipboard.
 Second, a [Safari App Extensions](https://developer.apple.com/documentation/safariservices/safari_app_extensions) to auto-fill passwords in Safari using `pass`.
 
-**Note: Pass for macOS is currenlty a beta. Consider it broken, and expect errors and crashes.**
+**Note: Pass for macOS is currenlty a beta. Consider it broken and expect errors and crashes.**
 
 **Note: If you used Pass for macOS (formerly Passafari) versions 0.3.2 or earlier, you can safely delete the exported private key and your private key passphrase in the macOS keychain, if you stored it. Versions 0.4 or higher do not require this information anymore**
 
@@ -49,6 +49,12 @@ $ pass example.com
 SuperSecurePassword
 login: John Appleseed
 ```
+
+### Dependencies
+Pass for macOS relies on three dependencies:
+* With [KeyboardShortcuts](https://github.com/sindresorhus/KeyboardShortcuts) by [Sindre Sorhus](https://github.com/sindresorhus) ([Their twitter profile](https://twitter.com/sindresorhus?lang=de)) it is possible to a) specify global shortcuts for apps and to b) let users record their own global shortcuts.
+* [Preferences](https://github.com/sindresorhus/Preferences) by [Sindre Sorhus](https://github.com/sindresorhus) ([Their twitter profile](https://twitter.com/sindresorhus?lang=de)) lets developers create Preference windows easily.
+* The [Sparkle Project](https://sparkle-project.org) gives developers all functionality to implement an update mechanism to their app.
 
 ## Installation
 You have three options to use Pass for macOS: use the Github releases, homebrew or build it yourself.
@@ -104,23 +110,24 @@ However, to give it some meaning, a status bar item is added.
 #### Status Bar
 <img src="Screenshots/host.png" width="500">
 
-By clicking on the status bar item a popup will be shown containing a search field.
+By clicking on the status bar item or using the defailt shortcut `shift-ctrl-p`, a popup will be shown containing a search field.
 Here, you can search for password.
 Selecting a search result by double-click or with enter will copy the password to the clipboard, exactly as `pass -c <password>` does.
 
+#### Settings
 <img src="Screenshots/host_context.png" width="500">
 
-For settings, the status bar item as a context menu with can be accessed using right-click.
-Here, you can check of updates and enable searching for updates once a day.
+For settings, the status bar item has a context menu with can be accessed using right-click.
+Here, you can check the currently installed version, quit the app or open the app's preferences window.
 
-#### Shortcut
-The host app supports a shortcut,
+<img src="Screenshots/general_settings.png" width="500">
 
-```
-shift-ctrl-p
-```
+In the `General` tab you can record your own global shortcut for Pass for macOS.
 
- which opens the same popover in the status bar.
+<img src="Screenshots/update_settings.png" width="500">
+
+The `Update` tab lets you decide whether you want to check automatically for updates and the corresponding check intervall.
+Additionally, you can search manually for updates.
 
 ### The extension
 The extension has two modes.

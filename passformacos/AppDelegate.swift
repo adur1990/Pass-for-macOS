@@ -11,27 +11,33 @@
 //THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 import Cocoa
-import Carbon
 
 import SafariServices
 
 import Sparkle
+import KeyboardShortcuts
+import Preferences
 
 var passwordstore: Passwordstore? = nil
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
-    let checkDailySettingsKey = "checkDialy"
     let statusBarItem = NSStatusBar.system.statusItem(withLength: NSStatusItem.squareLength)
 
     let popover = NSPopover()
 
     var contextMenu = NSMenu()
 
+    lazy var preferencesWindowController = PreferencesWindowController(
+            preferencePanes: [
+                GeneralPreferencesViewController(),
+                UpdatePreferencesViewController()
+            ],
+            style: .segmentedControl
+        )
+
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         let _ = ServerHandler()
-
-        let userSettings = UserDefaults.standard
 
         passwordstore = Passwordstore()
 
@@ -41,63 +47,27 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
 
-        let dailyUpdateItem = NSMenuItem(title: "Check daily for updates", action: #selector(dailyUpdatesToggle), keyEquivalent: "")
-
-        if userSettings.bool(forKey: checkDailySettingsKey) {
-            dailyUpdateItem.state = .on
-            SUUpdater.shared().automaticallyChecksForUpdates = true
-        } else {
-            dailyUpdateItem.state = .off
-            SUUpdater.shared().automaticallyChecksForUpdates = false
-        }
-
         let version = Bundle.main.infoDictionary?["CFBundleVersion"] as! String
         let versionItem = NSMenuItem()
         versionItem.title = "Pass for macOS v\(version)"
         versionItem.isEnabled = false
 
-        let updateItem = NSMenuItem()
-        updateItem.title = "Check for updates"
-        updateItem.target = SUUpdater.shared()
-        updateItem.action = #selector(SUUpdater.shared().checkForUpdates)
-
         contextMenu.addItem(versionItem)
         contextMenu.addItem(NSMenuItem.separator())
-        contextMenu.addItem(dailyUpdateItem)
-        contextMenu.addItem(updateItem)
+        contextMenu.addItem(withTitle: "Preferences...", action: #selector(showPreferences(_:)), keyEquivalent: ",")
         contextMenu.addItem(NSMenuItem.separator())
         contextMenu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
 
         popover.contentViewController = ViewController.newController()
         popover.behavior = NSPopover.Behavior.transient;
 
-        Shortcut.register(
-            UInt32(kVK_ANSI_P),
-            modifiers: UInt32((shiftKey | controlKey)),
-            block: {
-                self.togglePopover(nil)
-            }
-        )
+        KeyboardShortcuts.onKeyUp(for: .togglePopupShortcut) { [self] in
+            self.togglePopover(nil)
+        }
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
         // Insert code here to tear down your application
-    }
-
-    @objc func dailyUpdatesToggle(sender: Any?) {
-        let userSettings = UserDefaults.standard
-
-        let item = sender as! NSMenuItem
-
-        if item.state == .on {
-            item.state = .off
-            SUUpdater.shared().automaticallyChecksForUpdates = false
-            userSettings.set(false, forKey: checkDailySettingsKey)
-        } else {
-            item.state = .on
-            SUUpdater.shared().automaticallyChecksForUpdates = true
-            userSettings.set(true, forKey: checkDailySettingsKey)
-        }
     }
 
     @objc func togglePopover(_ sender: Any?) {
@@ -111,6 +81,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
               showPopover(sender: sender)
             }
         }
+    }
+
+    @objc func showPreferences(_ sender: Any?) {
+        preferencesWindowController.show()
     }
 
     func showPopover(sender: Any?) {
