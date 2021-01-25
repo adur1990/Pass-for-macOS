@@ -11,13 +11,13 @@ echo "
     <item>
       <title>Version $VERSION</title>
       <pubDate>$DATE</pubDate>
-      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <sparkle:minimumSystemVersion>10.12</sparkle:minimumSystemVersion>
       <description><![CDATA[
 $CHANGELOG
       ]]>
       </description>
       <enclosure
-        url=\"https://github.com/adur1990/Pass-for-macOS/releases/download/$VERSION/Pass.for.macOS.app.zip\"
+        url=\"https://github.com/adur1990/Pass-for-macOS/releases/download/v$VERSION/Pass.for.macOS.app.zip\"
         sparkle:version=\"$VERSION\"
         sparkle:shortVersionString=\"$VERSION\"
         $SIGNATURE

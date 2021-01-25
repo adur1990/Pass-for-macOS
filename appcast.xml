@@ -7,7 +7,7 @@
     <item>
       <title>Version 0.9</title>
       <pubDate>Sun, 24 Jan 2021 12:14:53 +0000</pubDate>
-      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <sparkle:minimumSystemVersion>10.12</sparkle:minimumSystemVersion>
       <description><![CDATA[
 <h1>New Preference Window and Shortcut Custimization</h1>
 
@@ -15,7 +15,7 @@ This update introduces a new Preferences window. Here, you can customize the glo
       ]]>
       </description>
       <enclosure
-        url="https://github.com/adur1990/Pass-for-macOS/releases/download/0.9/Pass.for.macOS.app.zip"
+        url="https://github.com/adur1990/Pass-for-macOS/releases/download/v0.9/Pass.for.macOS.app.zip"
         sparkle:version="0.9"
         sparkle:shortVersionString="0.9"
         sparkle:edSignature="WGvrr8zI/gW8cboeLj4YT0UY/xRQqbFe7Rz/LU1RppoToyd2+Qsm6uVIfADziu2mSJBZgEYcBO3F5wIE3UrOAQ==" length="6335506"
@@ -26,7 +26,7 @@ This update introduces a new Preferences window. Here, you can customize the glo
     <item>
       <title>Version 0.8.2</title>
       <pubDate>Sat, 26 Dec 2020 16:00:23 +0000</pubDate>
-      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <sparkle:minimumSystemVersion>10.12</sparkle:minimumSystemVersion>
       <description><![CDATA[
 <h1>Bug Fix and Updates</h1>
 
@@ -37,7 +37,7 @@ This update introduces a new Preferences window. Here, you can customize the glo
       ]]>
       </description>
       <enclosure
-        url="https://github.com/adur1990/Pass-for-macOS/releases/download/0.8.2/Pass.for.macOS.app.zip"
+        url="https://github.com/adur1990/Pass-for-macOS/releases/download/v0.8.2/Pass.for.macOS.app.zip"
         sparkle:version="0.8.2"
         sparkle:shortVersionString="0.8.2"
         sparkle:edSignature="fP1u3PjaL1Zn2rMJIxZHzy4va5q6sXEn0XgLKffXXNaSVBMb0QbqEBmUv3Tsx/ohvO3aLnn3XjzMVAwUNUfIAQ==" length="6138710"
@@ -48,7 +48,7 @@ This update introduces a new Preferences window. Here, you can customize the glo
     <item>
       <title>Version 0.8.1</title>
       <pubDate>Mon, 03 Aug 2020 18:45:39 +0000</pubDate>
-      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <sparkle:minimumSystemVersion>10.12</sparkle:minimumSystemVersion>
       <description><![CDATA[
 <h1>Bug fixes</h1>
 
@@ -59,7 +59,7 @@ This update introduces a new Preferences window. Here, you can customize the glo
       ]]>
       </description>
       <enclosure
-        url="https://github.com/adur1990/Pass-for-macOS/releases/download/0.8.1/Pass.for.macOS.app.zip"
+        url="https://github.com/adur1990/Pass-for-macOS/releases/download/v0.8.1/Pass.for.macOS.app.zip"
         sparkle:version="0.8.1"
         sparkle:shortVersionString="0.8.1"
         sparkle:edSignature="492lN0g0/zIFACMSkYwI4NyFT9LHpzcZlc50U2BM8nQMrH2wys2shHgbfU/5IEpnJHyQdORee9hoV3iH7qGsCQ==" length="5271036"
@@ -70,7 +70,7 @@ This update introduces a new Preferences window. Here, you can customize the glo
     <item>
       <title>Version 0.8</title>
       <pubDate>Sun, 19 Apr 2020 19:24:44 +0000</pubDate>
-      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <sparkle:minimumSystemVersion>10.12</sparkle:minimumSystemVersion>
       <description><![CDATA[
 <h1>Bug fixes and slight improvements</h1>
 
@@ -91,7 +91,7 @@ This update introduces a new Preferences window. Here, you can customize the glo
     <item>
       <title>Version 0.7.1</title>
       <pubDate>Sun, 12 Apr 2020 18:49:37 +0000</pubDate>
-      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <sparkle:minimumSystemVersion>10.12</sparkle:minimumSystemVersion>
       <description><![CDATA[
 # Test Release
 
@@ -111,7 +111,7 @@ No features were added or removed.
     <item>
       <title>Version 0.7</title>
       <pubDate>Sun, 12 Apr 2020 18:41:34 +0000</pubDate>
-      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <sparkle:minimumSystemVersion>10.12</sparkle:minimumSystemVersion>
       <description><![CDATA[
 ## This update introduces an automatic update mechanism using the Sparkle Project.
 
@@ -132,7 +132,7 @@ or enable the daily automatic update check.
     <item>
       <title>Version 0.6.2</title>
       <pubDate>Thu, 11 Apr 2020 07:51:32 +0000</pubDate>
-      <sparkle:minimumSystemVersion>10.14</sparkle:minimumSystemVersion>
+      <sparkle:minimumSystemVersion>10.12</sparkle:minimumSystemVersion>
       <description><![CDATA[
 This is a small test release for auto updates.
       ]]>
