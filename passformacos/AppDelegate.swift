@@ -73,7 +73,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func togglePopover(_ sender: Any?) {
         let event = NSApp.currentEvent!
         if event.type == NSEvent.EventType.rightMouseUp {
-            statusBarItem.popUpMenu(contextMenu)
+            statusBarItem.menu = contextMenu
+            statusBarItem.button?.performClick(nil)
+            statusBarItem.menu = nil
         } else {
             if popover.isShown {
               closePopover(sender: sender)
