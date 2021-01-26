@@ -43,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         if let button = statusBarItem.button {
             button.image = NSImage(named: "statusIcon")
-            button.action = #selector(togglePopover(_:))
+            button.action = #selector(handleMainEvent(_:))
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
 
@@ -62,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.behavior = NSPopover.Behavior.transient;
 
         KeyboardShortcuts.onKeyUp(for: .togglePopupShortcut) { [self] in
-            self.togglePopover(nil)
+            self.handleMainEvent(nil)
         }
     }
 
@@ -70,7 +70,47 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-    @objc func togglePopover(_ sender: Any?) {
+    @objc func handleMainEvent(_ sender: Any?) {
+        if safariIsActive() {
+            print("Safari is active and has at least one window.")
+            print("We should send found passwords to the Safari extension.")
+        } else {
+            print("Safari is either not active or has no windows.")
+            print("We should toggle the popup.")
+        }
+    }
+
+    func safariIsActive() -> Bool {
+        // Get the app that currently has the focus.
+        let frontApp = NSWorkspace.shared.frontmostApplication!
+
+        // Check if the front most app is Safari
+        if frontApp.bundleIdentifier == "com.apple.Safari" {
+            // If it is Safari, it still does not mean, that is receiving key events
+            // (i.e., has a window at the front).
+            // But what we can safely say is, that if Safari is the front most app
+            // and it has at least one window, it has to be the window that
+            // crrently receives key events.
+            let safariPID = frontApp.processIdentifier
+
+            // With this procedure, we get all available windows.
+            let options = CGWindowListOption(arrayLiteral: CGWindowListOption.excludeDesktopElements, CGWindowListOption.optionOnScreenOnly)
+            let windowListInfo = CGWindowListCopyWindowInfo(options, CGWindowID(0))
+            let windowInfoList = windowListInfo as NSArray? as? [[String: AnyObject]]
+
+            // Now that we have all available windows, we are going to check if at least one of them
+            // is owned by Safari.
+            for info in windowInfoList! {
+                let windowPID = info["kCGWindowOwnerPID"] as! UInt32
+                if  windowPID == safariPID {
+                    return true
+                }
+            }
+        }
+        return false
+    }
+
+    func togglePopover(_ sender: Any?) {
         let event = NSApp.currentEvent!
         if event.type == NSEvent.EventType.rightMouseUp {
             statusBarItem.menu = contextMenu
