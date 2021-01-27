@@ -109,7 +109,7 @@ However, to give it some meaning, a status bar item is added.
 #### Status Bar
 <img src="Screenshots/host.png" width="500">
 
-By clicking on the status bar item or using the defailt shortcut `shift-ctrl-p`, a popup will be shown containing a search field.
+By clicking on the status bar item or using the default shortcut `shift-ctrl-p`, a popup will be shown containing a search field.
 Here, you can search for passwords.
 Selecting a search result by double-click or with enter will copy the password to the clipboard, exactly as `pass -c <password>` does.
 
