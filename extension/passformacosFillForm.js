@@ -29,13 +29,6 @@ safari.self.addEventListener("message", function (event) {
     }
 });
 
-document.onkeydown = function(keyEvent) {
-    if (keyEvent.altKey && keyEvent.shiftKey && keyEvent.which == 80) {
-        keyEvent.preventDefault();
-        safari.extension.dispatchMessage("fillShortcutPressed");
-    }
-};
-
 window.onload = function() {
     if (window.top != window.self) {
         return

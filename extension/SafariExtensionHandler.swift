@@ -12,43 +12,55 @@
 
 import SafariServices
 
-class SafariExtensionHandler: SFSafariExtensionHandler {    
-    override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
-        page.getPropertiesWithCompletionHandler { pageProperties in
-            // search password, if the shordcut was used.
-            if messageName == "fillShortcutPressed" {
-                let urlHost = pageProperties!.url?.host
-                var urlHostComponents = urlHost!.split(separator: ".")
-                if urlHostComponents.first == "www" {
-                    urlHostComponents.removeFirst()
-                }
-                let url = urlHostComponents.joined(separator: ".")
-                let passwordToFill = sharedClientHandler.searchPasswords(searchString: url)![0]
-                
-                let credentials: [String]
-                let password: String
-                var login: String = ""
-                var message: String = ""
-                
-                if passwordToFill == "No matching password found." || passwordToFill == "Pass for macOS is not running." {
-                    password = ""
-                    login = ""
-                    message = passwordToFill
-                } else {
-                    credentials = (sharedClientHandler.getPassword(passwordFile: passwordToFill)?.components(separatedBy: "\n"))!
-                    password = credentials[0]
+class SafariExtensionHandler: SFSafariExtensionHandler {
 
-                    if credentials.count > 1 {
-                        if credentials[1].count > 0 {
-                            let loginDirty = credentials[1].drop(while: {$0 != ":"})
-                            login = String(loginDirty.dropFirst()).trimmingCharacters(in: .whitespacesAndNewlines)
+    override func messageReceivedFromContainingApp(withName messageName: String, userInfo: [String : Any]? = nil) {
+        if messageName != "fillShortcutPressed" {
+            return
+        }
+
+        SFSafariApplication.getActiveWindow { (window) in
+            window!.getActiveTab { (activeTab) in
+                activeTab!.getActivePage { (activePage) in
+                    activePage!.getPropertiesWithCompletionHandler { (pageProperties) in
+                        // search password, if the shordcut was used.
+                        let urlHost = pageProperties!.url?.host
+                        var urlHostComponents = urlHost!.split(separator: ".")
+                        if urlHostComponents.first == "www" {
+                            urlHostComponents.removeFirst()
                         }
-                    }
-                }
-                
-                SFSafariApplication.getActiveWindow { (window) in
-                    window!.getActiveTab { (activeTab) in
-                        activeTab!.getActivePage { (activePage) in
+                        let url = urlHostComponents.joined(separator: ".")
+                        let foundPasswords = sharedClientHandler.searchPasswords(searchString: url)!
+
+                        let credentials: [String]
+                        let password: String
+                        var login: String = ""
+                        var message: String = ""
+
+                        if foundPasswords.count > 1 {
+                            SFSafariApplication.getActiveWindow { (window) in
+                                window?.getToolbarItem(completionHandler: { (item) in
+                                    item?.showPopover()
+                                })
+                            }
+                        } else {
+                            let msg = foundPasswords[0]
+                            if msg == "No matching password found." {
+                                password = ""
+                                login = ""
+                                message = msg
+                            } else {
+                                credentials = (sharedClientHandler.getPassword(passwordFile: msg)?.components(separatedBy: "\n"))!
+                                password = credentials[0]
+
+                                if credentials.count > 1 {
+                                    if credentials[1].count > 0 {
+                                        let loginDirty = credentials[1].drop(while: {$0 != ":"})
+                                        login = String(loginDirty.dropFirst()).trimmingCharacters(in: .whitespacesAndNewlines)
+                                    }
+                                }
+                            }
+
                             activePage!.dispatchMessageToScript(withName: "credentials", userInfo: ["password": password, "login": login, "shortcut": "true", "message": message])
                         }
                     }
@@ -56,7 +68,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
             }
         }
     }
-    
+
     override func popoverWillShow(in window: SFSafariWindow) {
         window.getActiveTab { (activeTab) in
             activeTab!.getActivePage { (activePage) in

@@ -59,7 +59,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         contextMenu.addItem(withTitle: "Quit", action: #selector(NSApplication.terminate(_:)), keyEquivalent: "q")
 
         popover.contentViewController = ViewController.newController()
-        popover.behavior = NSPopover.Behavior.transient;
+        popover.behavior = NSPopover.Behavior.transient
 
         KeyboardShortcuts.onKeyUp(for: .togglePopupShortcut) { [self] in
             self.handleShortcut(nil)
@@ -72,8 +72,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc func handleShortcut(_ sender: Any?) {
         if safariIsActive() {
-            print("Safari is active and has at least one window.")
-            print("We should send found passwords to the Safari extension.")
+            SFSafariApplication.dispatchMessage(withName: "fillShortcutPressed", toExtensionWithIdentifier: "de.artursterz.passformacos.extension", userInfo: nil, completionHandler: nil)
         } else {
             self.togglePopover(nil)
         }
