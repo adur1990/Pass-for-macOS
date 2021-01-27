@@ -29,9 +29,8 @@ Second, a [Safari App Extensions](https://developer.apple.com/documentation/safa
 * Autofill passwords from the list of found passwords in Safari.
 
 ### Limitations
-* The popover view in Safari can not be shown using the provided shortcut. Therefore, the first password for the current domain will be auto-filled if multiple exist.
 * OTP is not supported.
-* Pass for macOS was tested macOS Mojave (10.14), Catalina (10.15) and Big Sur (11.0)  with Safari 12 and 13 and 14, although it should work starting with macOS Sierra (10.12) and Safari 10.
+* Pass for macOS requires macOS Mojave (10.14.4), Catalina (10.15) and Big Sur (11.0) with Safari 12 and 13 and 14.
 
 ## Table of Contents
 * [Requirements](#requirements)
@@ -40,7 +39,7 @@ Second, a [Safari App Extensions](https://developer.apple.com/documentation/safa
 * [Contributing](#contributing)
 
 ## Requirements
-* macOS Sierra or later
+* macOS Mojave or later
 * `pass` (obviously)
 * The first line of the password file has to be the password, the second line has to start with `login:`, `user:` or `username:`, followed by your username. All other lines after that are not considered. See the following example:
 
@@ -92,7 +91,7 @@ You can use your self-built Pass for macOS.
 
 ### Updating Pass for macOS
 Starting with version 0.7, Pass for macOS uses the [Sparkle Project](https://sparkle-project.org) for automatic updates.
-Therefore, a new right-click context menu was added, which allows you to either check for updates manually or enable daily checks.
+Therefore, you can use the preferences (accessed via right-clicking the status bar item), which allows you to either check for updates manually or enable automatic checks.
 
 For updating from versions < 0.7 to >= 0.7, you need to uninstall Pass for macOS and disable the extension in Safari.
 After the installation, everything should be fine.
@@ -111,7 +110,7 @@ However, to give it some meaning, a status bar item is added.
 <img src="Screenshots/host.png" width="500">
 
 By clicking on the status bar item or using the defailt shortcut `shift-ctrl-p`, a popup will be shown containing a search field.
-Here, you can search for password.
+Here, you can search for passwords.
 Selecting a search result by double-click or with enter will copy the password to the clipboard, exactly as `pass -c <password>` does.
 
 #### Settings
@@ -131,7 +130,7 @@ Additionally, you can search manually for updates.
 
 ### The extension
 The extension has two modes.
-You can click the toolbar item or use a shortcut.
+You can click the toolbar item or use the same shortcut as the host app uses.
 
 #### Toolbar
 <img src="Screenshots/extension.png" width="500">
@@ -143,16 +142,10 @@ If the password was not correctly found, you can refine the search using the sea
 #### Shortcut
 <img src="Screenshots/shortcut.png" width="500">
 
-Pass for macOS' Safari extension also offers a shortcut:
-
-```
-shift-alt-p
-```
-
-Unfortunately, Apple does not offer an option to invoke the Safari toolbar popover when a shortcut is pressed.
-Therefore, Pass for macOS will search a password containing the current domain as for the toolbar popover and autofill the first found password.
-If you have multiple logins for a domain, only the first one will be used using the shortcut.
-You will see a little notification on the top right if a password is auto-filled using the shortcut.
+But you can also use the shortcut from above.
+Pass for macOS will search a password containing the current domain as for the toolbar popover.
+If only one matching password was found, Pass for macOS will auto-fill the credentials and notify you with a little notification in the top right corner.
+If more than one matching password was found, the popover in the toolbar will show and you can manually select the correct password or refine the search.
 
 ## Contributing
 Any help is welcome, regardless if issue, pull request or comment.
