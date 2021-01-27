@@ -103,7 +103,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
         }
         
         // Do not set the focus, if app is not running, no passwords where found or the shortcut was used.
-        var fail: Bool = false;
+        var fail: Bool = false
         if resultsPasswords!.count == 1 {
             if resultsPasswords![0] == "Pass for macOS is not running." {
                 startPassformacosButton.isHidden = false
