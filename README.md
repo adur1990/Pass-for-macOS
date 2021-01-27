@@ -30,7 +30,7 @@ Second, a [Safari App Extensions](https://developer.apple.com/documentation/safa
 
 ### Limitations
 * OTP is not supported.
-* Pass for macOS requires macOS Mojave (10.14.4), Catalina (10.15) and Big Sur (11.0) with Safari 12 and 13 and 14.
+* Pass for macOS requires macOS Mojave (10.14.4), Catalina (10.15) and Big Sur (11.0) with Safari 12 and 13 and 14. Pass for macOS versions 0.9 or earlier also work on macOS 10.12 and 10.13. See the installation instructions below for more information.
 
 ## Table of Contents
 * [Requirements](#requirements)
@@ -39,7 +39,7 @@ Second, a [Safari App Extensions](https://developer.apple.com/documentation/safa
 * [Contributing](#contributing)
 
 ## Requirements
-* macOS Mojave or later
+* macOS Mojave or later (for older macOS versions, see the installation instructions below.)
 * `pass` (obviously)
 * The first line of the password file has to be the password, the second line has to start with `login:`, `user:` or `username:`, followed by your username. All other lines after that are not considered. See the following example:
 
@@ -62,6 +62,8 @@ You have three options to use Pass for macOS: use the Github releases, homebrew 
 Download the latest version of the app from the releases page and drop it in your applications folder.
 Thats it.
 
+Please note, that if you are using macOS 10.14.3 or older, the last working version of Pass for macOS is 0.9, so you should download this release.
+
 ### Option 2: Use Homebrew
 You can install Pass for macOS using homebrew.
 Just run the following command:
@@ -69,6 +71,8 @@ Just run the following command:
 ```
 brew cask install adur1990/tap/passformacos
 ```
+
+Please note, that this installation method does not work on macOS versions older than macOS 10.14.3.
 
 ### Option 3: Build it yourself
 You can  build Pass for macOS yourself.
@@ -101,6 +105,9 @@ To the best of my knowledge, it is not possible to enable the hardened runtime f
 Therefore, you have to **right-click** or **ctrl-click** on `Pass for macOS.app` and select `open`. macOS will ask you, if you are really sure to open this "potentially malicous" app. If you confirm, you are free to use Pass for macOS.
 
 After that, start Safari, go to Preferences and enable the extension.
+
+Please note, that the following usage instructions all refer to Pass for macOS version 0.10 and later.
+If you are using Pass for macOS version 0.9 or older, find the usage instructions [here](https://github.com/adur1990/Pass-for-macOS/blob/01eb387bcc274785ef0166164371093067405ccb/README.md#usage)
 
 ### The host app
 Since Pass for macOS uses the host app to handle the security related password stuff, it has to run all the time.
