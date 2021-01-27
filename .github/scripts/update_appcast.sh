@@ -11,7 +11,7 @@ echo "
     <item>
       <title>Version $VERSION</title>
       <pubDate>$DATE</pubDate>
-      <sparkle:minimumSystemVersion>10.12</sparkle:minimumSystemVersion>
+      <sparkle:minimumSystemVersion>10.14.4</sparkle:minimumSystemVersion>
       <description><![CDATA[
 $CHANGELOG
       ]]>
