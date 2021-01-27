@@ -43,7 +43,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
         if let button = statusBarItem.button {
             button.image = NSImage(named: "statusIcon")
-            button.action = #selector(handleMainEvent(_:))
+            button.action = #selector(togglePopover(_:))
             button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
 
@@ -62,7 +62,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         popover.behavior = NSPopover.Behavior.transient;
 
         KeyboardShortcuts.onKeyUp(for: .togglePopupShortcut) { [self] in
-            self.handleMainEvent(nil)
+            self.handleShortcut(nil)
         }
     }
 
@@ -70,13 +70,12 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
-    @objc func handleMainEvent(_ sender: Any?) {
+    @objc func handleShortcut(_ sender: Any?) {
         if safariIsActive() {
             print("Safari is active and has at least one window.")
             print("We should send found passwords to the Safari extension.")
         } else {
-            print("Safari is either not active or has no windows.")
-            print("We should toggle the popup.")
+            self.togglePopover(nil)
         }
     }
 
@@ -110,7 +109,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return false
     }
 
-    func togglePopover(_ sender: Any?) {
+    @objc func togglePopover(_ sender: Any?) {
         let event = NSApp.currentEvent!
         if event.type == NSEvent.EventType.rightMouseUp {
             statusBarItem.menu = contextMenu

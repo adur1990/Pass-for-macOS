@@ -89,7 +89,7 @@ class ViewController: NSViewController {
         }
 
         let delegate = NSApplication.shared.delegate as! AppDelegate
-        delegate.handleMainEvent(nil)
+        delegate.togglePopover(nil)
     }
     
 }
