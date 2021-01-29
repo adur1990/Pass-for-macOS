@@ -59,7 +59,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
             shortcut = ""
         }
         
-        if item == "No matching password found." || item == "Pass for macOS is not running." {
+        if item == "No password found." || item == "Pass for macOS is not running." {
             password = ""
             login = ""
             message = item!
@@ -110,7 +110,7 @@ class SafariExtensionViewController: SFSafariExtensionViewController {
                 height = height + 22
                 fail = true
             }
-            if resultsPasswords![0] == "No matching password found." {
+            if resultsPasswords![0] == "No password found." {
                 fail = true
             }
         }

@@ -19,7 +19,9 @@ class ViewController: NSViewController {
     @IBOutlet weak var widthConstraint: NSLayoutConstraint!
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     
-    var resultsPasswords: [String]?
+    var resultsPasswords: [String] = [String]()
+    
+    let noPasswords = "No password found."
 
     @IBAction func searchPassword(_ sender: NSSearchField) {
         if sender.stringValue.count == 0 {
@@ -31,17 +33,17 @@ class ViewController: NSViewController {
     
     func showSearchResults() {
         // Do not set the focus, if app is not running, no passwords where found or the shortcut was used.
-        if resultsPasswords!.isEmpty {
-            resultsPasswords!.append("No matching password found.")
+        if resultsPasswords.isEmpty {
+            resultsPasswords.append(noPasswords)
         }
         
         // Set the height of the popover.
         // Limit the size to 10 elements
-        let height = resultsPasswords!.count < 10 ? (resultsPasswords!.count * 20) : (10 * 20)
+        let height = resultsPasswords.count < 10 ? (resultsPasswords.count * 20) : (10 * 20)
 
         // Set the width of the popover, so that all results fit.
         // It should be at least 330 wide.
-        var width = (resultsPasswords!.max(by: {$1.count > $0.count})?.count)! * 7
+        var width = (resultsPasswords.max(by: {$1.count > $0.count})?.count)! * 7
         if width < 330 {
             width = 330
         }
@@ -51,7 +53,6 @@ class ViewController: NSViewController {
         widthConstraint.animator().constant = CGFloat(width)
         
         // show the table
-        searchResultsTable.isHidden = false
         searchResultsTable.reloadData()
     }
     
@@ -62,7 +63,16 @@ class ViewController: NSViewController {
         searchResultsTable.dataSource = self
         searchResultsTable.target = self
         searchResultsTable.doubleAction = #selector(tableViewDoubleClick(_:))
-        searchResultsTable.isHidden = true
+        resultsPasswords.append(noPasswords)
+        showSearchResults()
+    }
+
+    override func viewDidDisappear() {
+        resultsPasswords.removeAll()
+        resultsPasswords.append(noPasswords)
+        showSearchResults()
+        searchField.becomeFirstResponder()
+        searchField.stringValue = ""
     }
 
     @objc func tableViewDoubleClick(_ sender: AnyObject) {
@@ -72,6 +82,9 @@ class ViewController: NSViewController {
     override func keyDown(with event: NSEvent) {
         if event.keyCode == 36 {
             passwordToClipboard()
+
+            let delegate = NSApplication.shared.delegate as! AppDelegate
+            delegate.togglePopover(nil)
             return
         }
 
@@ -127,27 +140,24 @@ class ViewController: NSViewController {
             print("Something went wrong. There are not results in the results table")
             return
         }
-        let item = (resultsPasswords?[searchResultsTable.selectedRow])!
+        let item = (resultsPasswords[searchResultsTable.selectedRow])
 
         let returned = passwordstore?.passwordToClipboard(pathToFile: item)
 
         if returned!.components(separatedBy: " ").first == "Error:" {
             return
         }
-
-        let delegate = NSApplication.shared.delegate as! AppDelegate
-        delegate.togglePopover(nil)
     }
     
 }
 
 extension ViewController: NSTableViewDataSource, NSTableViewDelegate {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return resultsPasswords?.count ?? 0
+        return resultsPasswords.count
     }
 
     func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
-        return (resultsPasswords!)[row]
+        return (resultsPasswords)[row]
     }
 }
 

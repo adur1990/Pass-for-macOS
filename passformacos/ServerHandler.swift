@@ -31,7 +31,7 @@ class ServerHandler {
                 var foundPasswords = passwordstore!.passSearch(password: searchString)
                 
                 if foundPasswords.isEmpty {
-                    foundPasswords = ["No matching password found."]
+                    foundPasswords = ["No password found."]
                 }
                 
                 // This is a fairly simple serialization for the mach port. Just make a big string containing all passwords seperated by ;

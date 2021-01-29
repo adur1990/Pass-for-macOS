@@ -45,7 +45,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
                             }
                         } else {
                             let msg = foundPasswords[0]
-                            if msg == "No matching password found." {
+                            if msg == "No password found." {
                                 password = ""
                                 login = ""
                                 message = msg
