@@ -110,7 +110,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     @objc func togglePopover(_ sender: Any?) {
         let event = NSApp.currentEvent!
-        if event.type == NSEvent.EventType.rightMouseUp {
+        if  event.isContextClick {
             statusBarItem.menu = contextMenu
             statusBarItem.button?.performClick(nil)
             statusBarItem.menu = nil
@@ -148,4 +148,12 @@ extension ViewController {
     }
     return viewcontroller
   }
+}
+
+extension NSEvent {
+    var isContextClick: Bool {
+        let rightClick = (self.type == .rightMouseUp)
+        let controlClick = self.modifierFlags.contains(.control)
+        return rightClick || controlClick
+    }
 }
