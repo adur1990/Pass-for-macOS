@@ -22,8 +22,8 @@ If applicable, add screenshots to help explain your problem.
 ## Desktop (please complete the following information)
  - macOS version:
  - Safari version:
- - Passafari version:
- - How was Passafari installed (Github release, built self, ...):
+ - Pass for macOS version:
+ - How was Pass for macOS installed (Github release, built self, ...):
 
 ## Additional information
 Add any other information about the problem here.
