@@ -64,8 +64,8 @@
 		</dict>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
-	<string>Copyright © 2018 Artur Sterz. All rights reserved.</string>
+	<string>Copyright © 2021 Artur Sterz. All rights reserved.</string>
 	<key>NSHumanReadableDescription</key>
-	<string>Pass for macOS is a macOS wrapper for zx2c4's pass, the standard UNIX password manager.</string>
+	<string>Pass for macOS is a macOS wrapper for zx2c4&apos;s pass, the standard UNIX password manager.</string>
 </dict>
 </plist>
