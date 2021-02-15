@@ -4,6 +4,25 @@
     <title>Pass for macOS</title>
     <language>en</language>
 
+    <item>
+      <title>Version 0.11.1</title>
+      <pubDate>Mon, 15 Feb 2021 20:00:25 +0000</pubDate>
+      <sparkle:minimumSystemVersion>10.14.4</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+<h1>Bug fix for ctr-click</h1>
+
+This release fixes a bug, where a shortcut containing ctrl was toggeling the context menu instead of the popover.
+      ]]>
+      </description>
+      <enclosure
+        url="https://github.com/adur1990/Pass-for-macOS/releases/download/v0.11.1/Pass.for.macOS.app.zip"
+        sparkle:version="0.11.1"
+        sparkle:shortVersionString="0.11.1"
+        sparkle:edSignature="Se1fafVSNvr2ZJoemcsipfRvl10RffN522YlHXDHKfpwWT8zvZfZWSY+8QuEX6sXjBEN93rnWGkQpZO39/LlBQ==" length="2616832"
+        type="application/octet-stream"/>
+    </item>
+
+
 
     <item>
       <title>Version 0.11</title>
