@@ -5,6 +5,31 @@
     <language>en</language>
 
     <item>
+      <title>Version 0.11.1</title>
+      <pubDate>Mon, 15 Feb 2021 19:54:45 +0000</pubDate>
+      <sparkle:minimumSystemVersion>10.14.4</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+<h1>More convenient navigation</h1>
+
+This update Pass for macOS add two new features to make the navigation more convenient. These reduce the need for a mouse significantly.
+
+<h2>Cycle through search results</h2>
+It is now possible to cycle through the search results. You can either use tab to cycle forward or shift-tab to cycle backward. This will also include the search field, i.e., you do not need your mouse anymore to get back to the search field.
+
+<h2>Reset the state after the status bar popover closes</h2>
+Now, every time the popover closes, e.g., because a password was chosen, the popover will be reset. This means that you don't have to use your mouse to get back to the search field for a new search, but you can just start typing.
+      ]]>
+      </description>
+      <enclosure
+        url="https://github.com/adur1990/Pass-for-macOS/releases/download/v0.11.1/Pass.for.macOS.app.zip"
+        sparkle:version="0.11.1"
+        sparkle:shortVersionString="0.11.1"
+        sparkle:edSignature="/VusgX2gDUFcGKqqI3sadgg07LMvFoB8ELM9n6VF43z3LMSHLqfRWyF/U+sNvxDRKr1yXNaxDmBPusE7bbetCA==" length="2616834"
+        type="application/octet-stream"/>
+    </item>
+
+
+    <item>
       <title>Version 0.11</title>
       <pubDate>Fri, 29 Jan 2021 21:35:24 +0000</pubDate>
       <sparkle:minimumSystemVersion>10.14.4</sparkle:minimumSystemVersion>
