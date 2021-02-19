@@ -3,11 +3,11 @@
     "pins": [
       {
         "package": "KeyboardShortcuts",
-        "repositoryURL": "https://github.com/sindresorhus/KeyboardShortcuts",
+        "repositoryURL": "https://github.com/hank121314/KeyboardShortcuts",
         "state": {
           "branch": null,
-          "revision": "6d0efcd1fbe00b15dfcb8a751c84ed291edf27aa",
-          "version": "0.6.1"
+          "revision": "1aff570929238e3afde0abbadce9a17d4d362ffe",
+          "version": null
         }
       },
       {
