@@ -40,7 +40,8 @@ Second, a [Safari App Extensions](https://developer.apple.com/documentation/safa
 
 ## Requirements
 * macOS Mojave 10.14.4 or later
-* `pass` (obviously)
+* `pass` and it's dependencies (i.e. `gpg`)
+* A GUI-based pinentry. If the `gpg-agent` cache is empty, there is no way to enter a passphrase using a terminal based pinentry like `pinentry-tty` or `pinentry-curses`. `pinentry-mac` works great and can be installed using `brew install pinentry-mac`. After installing it, you have to enable it by `pinentry-program /usr/local/bin/pinentry-mac` to `~/.gnupg/gpg-agent.conf` file. Afterwards, reload you `gpg-agent` with `gpgconf --kill gpg-agent`.
 * The first line of the password file has to be the password, the second line has to start with `login:`, `user:` or `username:`, followed by your username. All other lines after that are not considered. See the following example:
 
 ```
