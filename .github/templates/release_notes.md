@@ -1,3 +1,3 @@
-<h1>Bug fix for ctr-click</h1>
+<h1>Bug fix for keyboard shortcut configuration</h1>
 
-This release fixes a bug, where a shortcut containing ctrl was toggeling the context menu instead of the popover.
+This update fixes a bug, where configuring a custom shortcut could not work.
