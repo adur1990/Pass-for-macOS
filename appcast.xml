@@ -5,6 +5,25 @@
     <language>en</language>
 
     <item>
+      <title>Version 0.11.2</title>
+      <pubDate>Fri, 19 Feb 2021 18:22:58 +0000</pubDate>
+      <sparkle:minimumSystemVersion>10.14.4</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+<h1>Bug fix for keyboard shortcut configuration</h1>
+
+This update fixes a bug, where configuring a custom shortcut could not work.
+      ]]>
+      </description>
+      <enclosure
+        url="https://github.com/adur1990/Pass-for-macOS/releases/download/v0.11.2/Pass.for.macOS.app.zip"
+        sparkle:version="0.11.2"
+        sparkle:shortVersionString="0.11.2"
+        sparkle:edSignature="UtFNx4C/pRgMMfRn7V9m8eRxCaRd1fJkKLKLwycWVaGFF94sVyqYnOQJAdBZSYudJ3RSlEiXg1J+TkLXudAlAg==" length="2617474"
+        type="application/octet-stream"/>
+    </item>
+
+
+    <item>
       <title>Version 0.11.1</title>
       <pubDate>Mon, 15 Feb 2021 20:00:25 +0000</pubDate>
       <sparkle:minimumSystemVersion>10.14.4</sparkle:minimumSystemVersion>
