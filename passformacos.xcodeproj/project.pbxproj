@@ -20,7 +20,6 @@
 		75494A0B218CCC7F00148925 /* ServerHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0A218CCC7F00148925 /* ServerHandler.swift */; };
 		75494A0F218CCEBD00148925 /* ClientHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75494A0E218CCEBD00148925 /* ClientHandler.swift */; };
 		756E0B9A2185F9DA0079B98C /* Passwordstore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 756E0B992185F9DA0079B98C /* Passwordstore.swift */; };
-		757190D525E02E35002DAB21 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 757190D425E02E35002DAB21 /* KeyboardShortcuts */; };
 		758C54892597928A0061F239 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 758C5486259791E80061F239 /* Sparkle.framework */; };
 		758C548A2597928A0061F239 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 758C5486259791E80061F239 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		75E07BE0216E0D8D00EA9CBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07BDF216E0D8D00EA9CBD /* AppDelegate.swift */; };
@@ -32,6 +31,7 @@
 		75E07C17216E0DA700EA9CBD /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E07C16216E0DA700EA9CBD /* SafariExtensionViewController.swift */; };
 		75E07C1A216E0DA700EA9CBD /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 75E07C18216E0DA700EA9CBD /* SafariExtensionViewController.xib */; };
 		75E07C23216E0DA700EA9CBD /* extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 75E07C0F216E0DA700EA9CBD /* extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		75E72FEC25E6241E00C914B4 /* KeyboardShortcuts in Frameworks */ = {isa = PBXBuildFile; productRef = 75E72FEB25E6241E00C914B4 /* KeyboardShortcuts */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,7 +105,7 @@
 			files = (
 				758C54892597928A0061F239 /* Sparkle.framework in Frameworks */,
 				7540891525BD788900CC8A8A /* Preferences in Frameworks */,
-				757190D525E02E35002DAB21 /* KeyboardShortcuts in Frameworks */,
+				75E72FEC25E6241E00C914B4 /* KeyboardShortcuts in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,7 +206,7 @@
 			name = passformacos;
 			packageProductDependencies = (
 				7540891425BD788900CC8A8A /* Preferences */,
-				757190D425E02E35002DAB21 /* KeyboardShortcuts */,
+				75E72FEB25E6241E00C914B4 /* KeyboardShortcuts */,
 			);
 			productName = passformacos;
 			productReference = 75E07BDC216E0D8D00EA9CBD /* Pass for macOS.app */;
@@ -279,7 +279,7 @@
 			mainGroup = 75E07BD3216E0D8D00EA9CBD;
 			packageReferences = (
 				7540891325BD788900CC8A8A /* XCRemoteSwiftPackageReference "Preferences" */,
-				757190D325E02E35002DAB21 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
+				75E72FEA25E6241E00C914B4 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */,
 			);
 			productRefGroup = 75E07BDD216E0D8D00EA9CBD /* Products */;
 			projectDirPath = "";
@@ -638,12 +638,12 @@
 				minimumVersion = 2.2.0;
 			};
 		};
-		757190D325E02E35002DAB21 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
+		75E72FEA25E6241E00C914B4 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hank121314/KeyboardShortcuts";
+			repositoryURL = "https://github.com/sindresorhus/KeyboardShortcuts";
 			requirement = {
-				kind = revision;
-				revision = 1aff570929238e3afde0abbadce9a17d4d362ffe;
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.7.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -654,9 +654,9 @@
 			package = 7540891325BD788900CC8A8A /* XCRemoteSwiftPackageReference "Preferences" */;
 			productName = Preferences;
 		};
-		757190D425E02E35002DAB21 /* KeyboardShortcuts */ = {
+		75E72FEB25E6241E00C914B4 /* KeyboardShortcuts */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 757190D325E02E35002DAB21 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
+			package = 75E72FEA25E6241E00C914B4 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */;
 			productName = KeyboardShortcuts;
 		};
 /* End XCSwiftPackageProductDependency section */
