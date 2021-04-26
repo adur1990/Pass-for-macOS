@@ -17,8 +17,20 @@ class Passwordstore {
     var passwordStoreUrl: URL
     
     init(){
+        let shell = ProcessInfo.processInfo.environment["SHELL"]
+        let task = Process()
+        task.launchPath = shell
+        task.arguments = ["-i", "-c", "echo $PASSWORD_STORE_DIR"]
+        let pipe = Pipe()
+        task.standardOutput = pipe
+        task.launch()
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+
         self.passwordStoreUrl = URL(string: "test")!
-        if let passwordStorePath = ProcessInfo.processInfo.environment["PASSWORD_STORE_DIR"] {
+
+        if data.count > 1 {
+            var passwordStorePath = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+            passwordStorePath = passwordStorePath.trimmingCharacters(in: .newlines)
             self.passwordStoreUrl = URL(string: passwordStorePath)!
         } else {
             let userHome = ProcessInfo.processInfo.environment["HOME"]!
