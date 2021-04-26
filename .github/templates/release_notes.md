@@ -1,3 +1,5 @@
-<h1>Bug fix for keyboard shortcut configuration</h1>
+<h1>Bug fix for $PASSWORD_STORE_DIR users</h1>
 
-This update fixes a bug, where configuring a custom shortcut could not work.
+Users can use custom paths using the $PASSWORD_STORE_DIR environment variable.
+Until now, users using this feature could not use Pass for macOS.
+This should be fixed now.
