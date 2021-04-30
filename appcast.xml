@@ -5,6 +5,27 @@
     <language>en</language>
 
     <item>
+      <title>Version 0.11.3</title>
+      <pubDate>Mon, 26 Apr 2021 18:46:12 +0000</pubDate>
+      <sparkle:minimumSystemVersion>10.14.4</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+<h1>Bug fix for $PASSWORD_STORE_DIR users</h1>
+
+Users can use custom paths using the $PASSWORD_STORE_DIR environment variable.
+Until now, users using this feature could not use Pass for macOS.
+This should be fixed now.
+      ]]>
+      </description>
+      <enclosure
+        url="https://github.com/adur1990/Pass-for-macOS/releases/download/v0.11.3/Pass.for.macOS.app.zip"
+        sparkle:version="0.11.3"
+        sparkle:shortVersionString="0.11.3"
+        sparkle:edSignature="N5+EmoaA5jN3ZFiknq0qCcitiwuhf6UyQQqn9FAygTm73uHXDrn0QF0tbNXi7x/1rsrz4fsmdSYeeU216adkAg==" length="2618690"
+        type="application/octet-stream"/>
+    </item>
+
+
+    <item>
       <title>Version 0.11.2</title>
       <pubDate>Fri, 19 Feb 2021 18:22:58 +0000</pubDate>
       <sparkle:minimumSystemVersion>10.14.4</sparkle:minimumSystemVersion>
