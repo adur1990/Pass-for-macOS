@@ -103,8 +103,9 @@ class Passwordstore {
         let shell = ProcessInfo.processInfo.environment["SHELL"]
         
         let task = Process()
+        
         task.launchPath = shell
-        task.arguments = ["-l", "-c", "pass \(passSubCommand)"]
+        task.arguments = ["-l", "-c", "echo '\(passSubCommand)' | xargs pass"]
 
         let pipe = Pipe()
         task.standardOutput = pipe
