@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/sindresorhus/KeyboardShortcuts",
         "state": {
           "branch": null,
-          "revision": "f09de800a4f05d66fe2a9924c81a932454a9f39a",
-          "version": "0.7.1"
+          "revision": "7030a2e3d46100585f9c5c6a2fe3bae9f6e78fa8",
+          "version": "1.2.1"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/sindresorhus/Preferences",
         "state": {
           "branch": null,
-          "revision": "4802a493acef50c814e4eb63e9a44e0941ec8883",
-          "version": "2.2.0"
+          "revision": "ffeaaad1def45d0625720dc1adae3789cd9c167d",
+          "version": "2.5.0"
         }
       }
     ]
