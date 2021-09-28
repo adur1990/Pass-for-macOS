@@ -639,7 +639,7 @@
 			repositoryURL = "https://github.com/sindresorhus/Preferences";
 			requirement = {
 				kind = exactVersion;
-				version = 2.3.0;
+				version = 2.2.1;
 			};
 		};
 		75E72FEA25E6241E00C914B4 /* XCRemoteSwiftPackageReference "KeyboardShortcuts" */ = {
