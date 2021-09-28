@@ -1,5 +1,4 @@
-<h1>Bug fix for $PASSWORD_STORE_DIR users</h1>
+<h1>Bug fix for special characters</h1>
 
-Users can use custom paths using the $PASSWORD_STORE_DIR environment variable.
-Until now, users using this feature could not use Pass for macOS.
+If the filepath contains a special shell characters, the decryption could fail.
 This should be fixed now.
