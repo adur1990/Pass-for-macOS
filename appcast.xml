@@ -5,6 +5,26 @@
     <language>en</language>
 
     <item>
+      <title>Version 0.11.4</title>
+      <pubDate>Tue, 28 Sep 2021 14:01:31 +0000</pubDate>
+      <sparkle:minimumSystemVersion>10.14.4</sparkle:minimumSystemVersion>
+      <description><![CDATA[
+<h1>Bug fix for special characters</h1>
+
+If the filepath contains a special shell characters, the decryption could fail.
+This should be fixed now.
+      ]]>
+      </description>
+      <enclosure
+        url="https://github.com/adur1990/Pass-for-macOS/releases/download/v0.11.4/Pass.for.macOS.app.zip"
+        sparkle:version="0.11.4"
+        sparkle:shortVersionString="0.11.4"
+        sparkle:edSignature="LklKATlZ73ZLVo4tBWwWkom2Q7qSysfb5XPYHUw/3RS7SJhlcnzR7VOWAiVdapq4q/TXNTud2TuX99rqL2SvDg==" length="2627818"
+        type="application/octet-stream"/>
+    </item>
+
+
+    <item>
       <title>Version 0.11.3</title>
       <pubDate>Mon, 26 Apr 2021 18:46:12 +0000</pubDate>
       <sparkle:minimumSystemVersion>10.14.4</sparkle:minimumSystemVersion>
