@@ -8,7 +8,7 @@ name: Deploy Pass for macOS
 jobs:
   build:
     name: Deploy
-    runs-on: macOS-11.6
+    runs-on: macos-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v2
