@@ -68,7 +68,7 @@ You can install Pass for macOS using homebrew.
 Just run the following command:
 
 ```
-brew cask install adur1990/tap/passformacos
+brew install --cask adur1990/tap/passformaco
 ```
 
 ### Option 3: Build it yourself
